@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPENDIX B: DATA FLOW DIAGRAMS - Maritime Onboarding System Compliance</title>
+    <meta name="description" content="Maritime Onboarding System compliance documentation">
+    <meta name="keywords" content="maritime, compliance, NIS2, security, onboarding">
+    <meta name="author" content="Maritime Compliance Agent">
+    <meta name="created" content="2025-09-17">
+    <style>
+        /* Maritime Onboarding System - Compliance Documentation CSS */
+/* Professional styling for compliance reports and documentation */
+
+:root {
+    --primary-color: #1e3a8a;
+    --secondary-color: #1e40af;
+    --success-color: #059669;
+    --warning-color: #d97706;
+    --danger-color: #dc2626;
+    --text-color: #1f2937;
+    --bg-color: #ffffff;
+    --border-color: #e5e7eb;
+    --table-header-bg: #f8fafc;
+}
+
+/* Document Layout */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 20mm;
+    background: var(--bg-color);
+    font-size: 11pt;
+}
+
+/* Headings */
+h1 {
+    color: var(--primary-color);
+    font-size: 24pt;
+    font-weight: 700;
+    margin-bottom: 10mm;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 5mm;
+    page-break-after: avoid;
+}
+
+h2 {
+    color: var(--secondary-color);
+    font-size: 18pt;
+    font-weight: 600;
+    margin-top: 15mm;
+    margin-bottom: 5mm;
+    page-break-after: avoid;
+}
+
+h3 {
+    color: var(--text-color);
+    font-size: 14pt;
+    font-weight: 600;
+    margin-top: 8mm;
+    margin-bottom: 3mm;
+    page-break-after: avoid;
+}
+
+h4 {
+    color: var(--text-color);
+    font-size: 12pt;
+    font-weight: 600;
+    margin-top: 5mm;
+    margin-bottom: 2mm;
+}
+
+/* Paragraphs and Text */
+p {
+    margin-bottom: 3mm;
+    text-align: justify;
+    orphans: 2;
+    widows: 2;
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 5mm;
+    padding-left: 8mm;
+}
+
+li {
+    margin-bottom: 1mm;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 5mm 0;
+    page-break-inside: avoid;
+    font-size: 10pt;
+}
+
+th {
+    background-color: var(--table-header-bg);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 3mm;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+td {
+    padding: 2mm 3mm;
+    border: 1px solid var(--border-color);
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+/* Status Indicators */
+.status-compliant,
+.compliant {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.status-partial,
+.partial {
+    color: var(--warning-color);
+    font-weight: 600;
+}
+
+.status-non-compliant,
+.non-compliant {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+/* Badges and Icons */
+.badge {
+    display: inline-block;
+    padding: 1mm 2mm;
+    border-radius: 2mm;
+    font-size: 9pt;
+    font-weight: 600;
+    color: white;
+}
+
+.badge-success {
+    background-color: var(--success-color);
+}
+
+.badge-warning {
+    background-color: var(--warning-color);
+}
+
+.badge-danger {
+    background-color: var(--danger-color);
+}
+
+/* Code and Technical Content */
+code {
+    background-color: #f1f5f9;
+    padding: 1mm 2mm;
+    border-radius: 1mm;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+}
+
+pre {
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 2mm;
+    padding: 5mm;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+    line-height: 1.4;
+    page-break-inside: avoid;
+}
+
+/* Blockquotes and Callouts */
+blockquote {
+    border-left: 4px solid var(--primary-color);
+    margin: 5mm 0;
+    padding: 3mm 5mm;
+    background-color: #f8fafc;
+    font-style: italic;
+}
+
+/* Executive Summary Box */
+.executive-summary {
+    background-color: #f0f9ff;
+    border: 2px solid var(--primary-color);
+    border-radius: 3mm;
+    padding: 5mm;
+    margin: 5mm 0;
+    page-break-inside: avoid;
+}
+
+/* Compliance Score Box */
+.compliance-score {
+    background-color: #f0fdf4;
+    border: 2px solid var(--success-color);
+    border-radius: 3mm;
+    padding: 5mm;
+    margin: 5mm 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14pt;
+}
+
+/* Document Header */
+.document-header {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5mm;
+    margin-bottom: 10mm;
+}
+
+.document-title {
+    font-size: 20pt;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 2mm;
+}
+
+.document-subtitle {
+    font-size: 14pt;
+    color: var(--secondary-color);
+    margin-bottom: 2mm;
+}
+
+.document-meta {
+    font-size: 10pt;
+    color: #6b7280;
+    margin-bottom: 0;
+}
+
+/* Document Footer */
+.document-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 5mm;
+    margin-top: 10mm;
+    font-size: 9pt;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* Risk Assessment Colors */
+.risk-critical {
+    background-color: #fef2f2;
+    border-left: 4px solid var(--danger-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-high {
+    background-color: #fffbeb;
+    border-left: 4px solid var(--warning-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-medium {
+    background-color: #fefce8;
+    border-left: 4px solid #eab308;
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-low {
+    background-color: #f0fdf4;
+    border-left: 4px solid var(--success-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+/* Print Specific Styles */
+@media print {
+    body {
+        margin: 0;
+        padding: 15mm;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+    
+    table, figure, .compliance-score, .executive-summary {
+        page-break-inside: avoid;
+    }
+    
+    .page-break {
+        page-break-before: always;
+    }
+    
+    .no-print {
+        display: none;
+    }
+}
+
+/* NIS2 Specific Styling */
+.nis2-article {
+    border: 1px solid var(--border-color);
+    border-radius: 2mm;
+    margin: 3mm 0;
+    padding: 3mm;
+}
+
+.nis2-score {
+    display: inline-block;
+    padding: 1mm 3mm;
+    border-radius: 2mm;
+    font-weight: 600;
+    color: white;
+    min-width: 15mm;
+    text-align: center;
+}
+
+.score-excellent {
+    background-color: var(--success-color);
+}
+
+.score-good {
+    background-color: #16a34a;
+}
+
+.score-fair {
+    background-color: var(--warning-color);
+}
+
+.score-poor {
+    background-color: var(--danger-color);
+}
+
+/* Compliance Matrix Styling */
+.compliance-matrix {
+    font-size: 9pt;
+}
+
+.compliance-matrix th {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+
+.compliance-matrix .score-cell {
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Document Classification Banner */
+.classification-banner {
+    background-color: var(--danger-color);
+    color: white;
+    text-align: center;
+    padding: 2mm;
+    font-weight: 700;
+    font-size: 12pt;
+    margin: -20mm -20mm 10mm -20mm;
+}
+
+.classification-confidential {
+    background-color: #dc2626;
+}
+
+.classification-restricted {
+    background-color: #7c2d12;
+}
+
+/* Signature Boxes */
+.signature-box {
+    border: 1px solid var(--border-color);
+    padding: 5mm;
+    margin: 5mm 0;
+    min-height: 15mm;
+}
+
+.signature-line {
+    border-bottom: 1px solid var(--text-color);
+    margin-top: 10mm;
+    text-align: center;
+    padding-top: 2mm;
+}
+
+/* Responsive Design for Digital Viewing */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10mm;
+        max-width: 100%;
+    }
+    
+    table {
+        font-size: 9pt;
+    }
+    
+    .compliance-matrix {
+        font-size: 8pt;
+    }
+}
+        
+        /* Navigation Menu Styles */
+        .navigation-menu {
+            background-color: var(--primary-color);
+            padding: 10px 20px;
+            margin: -20mm -20mm 10mm -20mm;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navigation-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            margin: 0 5px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        .navigation-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Dropdown Menu */
+        .nav-dropdown {
+            display: inline-block;
+            position: relative;
+        }
+        .dropdown-trigger {
+            color: white;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            min-width: 160px;
+            z-index: 1000;
+            top: 100%;
+            right: 0;
+        }
+        .dropdown-content a {
+            color: var(--primary-color) !important;
+            display: block;
+            padding: 10px 15px;
+            margin: 0;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: var(--table-header-bg);
+        }
+        .nav-dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: var(--table-header-bg);
+            padding: 8px 15px;
+            margin: -10mm -20mm 10mm -20mm;
+            font-size: 10pt;
+            color: #6b7280;
+        }
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        @media print {
+            .navigation-menu, .breadcrumb {
+                display: none;
+            }
+        }
+        
+        /* Style for auto-linked document references */
+        .document-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-color);
+            transition: all 0.3s;
+        }
+        .document-content a:hover {
+            color: var(--secondary-color);
+            border-bottom: 1px solid var(--secondary-color);
+            background-color: rgba(30, 58, 138, 0.05);
+        }
+        .document-content a code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        /* Make table links more prominent */
+        td a {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navigation-menu">
+        <a href="../index.html">🏠 Home</a> |
+        <a href="../assessments/COMPLIANCE_VERIFICATION_REPORT.html">📊 Assessment</a> |
+        <a href="../nis2/NIS2_COMPLIANCE_REPORT_2025.html">📋 NIS2</a> |
+        <a href="../evidence/INTERNAL_PENETRATION_TEST_REPORT_2025.html">🔒 Security</a> |
+        <a href="../policies/BUSINESS_CONTINUITY_PLAN.html">📜 Policies</a> |
+        <div class="nav-dropdown">
+            <span class="dropdown-trigger">📁 Categories ▼</span>
+            <div class="dropdown-content">
+                <a href="../assessments/CLIENT_READY_ASSESSMENT_REPORT.html">Assessments</a>
+                <a href="../evidence/INTERNAL_PENETRATION_TEST_REPORT_2025.html">Evidence</a>
+                <a href="../nis2/NIS2_COMPLIANCE_MATRIX_2025.html">NIS2</a>
+                <a href="../policies/COMPLIANCE_RESPONSIBILITY_MATRIX.html">Policies</a>
+                <a href="../reports/SECURITY_VERIFICATION_COMPLIANCE_UPDATE_2025-09.html">Reports</a>
+                <a href="../appendices/APPENDIX_A_SECURITY_CONTROL_MATRIX.html">Appendices</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="breadcrumb">
+        <a href="../index.html">Home</a> ›
+        <span>Appendices</span> ›
+        <span>APPENDIX B: DATA FLOW DIAGRAMS</span>
+    </div>
+    
+    
+    <div class="document-header">
+        <div class="document-title">APPENDIX B: DATA FLOW DIAGRAMS</div>
+        <div class="document-subtitle">Maritime Onboarding System 2025</div>
+        <div class="document-meta">
+            Generated: 2025-09-17 | 
+            Source: appendices/APPENDIX_B_DATA_FLOW_DIAGRAMS.md | 
+            Version: 1.0
+        </div>
+    </div>
+    
+    <div class="document-content">
+        <h1>APPENDIX B: DATA FLOW DIAGRAMS</h1>
+<h2>Maritime Onboarding System 2025</h2>
+<h3>System Data Processing and Security Architecture</h3>
+<hr>
+<h2>EXECUTIVE SUMMARY</h2>
+<p>This appendix provides comprehensive data flow diagrams illustrating how data moves through the Maritime Onboarding System. Each diagram shows data processing points, security controls, and compliance checkpoints to ensure full transparency of data handling.</p>
+<hr>
+<h2>1. HIGH-LEVEL SYSTEM ARCHITECTURE</h2>
+<pre><code class="language-mermaid">graph TB
+    subgraph &quot;EU Region - Frankfurt&quot;
+        subgraph &quot;Frontend - Vercel&quot;
+            UI[React Application]
+            CDN[CDN Edge Network]
+        end
+        
+        subgraph &quot;Backend - Vercel Functions&quot;
+            API[API Endpoints]
+            AUTH[Auth Service]
+            PROC[Processing Layer]
+        end
+        
+        subgraph &quot;Database - Supabase&quot;
+            PG[(PostgreSQL)]
+            STOR[Object Storage]
+            RLS[Row Level Security]
+        end
+        
+        subgraph &quot;External Services&quot;
+            EMAIL[MailerSend EU]
+            MFA[TOTP Service]
+        end
+    end
+    
+    subgraph &quot;Users&quot;
+        ADMIN[Admin Users]
+        MGR[Manager Users]
+        CREW[Crew Members]
+    end
+    
+    ADMIN --&gt;|HTTPS/TLS 1.3| CDN
+    MGR --&gt;|HTTPS/TLS 1.3| CDN
+    CREW --&gt;|HTTPS/TLS 1.3| CDN
+    
+    CDN --&gt;|Encrypted| UI
+    UI --&gt;|JWT + API Call| API
+    API --&gt;|Verify Token| AUTH
+    AUTH --&gt;|Authorized| PROC
+    PROC --&gt;|Encrypted Query| RLS
+    RLS --&gt;|Filtered Data| PG
+    PROC --&gt;|Send Email| EMAIL
+    AUTH --&gt;|MFA Check| MFA
+    PROC --&gt;|Store Files| STOR
+</code></pre>
+<hr>
+<h2>2. AUTHENTICATION FLOW</h2>
+<h3>2.1 Admin/Manager Password Authentication</h3>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant U as User
+    participant UI as Frontend
+    participant API as API Gateway
+    participant AUTH as Auth Service
+    participant MFA as MFA Service
+    participant DB as Database
+    participant LOG as Security Logger
+    
+    U-&gt;&gt;UI: Enter credentials
+    UI-&gt;&gt;API: POST /api/auth/admin-login
+    API-&gt;&gt;AUTH: Validate credentials
+    AUTH-&gt;&gt;DB: Check user + password hash
+    
+    alt Invalid Credentials
+        DB--&gt;&gt;AUTH: User not found/wrong password
+        AUTH-&gt;&gt;LOG: Log failed attempt
+        AUTH--&gt;&gt;API: Authentication failed
+        API--&gt;&gt;UI: Error (401)
+        UI--&gt;&gt;U: Show error
+    else Valid Credentials
+        DB--&gt;&gt;AUTH: User verified
+        AUTH-&gt;&gt;MFA: Check MFA requirement
+        
+        alt MFA Required
+            MFA--&gt;&gt;AUTH: MFA needed
+            AUTH--&gt;&gt;API: Request MFA token
+            API--&gt;&gt;UI: MFA challenge
+            UI--&gt;&gt;U: Request TOTP
+            U-&gt;&gt;UI: Enter TOTP
+            UI-&gt;&gt;API: Submit TOTP
+            API-&gt;&gt;MFA: Verify TOTP
+            
+            alt Invalid TOTP
+                MFA--&gt;&gt;API: Invalid
+                API--&gt;&gt;UI: Error
+                UI--&gt;&gt;U: Try again
+            else Valid TOTP
+                MFA--&gt;&gt;API: Valid
+                API-&gt;&gt;AUTH: Generate JWT
+                AUTH-&gt;&gt;DB: Store session
+                AUTH-&gt;&gt;LOG: Log successful login
+                AUTH--&gt;&gt;API: JWT token
+                API--&gt;&gt;UI: Success + JWT
+                UI--&gt;&gt;U: Dashboard access
+            end
+        else No MFA
+            AUTH-&gt;&gt;AUTH: Generate JWT
+            AUTH-&gt;&gt;DB: Store session
+            AUTH-&gt;&gt;LOG: Log successful login
+            AUTH--&gt;&gt;API: JWT token
+            API--&gt;&gt;UI: Success + JWT
+            UI--&gt;&gt;U: Dashboard access
+        end
+    end
+</code></pre>
+<h3>2.2 Crew Magic Link Authentication</h3>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant C as Crew Member
+    participant UI as Frontend
+    participant API as API Gateway
+    participant AUTH as Auth Service
+    participant EMAIL as Email Service
+    participant DB as Database
+    participant LOG as Security Logger
+    
+    C-&gt;&gt;UI: Enter email
+    UI-&gt;&gt;API: POST /api/auth/request-magic-link
+    API-&gt;&gt;AUTH: Validate crew email
+    AUTH-&gt;&gt;DB: Check crew member exists
+    
+    alt Not Crew or Invalid
+        DB--&gt;&gt;AUTH: Not found/not crew
+        AUTH-&gt;&gt;LOG: Log invalid attempt
+        AUTH--&gt;&gt;API: Error
+        API--&gt;&gt;UI: Generic message
+        UI--&gt;&gt;C: &quot;Check email&quot; (security)
+    else Valid Crew Member
+        DB--&gt;&gt;AUTH: Crew confirmed
+        AUTH-&gt;&gt;AUTH: Generate magic token
+        AUTH-&gt;&gt;DB: Store token (3hr expiry)
+        AUTH-&gt;&gt;EMAIL: Send magic link
+        EMAIL--&gt;&gt;C: Email with link
+        AUTH-&gt;&gt;LOG: Log magic link sent
+        AUTH--&gt;&gt;API: Success
+        API--&gt;&gt;UI: Check email message
+        UI--&gt;&gt;C: Check email prompt
+        
+        C-&gt;&gt;EMAIL: Click magic link
+        EMAIL-&gt;&gt;UI: Open link
+        UI-&gt;&gt;API: GET /api/auth/magic-login
+        API-&gt;&gt;AUTH: Validate token
+        AUTH-&gt;&gt;DB: Check token validity
+        
+        alt Invalid/Expired Token
+            DB--&gt;&gt;AUTH: Invalid
+            AUTH-&gt;&gt;LOG: Log failed attempt
+            AUTH--&gt;&gt;API: Error
+            API--&gt;&gt;UI: Token invalid
+            UI--&gt;&gt;C: Request new link
+        else Valid Token
+            DB--&gt;&gt;AUTH: Token valid
+            AUTH-&gt;&gt;AUTH: Generate JWT
+            AUTH-&gt;&gt;DB: Mark token used
+            AUTH-&gt;&gt;DB: Update crew status
+            AUTH-&gt;&gt;LOG: Log successful login
+            AUTH--&gt;&gt;API: JWT token
+            API--&gt;&gt;UI: Success + JWT
+            UI--&gt;&gt;C: Training dashboard
+        end
+    end
+</code></pre>
+<hr>
+<h2>3. DATA PROCESSING FLOWS</h2>
+<h3>3.1 Training Content Delivery</h3>
+<pre><code class="language-mermaid">graph LR
+    subgraph &quot;Content Request Flow&quot;
+        U[User] --&gt;|1. Request| API[API Gateway]
+        API --&gt;|2. Verify Auth| AUTH[Auth Check]
+        AUTH --&gt;|3. Check Role| RBAC[Role Validation]
+        RBAC --&gt;|4. Query| DB[(Database)]
+        DB --&gt;|5. Apply RLS| RLS[Row Security]
+        RLS --&gt;|6. Filter by Company| FILTER[Company Filter]
+        FILTER --&gt;|7. Return Data| CACHE[Cache Layer]
+        CACHE --&gt;|8. Encrypted Response| U
+    end
+    
+    subgraph &quot;Security Layers&quot;
+        SEC1[TLS 1.3]
+        SEC2[JWT Validation]
+        SEC3[Role Check]
+        SEC4[RLS Policies]
+        SEC5[Company Isolation]
+        SEC6[Response Encryption]
+    end
+</code></pre>
+<h3>3.2 Quiz Submission and Scoring</h3>
+<pre><code class="language-mermaid">stateDiagram-v2
+    [*] --&gt; QuizStart: User starts quiz
+    QuizStart --&gt; LoadQuestions: Fetch questions
+    LoadQuestions --&gt; DisplayQuiz: Encrypted delivery
+    DisplayQuiz --&gt; AnswerSubmit: User submits
+    
+    AnswerSubmit --&gt; Validation: Server validation
+    Validation --&gt; ScoreCalc: Calculate score
+    
+    ScoreCalc --&gt; PassCheck: Check pass threshold
+    PassCheck --&gt; Pass: Score &gt;= 80%
+    PassCheck --&gt; Fail: Score &lt; 80%
+    
+    Pass --&gt; SaveResult: Store result
+    Fail --&gt; SaveAttempt: Store attempt
+    
+    SaveResult --&gt; CertGen: Generate certificate
+    SaveAttempt --&gt; RetryOption: Allow retry
+    
+    CertGen --&gt; Notification: Send notifications
+    RetryOption --&gt; DisplayQuiz: New attempt
+    
+    Notification --&gt; Complete: Training complete
+    Complete --&gt; [*]
+    
+    SaveResult --&gt; AuditLog: Log completion
+    SaveAttempt --&gt; AuditLog: Log attempt
+    AuditLog --&gt; SecurityLog: Security event
+</code></pre>
+<hr>
+<h2>4. DATA STORAGE AND ENCRYPTION</h2>
+<h3>4.1 Encryption Layers</h3>
+<pre><code class="language-mermaid">graph TD
+    subgraph &quot;Data at Rest&quot;
+        D1[User Data] --&gt;|AES-256-GCM| ENC1[Encrypted Storage]
+        D2[Training Records] --&gt;|AES-256-GCM| ENC1
+        D3[Certificates] --&gt;|AES-256-GCM| ENC1
+        D4[Audit Logs] --&gt;|AES-256-GCM| ENC1
+        D5[MFA Secrets] --&gt;|AES-256-GCM + AT| ENC2[Double Encrypted]
+    end
+    
+    subgraph &quot;Data in Transit&quot;
+        T1[Client Request] --&gt;|TLS 1.3| T2[API Gateway]
+        T2 --&gt;|TLS 1.3| T3[Database]
+        T3 --&gt;|TLS 1.3| T4[Backup Storage]
+        T2 --&gt;|TLS 1.3| T5[Email Service]
+    end
+    
+    subgraph &quot;Key Management&quot;
+        K1[Master Key] --&gt;|Derived| K2[Data Keys]
+        K2 --&gt;|Rotation| K3[Key Rotation]
+        K3 --&gt;|30 days| K1
+    end
+</code></pre>
+<h3>4.2 Backup and Recovery Flow</h3>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant SCHED as Scheduler
+    participant DB as Primary DB
+    participant BACKUP as Backup Service
+    participant STOR as Storage (EU)
+    participant MON as Monitoring
+    participant ALERT as Alerts
+    
+    loop Daily at 02:00 UTC
+        SCHED-&gt;&gt;DB: Initiate backup
+        DB-&gt;&gt;DB: Create snapshot
+        DB-&gt;&gt;BACKUP: Transfer snapshot
+        BACKUP-&gt;&gt;BACKUP: Compress data
+        BACKUP-&gt;&gt;BACKUP: Encrypt (AES-256)
+        BACKUP-&gt;&gt;STOR: Store in EU region
+        STOR--&gt;&gt;BACKUP: Confirm storage
+        BACKUP-&gt;&gt;MON: Log success
+        MON-&gt;&gt;MON: Update metrics
+    end
+    
+    alt Backup Failure
+        BACKUP--xMON: Report failure
+        MON-&gt;&gt;ALERT: Trigger P2 alert
+        ALERT-&gt;&gt;ALERT: Notify team
+        ALERT-&gt;&gt;SCHED: Retry backup
+    end
+    
+    Note over STOR: 30-day retention
+    Note over STOR: Point-in-time recovery (7 days)
+</code></pre>
+<hr>
+<h2>5. GDPR DATA FLOWS</h2>
+<h3>5.1 Data Subject Request Processing</h3>
+<pre><code class="language-mermaid">graph TB
+    subgraph &quot;Data Request Types&quot;
+        REQ1[Access Request]
+        REQ2[Portability Request]
+        REQ3[Deletion Request]
+        REQ4[Correction Request]
+    end
+    
+    subgraph &quot;Processing Pipeline&quot;
+        VAL[Validate Identity]
+        AUTH[Authorize Request]
+        PROC[Process Request]
+        GEN[Generate Response]
+        AUDIT[Audit Trail]
+    end
+    
+    subgraph &quot;Data Sources&quot;
+        DB[(Primary Database)]
+        LOGS[(Audit Logs)]
+        STOR[(File Storage)]
+        BACKUP[(Backups)]
+    end
+    
+    REQ1 --&gt; VAL
+    REQ2 --&gt; VAL
+    REQ3 --&gt; VAL
+    REQ4 --&gt; VAL
+    
+    VAL --&gt; AUTH
+    AUTH --&gt; PROC
+    
+    PROC --&gt; DB
+    PROC --&gt; LOGS
+    PROC --&gt; STOR
+    PROC --&gt; BACKUP
+    
+    DB --&gt; GEN
+    LOGS --&gt; GEN
+    STOR --&gt; GEN
+    
+    GEN --&gt; AUDIT
+    AUDIT --&gt; Response[Encrypted Response]
+</code></pre>
+<h3>5.2 Data Retention and Deletion</h3>
+<pre><code class="language-mermaid">gantt
+    title Data Retention Timeline
+    dateFormat YYYY-MM-DD
+    section User Data
+    Active Account          :active, 2025-01-01, 365d
+    Post-Contract Retention :crit, 730d
+    Deletion               :milestone, 2028-01-01, 0d
+    
+    section Training Records
+    Initial Storage        :2025-01-01, 2555d
+    Legal Retention (7yr)  :active, 2025-01-01, 2555d
+    Deletion              :milestone, 2032-01-01, 0d
+    
+    section Certificates
+    Initial Storage        :2025-01-01, 3650d
+    Retention (10yr)       :active, 2025-01-01, 3650d
+    Deletion              :milestone, 2035-01-01, 0d
+    
+    section Audit Logs
+    Active Logging         :active, 2025-01-01, 365d
+    Rolling Deletion       :crit, 2026-01-01, 1d
+    
+    section Session Data
+    Active Session         :active, 2025-01-01, 30d
+    Auto Deletion         :crit, 2025-01-31, 1d
+</code></pre>
+<hr>
+<h2>6. SECURITY MONITORING FLOWS</h2>
+<h3>6.1 Threat Detection Pipeline</h3>
+<pre><code class="language-mermaid">graph LR
+    subgraph &quot;Input Sources&quot;
+        E1[API Requests]
+        E2[Login Attempts]
+        E3[File Access]
+        E4[Admin Actions]
+        E5[Error Events]
+    end
+    
+    subgraph &quot;Processing&quot;
+        AGG[Event Aggregation]
+        ENRICH[Context Enrichment]
+        SCORE[Risk Scoring]
+        CLASS[Classification]
+    end
+    
+    subgraph &quot;Detection Rules&quot;
+        R1[Brute Force]
+        R2[Privilege Escalation]
+        R3[Data Exfiltration]
+        R4[Anomaly Detection]
+        R5[Compliance Violation]
+    end
+    
+    subgraph &quot;Response&quot;
+        ALERT[Alert Generation]
+        BLOCK[Auto Block]
+        LOG[Security Log]
+        NOTIFY[Notification]
+    end
+    
+    E1 --&gt; AGG
+    E2 --&gt; AGG
+    E3 --&gt; AGG
+    E4 --&gt; AGG
+    E5 --&gt; AGG
+    
+    AGG --&gt; ENRICH
+    ENRICH --&gt; SCORE
+    SCORE --&gt; CLASS
+    
+    CLASS --&gt; R1
+    CLASS --&gt; R2
+    CLASS --&gt; R3
+    CLASS --&gt; R4
+    CLASS --&gt; R5
+    
+    R1 --&gt; ALERT
+    R2 --&gt; ALERT
+    R3 --&gt; BLOCK
+    R4 --&gt; LOG
+    R5 --&gt; NOTIFY
+</code></pre>
+<h3>6.2 Incident Response Flow</h3>
+<pre><code class="language-mermaid">stateDiagram-v2
+    [*] --&gt; Detection: Security Event
+    
+    Detection --&gt; Triage: Automated Analysis
+    Triage --&gt; P1: Critical
+    Triage --&gt; P2: High
+    Triage --&gt; P3: Medium
+    Triage --&gt; P4: Low
+    
+    P1 --&gt; ImmediateResponse: &lt; 15 min
+    P2 --&gt; QuickResponse: &lt; 2 hours
+    P3 --&gt; StandardResponse: &lt; 8 hours
+    P4 --&gt; ScheduledResponse: &lt; 2 days
+    
+    ImmediateResponse --&gt; Containment
+    QuickResponse --&gt; Containment
+    StandardResponse --&gt; Investigation
+    ScheduledResponse --&gt; Investigation
+    
+    Containment --&gt; Eradication
+    Investigation --&gt; Eradication
+    
+    Eradication --&gt; Recovery
+    Recovery --&gt; PostIncident
+    
+    PostIncident --&gt; Documentation
+    Documentation --&gt; LessonsLearned
+    LessonsLearned --&gt; [*]
+    
+    state Notification {
+        [*] --&gt; Internal: Team Alert
+        Internal --&gt; Customer: If Required
+        Customer --&gt; Regulatory: If Breach
+    }
+    
+    Containment --&gt; Notification
+</code></pre>
+<hr>
+<h2>7. INTEGRATION FLOWS</h2>
+<h3>7.1 Email Service Integration</h3>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant APP as Application
+    participant QUEUE as Email Queue
+    participant VAL as Validator
+    participant TEMP as Template Engine
+    participant TRANS as Translator
+    participant MAIL as MailerSend EU
+    participant LOG as Audit Log
+    
+    APP-&gt;&gt;QUEUE: Queue email
+    QUEUE-&gt;&gt;VAL: Validate recipient
+    
+    alt Invalid Email
+        VAL--&gt;&gt;LOG: Log invalid attempt
+        VAL--&gt;&gt;QUEUE: Reject
+    else Valid Email
+        VAL-&gt;&gt;TEMP: Load template
+        TEMP-&gt;&gt;TRANS: Translate content
+        TRANS-&gt;&gt;TRANS: Apply language
+        TRANS-&gt;&gt;MAIL: Send via API
+        
+        alt Success
+            MAIL--&gt;&gt;LOG: Log success
+            MAIL--&gt;&gt;APP: Confirmation
+        else Failure
+            MAIL--&gt;&gt;QUEUE: Retry queue
+            QUEUE-&gt;&gt;QUEUE: Wait &amp; retry (3x)
+            alt Final Failure
+                QUEUE--&gt;&gt;LOG: Log failure
+                QUEUE--&gt;&gt;APP: Error notification
+            end
+        end
+    end
+</code></pre>
+<h3>7.2 Certificate Generation Flow</h3>
+<pre><code class="language-mermaid">graph TD
+    subgraph &quot;Certificate Generation Process&quot;
+        START[Quiz Passed] --&gt; VERIFY[Verify Completion]
+        VERIFY --&gt; GATHER[Gather Data]
+        GATHER --&gt; TEMPLATE[Load Template]
+        TEMPLATE --&gt; POPULATE[Populate Fields]
+        POPULATE --&gt; QR[Generate QR Code]
+        QR --&gt; SIGN[Digital Signature]
+        SIGN --&gt; PDF[Create PDF]
+        PDF --&gt; ENCRYPT[Encrypt Document]
+        ENCRYPT --&gt; STORE[Store in EU]
+        STORE --&gt; NOTIFY[Send Notification]
+        NOTIFY --&gt; END[Process Complete]
+    end
+    
+    subgraph &quot;Data Elements&quot;
+        D1[User Details]
+        D2[Training Info]
+        D3[Completion Date]
+        D4[Certificate ID]
+        D5[Verification URL]
+    end
+    
+    subgraph &quot;Security Controls&quot;
+        S1[Access Control]
+        S2[Encryption]
+        S3[Audit Trail]
+        S4[Tamper Protection]
+    end
+    
+    D1 --&gt; GATHER
+    D2 --&gt; GATHER
+    D3 --&gt; GATHER
+    D4 --&gt; GATHER
+    D5 --&gt; QR
+    
+    S1 -.-&gt; VERIFY
+    S2 -.-&gt; ENCRYPT
+    S3 -.-&gt; STORE
+    S4 -.-&gt; SIGN
+</code></pre>
+<hr>
+<h2>8. COMPLIANCE CHECKPOINTS</h2>
+<h3>8.1 Data Processing Compliance Map</h3>
+<pre><code class="language-mermaid">graph TB
+    subgraph &quot;Data Entry Points&quot;
+        E1[User Registration]
+        E2[Training Data]
+        E3[Quiz Responses]
+        E4[File Uploads]
+    end
+    
+    subgraph &quot;Compliance Checks&quot;
+        C1{GDPR Consent?}
+        C2{Data Minimization?}
+        C3{Purpose Limitation?}
+        C4{Retention Policy?}
+        C5{Encryption Active?}
+        C6{Audit Logged?}
+    end
+    
+    subgraph &quot;Processing&quot;
+        P1[Process Data]
+        P2[Store Data]
+        P3[Transfer Data]
+    end
+    
+    subgraph &quot;Controls&quot;
+        ACCEPT[✓ Accept]
+        REJECT[✗ Reject]
+    end
+    
+    E1 --&gt; C1
+    E2 --&gt; C1
+    E3 --&gt; C1
+    E4 --&gt; C1
+    
+    C1 --&gt;|Yes| C2
+    C1 --&gt;|No| REJECT
+    
+    C2 --&gt;|Yes| C3
+    C2 --&gt;|No| REJECT
+    
+    C3 --&gt;|Yes| C4
+    C3 --&gt;|No| REJECT
+    
+    C4 --&gt;|Yes| C5
+    C4 --&gt;|No| REJECT
+    
+    C5 --&gt;|Yes| C6
+    C5 --&gt;|No| REJECT
+    
+    C6 --&gt;|Yes| ACCEPT
+    C6 --&gt;|No| REJECT
+    
+    ACCEPT --&gt; P1
+    P1 --&gt; P2
+    P2 --&gt; P3
+</code></pre>
+<hr>
+<h2>9. NETWORK ARCHITECTURE</h2>
+<h3>9.1 Network Security Zones</h3>
+<pre><code class="language-mermaid">graph TB
+    subgraph &quot;Internet Zone&quot;
+        USERS[External Users]
+        ATTACK[Potential Threats]
+    end
+    
+    subgraph &quot;DMZ - Vercel Edge&quot;
+        CDN[CDN Network]
+        WAF[Web App Firewall]
+        DDOS[DDoS Protection]
+    end
+    
+    subgraph &quot;Application Zone - Vercel&quot;
+        API[API Functions]
+        STATIC[Static Assets]
+    end
+    
+    subgraph &quot;Data Zone - Supabase&quot;
+        DB[(Database)]
+        STORAGE[(Object Storage)]
+    end
+    
+    subgraph &quot;Security Controls&quot;
+        FW1[Firewall Layer 1]
+        FW2[Firewall Layer 2]
+        IDS[Intrusion Detection]
+        SIEM[Security Monitoring]
+    end
+    
+    USERS --&gt;|HTTPS| CDN
+    ATTACK --&gt;|Blocked| WAF
+    
+    CDN --&gt; FW1
+    FW1 --&gt; API
+    API --&gt; FW2
+    FW2 --&gt; DB
+    
+    WAF -.-&gt; IDS
+    IDS -.-&gt; SIEM
+    DDOS -.-&gt; SIEM
+</code></pre>
+<hr>
+<h2>10. DATA LIFECYCLE MANAGEMENT</h2>
+<h3>10.1 Complete Data Lifecycle</h3>
+<pre><code class="language-mermaid">journey
+    title Data Lifecycle Journey
+    section Collection
+      User Registration: 5: User, System
+      Consent Obtained: 5: System
+      Data Validated: 5: System
+    section Processing
+      Store in Database: 5: System
+      Apply Encryption: 5: System
+      Create Audit Log: 5: System
+    section Usage
+      Training Delivery: 5: User, System
+      Progress Tracking: 5: System
+      Certificate Generation: 5: System
+    section Retention
+      Active Period: 5: System
+      Archive Phase: 3: System
+      Retention Check: 4: System
+    section Deletion
+      Deletion Trigger: 4: System
+      Secure Wipe: 5: System
+      Confirmation: 5: System
+</code></pre>
+<hr>
+<h2>DIAGRAM LEGEND</h2>
+<h3>Symbols and Notation</h3>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>[Component]</code></td>
+<td>System Component</td>
+</tr>
+<tr>
+<td><code>(Database)</code></td>
+<td>Data Storage</td>
+</tr>
+<tr>
+<td><code>{Decision}</code></td>
+<td>Decision Point</td>
+</tr>
+<tr>
+<td><code>--&gt;</code></td>
+<td>Data Flow</td>
+</tr>
+<tr>
+<td><code>-.-&gt;</code></td>
+<td>Control/Monitor Flow</td>
+</tr>
+<tr>
+<td><code>==&gt;</code></td>
+<td>Encrypted Flow</td>
+</tr>
+<tr>
+<td><code>--x</code></td>
+<td>Blocked/Failed</td>
+</tr>
+<tr>
+<td><code>✓</code></td>
+<td>Approved/Valid</td>
+</tr>
+<tr>
+<td><code>✗</code></td>
+<td>Rejected/Invalid</td>
+</tr>
+</tbody></table>
+<h3>Security Levels</h3>
+<table>
+<thead>
+<tr>
+<th>Color</th>
+<th>Security Level</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🟢 Green</td>
+<td>Secure/Encrypted</td>
+</tr>
+<tr>
+<td>🟡 Yellow</td>
+<td>Monitored</td>
+</tr>
+<tr>
+<td>🔴 Red</td>
+<td>Blocked/Alert</td>
+</tr>
+<tr>
+<td>🔵 Blue</td>
+<td>Public/CDN</td>
+</tr>
+</tbody></table>
+<h3>Compliance Indicators</h3>
+<table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GDPR</td>
+<td>GDPR Compliant</td>
+</tr>
+<tr>
+<td>ISO</td>
+<td>ISO 27001 Control</td>
+</tr>
+<tr>
+<td>LOG</td>
+<td>Audit Logged</td>
+</tr>
+<tr>
+<td>ENC</td>
+<td>Encrypted</td>
+</tr>
+<tr>
+<td>MFA</td>
+<td>MFA Protected</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>NOTES</h2>
+<ol>
+<li><strong>All data flows</strong> within EU boundaries (Frankfurt region)</li>
+<li><strong>All transmissions</strong> use TLS 1.3 minimum</li>
+<li><strong>All storage</strong> uses AES-256-GCM encryption</li>
+<li><strong>All actions</strong> create audit log entries</li>
+<li><strong>All sensitive operations</strong> require authentication</li>
+<li><strong>All high-privilege actions</strong> require MFA</li>
+</ol>
+<hr>
+<p><em>These data flow diagrams are maintained by the Security Architecture team and updated with any system changes. Last update: January 2025</em></p>
+
+    </div>
+    
+    <div class="document-footer">
+        <p><strong>Maritime Onboarding System - Compliance Documentation</strong></p>
+        <p>Generated on 9/17/2025 | Confidential - For authorized personnel only</p>
+        <p>Document Path: appendices/APPENDIX_B_DATA_FLOW_DIAGRAMS.md</p>
+    </div>
+</body>
+</html>

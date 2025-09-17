@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPENDIX C: TECHNICAL ARCHITECTURE DOCUMENTATION - Maritime Onboarding System Compliance</title>
+    <meta name="description" content="Maritime Onboarding System compliance documentation">
+    <meta name="keywords" content="maritime, compliance, NIS2, security, onboarding">
+    <meta name="author" content="Maritime Compliance Agent">
+    <meta name="created" content="2025-09-17">
+    <style>
+        /* Maritime Onboarding System - Compliance Documentation CSS */
+/* Professional styling for compliance reports and documentation */
+
+:root {
+    --primary-color: #1e3a8a;
+    --secondary-color: #1e40af;
+    --success-color: #059669;
+    --warning-color: #d97706;
+    --danger-color: #dc2626;
+    --text-color: #1f2937;
+    --bg-color: #ffffff;
+    --border-color: #e5e7eb;
+    --table-header-bg: #f8fafc;
+}
+
+/* Document Layout */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 20mm;
+    background: var(--bg-color);
+    font-size: 11pt;
+}
+
+/* Headings */
+h1 {
+    color: var(--primary-color);
+    font-size: 24pt;
+    font-weight: 700;
+    margin-bottom: 10mm;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 5mm;
+    page-break-after: avoid;
+}
+
+h2 {
+    color: var(--secondary-color);
+    font-size: 18pt;
+    font-weight: 600;
+    margin-top: 15mm;
+    margin-bottom: 5mm;
+    page-break-after: avoid;
+}
+
+h3 {
+    color: var(--text-color);
+    font-size: 14pt;
+    font-weight: 600;
+    margin-top: 8mm;
+    margin-bottom: 3mm;
+    page-break-after: avoid;
+}
+
+h4 {
+    color: var(--text-color);
+    font-size: 12pt;
+    font-weight: 600;
+    margin-top: 5mm;
+    margin-bottom: 2mm;
+}
+
+/* Paragraphs and Text */
+p {
+    margin-bottom: 3mm;
+    text-align: justify;
+    orphans: 2;
+    widows: 2;
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 5mm;
+    padding-left: 8mm;
+}
+
+li {
+    margin-bottom: 1mm;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 5mm 0;
+    page-break-inside: avoid;
+    font-size: 10pt;
+}
+
+th {
+    background-color: var(--table-header-bg);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 3mm;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+td {
+    padding: 2mm 3mm;
+    border: 1px solid var(--border-color);
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+/* Status Indicators */
+.status-compliant,
+.compliant {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.status-partial,
+.partial {
+    color: var(--warning-color);
+    font-weight: 600;
+}
+
+.status-non-compliant,
+.non-compliant {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+/* Badges and Icons */
+.badge {
+    display: inline-block;
+    padding: 1mm 2mm;
+    border-radius: 2mm;
+    font-size: 9pt;
+    font-weight: 600;
+    color: white;
+}
+
+.badge-success {
+    background-color: var(--success-color);
+}
+
+.badge-warning {
+    background-color: var(--warning-color);
+}
+
+.badge-danger {
+    background-color: var(--danger-color);
+}
+
+/* Code and Technical Content */
+code {
+    background-color: #f1f5f9;
+    padding: 1mm 2mm;
+    border-radius: 1mm;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+}
+
+pre {
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 2mm;
+    padding: 5mm;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+    line-height: 1.4;
+    page-break-inside: avoid;
+}
+
+/* Blockquotes and Callouts */
+blockquote {
+    border-left: 4px solid var(--primary-color);
+    margin: 5mm 0;
+    padding: 3mm 5mm;
+    background-color: #f8fafc;
+    font-style: italic;
+}
+
+/* Executive Summary Box */
+.executive-summary {
+    background-color: #f0f9ff;
+    border: 2px solid var(--primary-color);
+    border-radius: 3mm;
+    padding: 5mm;
+    margin: 5mm 0;
+    page-break-inside: avoid;
+}
+
+/* Compliance Score Box */
+.compliance-score {
+    background-color: #f0fdf4;
+    border: 2px solid var(--success-color);
+    border-radius: 3mm;
+    padding: 5mm;
+    margin: 5mm 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14pt;
+}
+
+/* Document Header */
+.document-header {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5mm;
+    margin-bottom: 10mm;
+}
+
+.document-title {
+    font-size: 20pt;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 2mm;
+}
+
+.document-subtitle {
+    font-size: 14pt;
+    color: var(--secondary-color);
+    margin-bottom: 2mm;
+}
+
+.document-meta {
+    font-size: 10pt;
+    color: #6b7280;
+    margin-bottom: 0;
+}
+
+/* Document Footer */
+.document-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 5mm;
+    margin-top: 10mm;
+    font-size: 9pt;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* Risk Assessment Colors */
+.risk-critical {
+    background-color: #fef2f2;
+    border-left: 4px solid var(--danger-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-high {
+    background-color: #fffbeb;
+    border-left: 4px solid var(--warning-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-medium {
+    background-color: #fefce8;
+    border-left: 4px solid #eab308;
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-low {
+    background-color: #f0fdf4;
+    border-left: 4px solid var(--success-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+/* Print Specific Styles */
+@media print {
+    body {
+        margin: 0;
+        padding: 15mm;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+    
+    table, figure, .compliance-score, .executive-summary {
+        page-break-inside: avoid;
+    }
+    
+    .page-break {
+        page-break-before: always;
+    }
+    
+    .no-print {
+        display: none;
+    }
+}
+
+/* NIS2 Specific Styling */
+.nis2-article {
+    border: 1px solid var(--border-color);
+    border-radius: 2mm;
+    margin: 3mm 0;
+    padding: 3mm;
+}
+
+.nis2-score {
+    display: inline-block;
+    padding: 1mm 3mm;
+    border-radius: 2mm;
+    font-weight: 600;
+    color: white;
+    min-width: 15mm;
+    text-align: center;
+}
+
+.score-excellent {
+    background-color: var(--success-color);
+}
+
+.score-good {
+    background-color: #16a34a;
+}
+
+.score-fair {
+    background-color: var(--warning-color);
+}
+
+.score-poor {
+    background-color: var(--danger-color);
+}
+
+/* Compliance Matrix Styling */
+.compliance-matrix {
+    font-size: 9pt;
+}
+
+.compliance-matrix th {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+
+.compliance-matrix .score-cell {
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Document Classification Banner */
+.classification-banner {
+    background-color: var(--danger-color);
+    color: white;
+    text-align: center;
+    padding: 2mm;
+    font-weight: 700;
+    font-size: 12pt;
+    margin: -20mm -20mm 10mm -20mm;
+}
+
+.classification-confidential {
+    background-color: #dc2626;
+}
+
+.classification-restricted {
+    background-color: #7c2d12;
+}
+
+/* Signature Boxes */
+.signature-box {
+    border: 1px solid var(--border-color);
+    padding: 5mm;
+    margin: 5mm 0;
+    min-height: 15mm;
+}
+
+.signature-line {
+    border-bottom: 1px solid var(--text-color);
+    margin-top: 10mm;
+    text-align: center;
+    padding-top: 2mm;
+}
+
+/* Responsive Design for Digital Viewing */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10mm;
+        max-width: 100%;
+    }
+    
+    table {
+        font-size: 9pt;
+    }
+    
+    .compliance-matrix {
+        font-size: 8pt;
+    }
+}
+        
+        /* Navigation Menu Styles */
+        .navigation-menu {
+            background-color: var(--primary-color);
+            padding: 10px 20px;
+            margin: -20mm -20mm 10mm -20mm;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navigation-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            margin: 0 5px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        .navigation-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Dropdown Menu */
+        .nav-dropdown {
+            display: inline-block;
+            position: relative;
+        }
+        .dropdown-trigger {
+            color: white;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            min-width: 160px;
+            z-index: 1000;
+            top: 100%;
+            right: 0;
+        }
+        .dropdown-content a {
+            color: var(--primary-color) !important;
+            display: block;
+            padding: 10px 15px;
+            margin: 0;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: var(--table-header-bg);
+        }
+        .nav-dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: var(--table-header-bg);
+            padding: 8px 15px;
+            margin: -10mm -20mm 10mm -20mm;
+            font-size: 10pt;
+            color: #6b7280;
+        }
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        @media print {
+            .navigation-menu, .breadcrumb {
+                display: none;
+            }
+        }
+        
+        /* Style for auto-linked document references */
+        .document-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-color);
+            transition: all 0.3s;
+        }
+        .document-content a:hover {
+            color: var(--secondary-color);
+            border-bottom: 1px solid var(--secondary-color);
+            background-color: rgba(30, 58, 138, 0.05);
+        }
+        .document-content a code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        /* Make table links more prominent */
+        td a {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navigation-menu">
+        <a href="../index.html">🏠 Home</a> |
+        <a href="../assessments/COMPLIANCE_VERIFICATION_REPORT.html">📊 Assessment</a> |
+        <a href="../nis2/NIS2_COMPLIANCE_REPORT_2025.html">📋 NIS2</a> |
+        <a href="../evidence/INTERNAL_PENETRATION_TEST_REPORT_2025.html">🔒 Security</a> |
+        <a href="../policies/BUSINESS_CONTINUITY_PLAN.html">📜 Policies</a> |
+        <div class="nav-dropdown">
+            <span class="dropdown-trigger">📁 Categories ▼</span>
+            <div class="dropdown-content">
+                <a href="../assessments/CLIENT_READY_ASSESSMENT_REPORT.html">Assessments</a>
+                <a href="../evidence/INTERNAL_PENETRATION_TEST_REPORT_2025.html">Evidence</a>
+                <a href="../nis2/NIS2_COMPLIANCE_MATRIX_2025.html">NIS2</a>
+                <a href="../policies/COMPLIANCE_RESPONSIBILITY_MATRIX.html">Policies</a>
+                <a href="../reports/SECURITY_VERIFICATION_COMPLIANCE_UPDATE_2025-09.html">Reports</a>
+                <a href="../appendices/APPENDIX_A_SECURITY_CONTROL_MATRIX.html">Appendices</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="breadcrumb">
+        <a href="../index.html">Home</a> ›
+        <span>Appendices</span> ›
+        <span>APPENDIX C: TECHNICAL ARCHITECTURE DOCUMENTATION</span>
+    </div>
+    
+    
+    <div class="document-header">
+        <div class="document-title">APPENDIX C: TECHNICAL ARCHITECTURE DOCUMENTATION</div>
+        <div class="document-subtitle">Maritime Onboarding System 2025</div>
+        <div class="document-meta">
+            Generated: 2025-09-17 | 
+            Source: appendices/APPENDIX_C_TECHNICAL_ARCHITECTURE.md | 
+            Version: 1.0
+        </div>
+    </div>
+    
+    <div class="document-content">
+        <h1>APPENDIX C: TECHNICAL ARCHITECTURE DOCUMENTATION</h1>
+<h2>Maritime Onboarding System 2025</h2>
+<h3>Complete System Architecture and Technical Specifications</h3>
+<hr>
+<h2>EXECUTIVE SUMMARY</h2>
+<p>This document provides comprehensive technical architecture documentation for the Maritime Onboarding System, including infrastructure design, technology stack, security architecture, and integration specifications required for enterprise deployment and compliance verification.</p>
+<hr>
+<h2>1. SYSTEM ARCHITECTURE OVERVIEW</h2>
+<h3>1.1 Architecture Principles</h3>
+<table>
+<thead>
+<tr>
+<th>Principle</th>
+<th>Description</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Security by Design</strong></td>
+<td>Security embedded at every layer</td>
+<td>Multi-layer encryption, RBAC, MFA</td>
+</tr>
+<tr>
+<td><strong>Data Sovereignty</strong></td>
+<td>EU data residency</td>
+<td>Frankfurt region only</td>
+</tr>
+<tr>
+<td><strong>Scalability</strong></td>
+<td>Horizontal and vertical scaling</td>
+<td>Serverless, auto-scaling</td>
+</tr>
+<tr>
+<td><strong>Resilience</strong></td>
+<td>High availability and fault tolerance</td>
+<td>Multi-region, redundancy</td>
+</tr>
+<tr>
+<td><strong>Compliance First</strong></td>
+<td>GDPR and maritime regulations</td>
+<td>Privacy by design</td>
+</tr>
+<tr>
+<td><strong>API-First</strong></td>
+<td>RESTful service architecture</td>
+<td>OpenAPI specification</td>
+</tr>
+<tr>
+<td><strong>Cloud Native</strong></td>
+<td>Designed for cloud deployment</td>
+<td>Serverless functions</td>
+</tr>
+<tr>
+<td><strong>Zero Trust</strong></td>
+<td>Never trust, always verify</td>
+<td>Continuous authentication</td>
+</tr>
+</tbody></table>
+<h3>1.2 High-Level Architecture</h3>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│                         USERS                               │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+│  │  Admin   │  │ Manager  │  │   Crew   │  │ Auditor  │  │
+│  └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬─────┘  │
+└───────┼─────────────┼─────────────┼─────────────┼─────────┘
+        │             │             │             │
+        ▼             ▼             ▼             ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    PRESENTATION LAYER                       │
+│  ┌────────────────────────────────────────────────────┐   │
+│  │         React SPA (CDN - Vercel Edge Network)      │   │
+│  │  - Components  - Routes  - State  - Services       │   │
+│  └────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                     APPLICATION LAYER                       │
+│  ┌────────────────────────────────────────────────────┐   │
+│  │        Vercel Serverless Functions (Node.js)       │   │
+│  │  - API Routes  - Business Logic  - Middleware      │   │
+│  └────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                      DATA LAYER                            │
+│  ┌──────────────────┐  ┌──────────────────────────────┐  │
+│  │  PostgreSQL      │  │  Object Storage              │  │
+│  │  (Supabase)      │  │  (Supabase Storage)         │  │
+│  └──────────────────┘  └──────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                   EXTERNAL SERVICES                        │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐   │
+│  │ MailerSend   │  │ TOTP Service │  │ Monitoring   │   │
+│  │ (Email)      │  │ (MFA)        │  │ (Logs)       │   │
+│  └──────────────┘  └──────────────┘  └──────────────┘   │
+└─────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr>
+<h2>2. TECHNOLOGY STACK</h2>
+<h3>2.1 Frontend Technologies</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Technology</th>
+<th>Version</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Framework</strong></td>
+<td>React</td>
+<td>18.2.0</td>
+<td>UI framework</td>
+</tr>
+<tr>
+<td><strong>Language</strong></td>
+<td>JavaScript/JSX</td>
+<td>ES6+</td>
+<td>Programming language</td>
+</tr>
+<tr>
+<td><strong>Routing</strong></td>
+<td>React Router</td>
+<td>6.x</td>
+<td>Client-side routing</td>
+</tr>
+<tr>
+<td><strong>State Management</strong></td>
+<td>Context API</td>
+<td>Built-in</td>
+<td>Global state</td>
+</tr>
+<tr>
+<td><strong>Styling</strong></td>
+<td>Tailwind CSS</td>
+<td>3.x</td>
+<td>Utility-first CSS</td>
+</tr>
+<tr>
+<td><strong>Build Tool</strong></td>
+<td>Vite</td>
+<td>5.x</td>
+<td>Fast build system</td>
+</tr>
+<tr>
+<td><strong>Package Manager</strong></td>
+<td>npm</td>
+<td>10.x</td>
+<td>Dependency management</td>
+</tr>
+<tr>
+<td><strong>HTTP Client</strong></td>
+<td>Axios</td>
+<td>1.6.x</td>
+<td>API communication</td>
+</tr>
+<tr>
+<td><strong>Internationalization</strong></td>
+<td>i18next</td>
+<td>23.x</td>
+<td>Multi-language support</td>
+</tr>
+<tr>
+<td><strong>PDF Generation</strong></td>
+<td>pdf-lib</td>
+<td>1.17.x</td>
+<td>Certificate creation</td>
+</tr>
+<tr>
+<td><strong>QR Codes</strong></td>
+<td>qrcode</td>
+<td>1.5.x</td>
+<td>Verification codes</td>
+</tr>
+</tbody></table>
+<h3>2.2 Backend Technologies</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Technology</th>
+<th>Version</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Runtime</strong></td>
+<td>Node.js</td>
+<td>20.x LTS</td>
+<td>Server runtime</td>
+</tr>
+<tr>
+<td><strong>Framework</strong></td>
+<td>Vercel Functions</td>
+<td>Latest</td>
+<td>Serverless functions</td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>PostgreSQL</td>
+<td>15.x</td>
+<td>Primary database</td>
+</tr>
+<tr>
+<td><strong>ORM/Query</strong></td>
+<td>Supabase Client</td>
+<td>2.x</td>
+<td>Database access</td>
+</tr>
+<tr>
+<td><strong>Authentication</strong></td>
+<td>JWT</td>
+<td>RFC 7519</td>
+<td>Token-based auth</td>
+</tr>
+<tr>
+<td><strong>Encryption</strong></td>
+<td>crypto (native)</td>
+<td>Built-in</td>
+<td>Cryptographic operations</td>
+</tr>
+<tr>
+<td><strong>MFA</strong></td>
+<td>speakeasy</td>
+<td>2.x</td>
+<td>TOTP generation</td>
+</tr>
+<tr>
+<td><strong>Email</strong></td>
+<td>MailerSend SDK</td>
+<td>2.x</td>
+<td>Email service</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>Joi</td>
+<td>17.x</td>
+<td>Input validation</td>
+</tr>
+<tr>
+<td><strong>Security</strong></td>
+<td>bcrypt</td>
+<td>5.x</td>
+<td>Password hashing</td>
+</tr>
+<tr>
+<td><strong>Rate Limiting</strong></td>
+<td>Custom</td>
+<td>N/A</td>
+<td>Request throttling</td>
+</tr>
+</tbody></table>
+<h3>2.3 Infrastructure Stack</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Provider</th>
+<th>Service</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Application Hosting</strong></td>
+<td>Vercel</td>
+<td>Pro Plan</td>
+<td>Frankfurt, EU</td>
+</tr>
+<tr>
+<td><strong>Database Hosting</strong></td>
+<td>Supabase</td>
+<td>Pro Plan</td>
+<td>Frankfurt, EU</td>
+</tr>
+<tr>
+<td><strong>CDN</strong></td>
+<td>Vercel Edge</td>
+<td>Global</td>
+<td>EU PoPs</td>
+</tr>
+<tr>
+<td><strong>Email Service</strong></td>
+<td>MailerSend</td>
+<td>Business</td>
+<td>EU Region</td>
+</tr>
+<tr>
+<td><strong>DNS</strong></td>
+<td>Cloudflare</td>
+<td>Pro</td>
+<td>Global</td>
+</tr>
+<tr>
+<td><strong>Monitoring</strong></td>
+<td>Vercel Analytics</td>
+<td>Included</td>
+<td>EU Processing</td>
+</tr>
+<tr>
+<td><strong>Backup Storage</strong></td>
+<td>Supabase</td>
+<td>Included</td>
+<td>Frankfurt, EU</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. DATABASE ARCHITECTURE</h2>
+<h3>3.1 Database Schema Overview</h3>
+<pre><code class="language-sql">-- Core Tables Structure
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│     users       │────&lt;│  crew_members   │&gt;────│   workflows     │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+         │                       │                        │
+         │                       │                        │
+         ▼                       ▼                        ▼
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  magic_links    │     │training_progress│     │ workflow_phases │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+         │                       │                        │
+         │                       │                        │
+         ▼                       ▼                        ▼
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│token_blacklist  │     │ quiz_attempts   │     │training_content │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+         │                       │                        │
+         │                       │                        │
+         ▼                       ▼                        ▼
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│ security_events │     │  certificates   │     │   audit_logs    │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+</code></pre>
+<h3>3.2 Key Database Tables</h3>
+<h4>Users Table</h4>
+<pre><code class="language-sql">CREATE TABLE users (
+    id BIGSERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(255),
+    role VARCHAR(50) NOT NULL CHECK (role IN (&#39;admin&#39;, &#39;manager&#39;, &#39;crew&#39;)),
+    company_id BIGINT,
+    status VARCHAR(50) DEFAULT &#39;active&#39;,
+    is_active BOOLEAN DEFAULT true,
+    mfa_required BOOLEAN DEFAULT false,
+    failed_login_attempts INTEGER DEFAULT 0,
+    locked_until TIMESTAMPTZ,
+    last_login TIMESTAMPTZ,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Indexes for performance
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_users_company ON users(company_id);
+CREATE INDEX idx_users_role ON users(role);
+</code></pre>
+<h4>Security Events Table</h4>
+<pre><code class="language-sql">CREATE TABLE security_events (
+    id BIGSERIAL PRIMARY KEY,
+    event_id VARCHAR(255) UNIQUE NOT NULL,
+    type VARCHAR(100) NOT NULL,
+    severity VARCHAR(20) CHECK (severity IN (&#39;LOW&#39;, &#39;MEDIUM&#39;, &#39;HIGH&#39;, &#39;CRITICAL&#39;)),
+    user_id BIGINT REFERENCES users(id),
+    ip_address INET,
+    user_agent TEXT,
+    details JSONB,
+    threats TEXT[],
+    response_actions JSONB,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Indexes for analysis
+CREATE INDEX idx_security_events_type ON security_events(type);
+CREATE INDEX idx_security_events_severity ON security_events(severity);
+CREATE INDEX idx_security_events_user ON security_events(user_id);
+CREATE INDEX idx_security_events_created ON security_events(created_at);
+</code></pre>
+<h3>3.3 Row Level Security (RLS) Policies</h3>
+<pre><code class="language-sql">-- Enable RLS on all tables
+ALTER TABLE users ENABLE ROW LEVEL SECURITY;
+ALTER TABLE crew_members ENABLE ROW LEVEL SECURITY;
+ALTER TABLE training_progress ENABLE ROW LEVEL SECURITY;
+
+-- Company isolation policy
+CREATE POLICY company_isolation ON crew_members
+    FOR ALL
+    USING (company_id = current_setting(&#39;app.company_id&#39;)::BIGINT);
+
+-- User data access policy
+CREATE POLICY user_data_access ON training_progress
+    FOR SELECT
+    USING (
+        crew_member_id IN (
+            SELECT id FROM crew_members 
+            WHERE company_id = current_setting(&#39;app.company_id&#39;)::BIGINT
+        )
+    );
+
+-- Admin full access policy
+CREATE POLICY admin_full_access ON ALL TABLES
+    FOR ALL
+    USING (
+        EXISTS (
+            SELECT 1 FROM users 
+            WHERE id = current_setting(&#39;app.user_id&#39;)::BIGINT 
+            AND role = &#39;admin&#39;
+        )
+    );
+</code></pre>
+<hr>
+<h2>4. API ARCHITECTURE</h2>
+<h3>4.1 API Structure</h3>
+<pre><code>/api
+├── /auth
+│   ├── admin-login.js       [POST]   Admin/Manager authentication
+│   ├── login-with-mfa.js    [POST]   MFA-enhanced login
+│   ├── magic-login.js       [GET]    Magic link validation
+│   ├── request-magic-link.js [POST]  Magic link generation
+│   ├── logout.js            [POST]   Session termination
+│   └── verify.js            [GET]    Token verification
+│
+├── /admin
+│   ├── stats.js             [GET]    System statistics
+│   ├── audit-log.js         [GET]    Audit trail access
+│   ├── system-settings.js   [GET/PUT] System configuration
+│   └── feature-flags.js     [GET/PUT] Feature management
+│
+├── /manager
+│   ├── crew-list.js         [GET]    Crew roster
+│   ├── assign-training.js   [POST]   Training assignment
+│   ├── progress-report.js   [GET]    Progress analytics
+│   └── content-management.js [CRUD]   Content operations
+│
+├── /crew
+│   ├── profile.js           [GET/PUT] Profile management
+│   ├── training-content.js  [GET]    Content delivery
+│   ├── submit-quiz.js       [POST]   Quiz submission
+│   └── certificate.js       [GET]    Certificate retrieval
+│
+├── /pdf
+│   ├── generate-certificate.js [POST] Certificate creation
+│   └── verify-certificate.js   [GET]  Certificate validation
+│
+└── /email
+    ├── send-notification.js  [POST]   Notification dispatch
+    └── template-preview.js   [GET]    Template preview
+</code></pre>
+<h3>4.2 API Security Middleware Stack</h3>
+<pre><code class="language-javascript">// Middleware execution order
+app.use(corsMiddleware);           // CORS configuration
+app.use(rateLimiter);             // Rate limiting
+app.use(securityHeaders);         // Security headers
+app.use(requestLogger);           // Request logging
+app.use(authMiddleware);          // JWT validation
+app.use(roleMiddleware);          // Role verification
+app.use(companyIsolation);        // Multi-tenancy
+app.use(inputValidation);         // Input sanitization
+app.use(apiHandler);              // Business logic
+app.use(responseFormatter);       // Response formatting
+app.use(errorHandler);            // Error handling
+app.use(auditLogger);             // Audit logging
+</code></pre>
+<h3>4.3 API Response Standards</h3>
+<pre><code class="language-javascript">// Success Response
+{
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        // Response payload
+    },
+    &quot;metadata&quot;: {
+        &quot;timestamp&quot;: &quot;2025-01-15T10:30:00Z&quot;,
+        &quot;version&quot;: &quot;1.0&quot;,
+        &quot;requestId&quot;: &quot;req_123456&quot;
+    }
+}
+
+// Error Response
+{
+    &quot;success&quot;: false,
+    &quot;error&quot;: {
+        &quot;code&quot;: &quot;AUTH_INVALID_TOKEN&quot;,
+        &quot;message&quot;: &quot;Invalid authentication token&quot;,
+        &quot;details&quot;: {
+            // Additional error context
+        }
+    },
+    &quot;metadata&quot;: {
+        &quot;timestamp&quot;: &quot;2025-01-15T10:30:00Z&quot;,
+        &quot;requestId&quot;: &quot;req_123456&quot;
+    }
+}
+</code></pre>
+<hr>
+<h2>5. SECURITY ARCHITECTURE</h2>
+<h3>5.1 Security Layers</h3>
+<pre><code>┌──────────────────────────────────────────────────────┐
+│                   LAYER 7: Application               │
+│  - Input validation      - Business logic security   │
+│  - Session management    - Error handling            │
+└──────────────────────────────────────────────────────┘
+                            ▲
+┌──────────────────────────────────────────────────────┐
+│                   LAYER 6: Presentation              │
+│  - XSS protection        - CSRF tokens               │
+│  - Content Security Policy - Frame options           │
+└──────────────────────────────────────────────────────┘
+                            ▲
+┌──────────────────────────────────────────────────────┐
+│                   LAYER 5: Session                   │
+│  - JWT tokens            - Token blacklisting        │
+│  - Session timeout       - Concurrent session control│
+└──────────────────────────────────────────────────────┘
+                            ▲
+┌──────────────────────────────────────────────────────┐
+│                   LAYER 4: Transport                 │
+│  - TLS 1.3              - Certificate pinning        │
+│  - HSTS                 - Encrypted payloads         │
+└──────────────────────────────────────────────────────┘
+                            ▲
+┌──────────────────────────────────────────────────────┐
+│                   LAYER 3: Network                   │
+│  - Firewall rules       - DDoS protection           │
+│  - Rate limiting        - IP whitelisting           │
+└──────────────────────────────────────────────────────┘
+                            ▲
+┌──────────────────────────────────────────────────────┐
+│                   LAYER 2: Data Link                 │
+│  - VPC isolation        - Network segmentation      │
+│  - Private subnets      - Security groups           │
+└──────────────────────────────────────────────────────┘
+                            ▲
+┌──────────────────────────────────────────────────────┐
+│                   LAYER 1: Physical                  │
+│  - Data center security - Physical access control    │
+│  - Environmental controls - Hardware security        │
+└──────────────────────────────────────────────────────┘
+</code></pre>
+<h3>5.2 Authentication &amp; Authorization Matrix</h3>
+<table>
+<thead>
+<tr>
+<th>User Type</th>
+<th>Auth Method</th>
+<th>MFA</th>
+<th>Session Duration</th>
+<th>Permissions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Admin</strong></td>
+<td>Password + MFA</td>
+<td>Required</td>
+<td>8 hours</td>
+<td>Full system access</td>
+</tr>
+<tr>
+<td><strong>Manager</strong></td>
+<td>Password + MFA</td>
+<td>Optional</td>
+<td>12 hours</td>
+<td>Company scope</td>
+</tr>
+<tr>
+<td><strong>Crew</strong></td>
+<td>Magic Link</td>
+<td>N/A</td>
+<td>24 hours</td>
+<td>Personal data only</td>
+</tr>
+<tr>
+<td><strong>API</strong></td>
+<td>JWT Bearer</td>
+<td>N/A</td>
+<td>1 hour</td>
+<td>Scoped access</td>
+</tr>
+<tr>
+<td><strong>Service</strong></td>
+<td>API Key</td>
+<td>N/A</td>
+<td>No expiry</td>
+<td>Limited endpoints</td>
+</tr>
+</tbody></table>
+<h3>5.3 Encryption Specifications</h3>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>At Rest</th>
+<th>In Transit</th>
+<th>Algorithm</th>
+<th>Key Size</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>User Data</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>AES-256-GCM</td>
+<td>256-bit</td>
+</tr>
+<tr>
+<td><strong>Passwords</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>bcrypt</td>
+<td>12 rounds</td>
+</tr>
+<tr>
+<td><strong>MFA Secrets</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>AES-256-GCM+AT</td>
+<td>256-bit</td>
+</tr>
+<tr>
+<td><strong>Certificates</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>AES-256</td>
+<td>256-bit</td>
+</tr>
+<tr>
+<td><strong>Backups</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>AES-256-GCM</td>
+<td>256-bit</td>
+</tr>
+<tr>
+<td><strong>Logs</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>AES-256</td>
+<td>256-bit</td>
+</tr>
+<tr>
+<td><strong>Sessions</strong></td>
+<td>N/A</td>
+<td>✅</td>
+<td>TLS 1.3</td>
+<td>256-bit</td>
+</tr>
+<tr>
+<td><strong>API Keys</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>SHA-256</td>
+<td>256-bit</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. INTEGRATION ARCHITECTURE</h2>
+<h3>6.1 External Service Integrations</h3>
+<pre><code class="language-yaml">MailerSend:
+  endpoint: https://api.mailersend.com/v1
+  region: EU
+  authentication: Bearer Token
+  rate_limit: 150 req/min
+  retry_strategy: Exponential backoff
+  features:
+    - Transactional emails
+    - Template management
+    - Delivery tracking
+    - Bounce handling
+
+Supabase:
+  endpoint: https://[project].supabase.co
+  region: eu-central-1
+  authentication: Service Key + JWT
+  features:
+    - PostgreSQL database
+    - Realtime subscriptions
+    - Object storage
+    - Edge functions
+
+TOTP Service:
+  library: speakeasy
+  algorithm: SHA-1
+  digits: 6
+  period: 30 seconds
+  window: 1
+  encoding: base32
+</code></pre>
+<h3>6.2 Webhook Architecture</h3>
+<pre><code class="language-javascript">// Webhook Configuration
+{
+    &quot;webhooks&quot;: {
+        &quot;email_events&quot;: {
+            &quot;endpoint&quot;: &quot;/api/webhooks/email&quot;,
+            &quot;events&quot;: [&quot;delivered&quot;, &quot;bounced&quot;, &quot;complained&quot;],
+            &quot;security&quot;: &quot;HMAC-SHA256&quot;,
+            &quot;retry&quot;: &quot;3x exponential&quot;
+        },
+        &quot;payment_events&quot;: {
+            &quot;endpoint&quot;: &quot;/api/webhooks/payment&quot;,
+            &quot;events&quot;: [&quot;subscription.created&quot;, &quot;subscription.cancelled&quot;],
+            &quot;security&quot;: &quot;Signature verification&quot;,
+            &quot;retry&quot;: &quot;5x linear&quot;
+        },
+        &quot;security_events&quot;: {
+            &quot;endpoint&quot;: &quot;/api/webhooks/security&quot;,
+            &quot;events&quot;: [&quot;breach_detected&quot;, &quot;ddos_attack&quot;],
+            &quot;security&quot;: &quot;IP whitelist + Token&quot;,
+            &quot;retry&quot;: &quot;Immediate&quot;
+        }
+    }
+}
+</code></pre>
+<hr>
+<h2>7. DEPLOYMENT ARCHITECTURE</h2>
+<h3>7.1 Environment Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Environment</th>
+<th>Purpose</th>
+<th>URL</th>
+<th>Database</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Development</strong></td>
+<td>Local development</td>
+<td>localhost:3000</td>
+<td>Local/Docker</td>
+<td>All features</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td>Integration testing</td>
+<td>test.domain.com</td>
+<td>Test DB</td>
+<td>Limited data</td>
+</tr>
+<tr>
+<td><strong>Staging</strong></td>
+<td>Pre-production</td>
+<td>staging.domain.com</td>
+<td>Staging DB</td>
+<td>Prod mirror</td>
+</tr>
+<tr>
+<td><strong>Production</strong></td>
+<td>Live system</td>
+<td>onboarding.domain.com</td>
+<td>Production DB</td>
+<td>Full features</td>
+</tr>
+</tbody></table>
+<h3>7.2 CI/CD Pipeline</h3>
+<pre><code class="language-mermaid">graph LR
+    A[Git Push] --&gt; B[GitHub Actions]
+    B --&gt; C{Tests Pass?}
+    C --&gt;|Yes| D[Build]
+    C --&gt;|No| E[Notify Developer]
+    D --&gt; F[Security Scan]
+    F --&gt; G{Vulnerabilities?}
+    G --&gt;|No| H[Deploy to Staging]
+    G --&gt;|Yes| I[Block Deployment]
+    H --&gt; J[Smoke Tests]
+    J --&gt; K{Tests Pass?}
+    K --&gt;|Yes| L[Deploy to Production]
+    K --&gt;|No| M[Rollback]
+    L --&gt; N[Health Check]
+    N --&gt; O[Monitor]
+</code></pre>
+<h3>7.3 Infrastructure as Code</h3>
+<pre><code class="language-javascript">// vercel.json configuration
+{
+    &quot;framework&quot;: &quot;nextjs&quot;,
+    &quot;regions&quot;: [&quot;fra1&quot;],  // Frankfurt only
+    &quot;functions&quot;: {
+        &quot;api/**/*.js&quot;: {
+            &quot;maxDuration&quot;: 10,
+            &quot;memory&quot;: 1024
+        }
+    },
+    &quot;env&quot;: {
+        &quot;NODE_ENV&quot;: &quot;production&quot;,
+        &quot;DATABASE_URL&quot;: &quot;@database-url&quot;,
+        &quot;JWT_SECRET&quot;: &quot;@jwt-secret&quot;,
+        &quot;MAILERSEND_API_KEY&quot;: &quot;@mailersend-key&quot;
+    },
+    &quot;headers&quot;: [
+        {
+            &quot;source&quot;: &quot;/(.*)&quot;,
+            &quot;headers&quot;: [
+                {
+                    &quot;key&quot;: &quot;X-Frame-Options&quot;,
+                    &quot;value&quot;: &quot;DENY&quot;
+                },
+                {
+                    &quot;key&quot;: &quot;X-Content-Type-Options&quot;,
+                    &quot;value&quot;: &quot;nosniff&quot;
+                },
+                {
+                    &quot;key&quot;: &quot;Strict-Transport-Security&quot;,
+                    &quot;value&quot;: &quot;max-age=31536000&quot;
+                }
+            ]
+        }
+    ]
+}
+</code></pre>
+<hr>
+<h2>8. MONITORING &amp; OBSERVABILITY</h2>
+<h3>8.1 Monitoring Stack</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Tool</th>
+<th>Metrics</th>
+<th>Alerts</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Application</strong></td>
+<td>Vercel Analytics</td>
+<td>Response time, errors</td>
+<td>P1-P4 severity</td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>Supabase Metrics</td>
+<td>Query performance</td>
+<td>Slow queries</td>
+</tr>
+<tr>
+<td><strong>API</strong></td>
+<td>Custom logging</td>
+<td>Request/response</td>
+<td>Rate limit breach</td>
+</tr>
+<tr>
+<td><strong>Security</strong></td>
+<td>Security logger</td>
+<td>Threats, attacks</td>
+<td>Critical events</td>
+</tr>
+<tr>
+<td><strong>Availability</strong></td>
+<td>Uptime monitoring</td>
+<td>Uptime percentage</td>
+<td>Downtime</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Web Vitals</td>
+<td>LCP, FID, CLS</td>
+<td>Degradation</td>
+</tr>
+</tbody></table>
+<h3>8.2 Logging Architecture</h3>
+<pre><code class="language-javascript">// Structured Logging Format
+{
+    &quot;timestamp&quot;: &quot;2025-01-15T10:30:00.123Z&quot;,
+    &quot;level&quot;: &quot;ERROR&quot;,
+    &quot;service&quot;: &quot;auth-service&quot;,
+    &quot;traceId&quot;: &quot;abc123&quot;,
+    &quot;spanId&quot;: &quot;def456&quot;,
+    &quot;userId&quot;: &quot;user_789&quot;,
+    &quot;message&quot;: &quot;Authentication failed&quot;,
+    &quot;context&quot;: {
+        &quot;ip&quot;: &quot;192.168.1.1&quot;,
+        &quot;userAgent&quot;: &quot;Mozilla/5.0...&quot;,
+        &quot;endpoint&quot;: &quot;/api/auth/login&quot;,
+        &quot;errorCode&quot;: &quot;AUTH_INVALID_CREDENTIALS&quot;
+    },
+    &quot;stack&quot;: &quot;Error stack trace...&quot;
+}
+</code></pre>
+<h3>8.3 Key Performance Indicators (KPIs)</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Alert Threshold</th>
+<th>Measurement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Availability</strong></td>
+<td>99.9%</td>
+<td>&lt; 99.5%</td>
+<td>Per minute</td>
+</tr>
+<tr>
+<td><strong>Response Time (P95)</strong></td>
+<td>&lt; 500ms</td>
+<td>&gt; 1000ms</td>
+<td>Per request</td>
+</tr>
+<tr>
+<td><strong>Error Rate</strong></td>
+<td>&lt; 0.1%</td>
+<td>&gt; 1%</td>
+<td>Per hour</td>
+</tr>
+<tr>
+<td><strong>Database Query Time</strong></td>
+<td>&lt; 100ms</td>
+<td>&gt; 500ms</td>
+<td>Per query</td>
+</tr>
+<tr>
+<td><strong>Login Success Rate</strong></td>
+<td>&gt; 95%</td>
+<td>&lt; 90%</td>
+<td>Per hour</td>
+</tr>
+<tr>
+<td><strong>Certificate Generation</strong></td>
+<td>&lt; 5s</td>
+<td>&gt; 10s</td>
+<td>Per request</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>9. DISASTER RECOVERY</h2>
+<h3>9.1 Backup Strategy</h3>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Frequency</th>
+<th>Retention</th>
+<th>Location</th>
+<th>Recovery Time</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Database</strong></td>
+<td>Daily</td>
+<td>30 days</td>
+<td>EU-Central</td>
+<td>&lt; 1 hour</td>
+</tr>
+<tr>
+<td><strong>Code</strong></td>
+<td>On commit</td>
+<td>Indefinite</td>
+<td>GitHub</td>
+<td>&lt; 15 minutes</td>
+</tr>
+<tr>
+<td><strong>Configurations</strong></td>
+<td>Daily</td>
+<td>90 days</td>
+<td>Encrypted vault</td>
+<td>&lt; 30 minutes</td>
+</tr>
+<tr>
+<td><strong>Certificates</strong></td>
+<td>Real-time</td>
+<td>10 years</td>
+<td>Object storage</td>
+<td>&lt; 5 minutes</td>
+</tr>
+<tr>
+<td><strong>Audit Logs</strong></td>
+<td>Hourly</td>
+<td>1 year</td>
+<td>Cold storage</td>
+<td>&lt; 2 hours</td>
+</tr>
+</tbody></table>
+<h3>9.2 Recovery Procedures</h3>
+<pre><code class="language-yaml">RTO_RPO_Targets:
+  Critical_Systems:
+    RTO: 4 hours
+    RPO: 1 hour
+    Systems: [Authentication, Database, API]
+  
+  Important_Systems:
+    RTO: 8 hours
+    RPO: 4 hours
+    Systems: [Email, Reporting, Analytics]
+  
+  Standard_Systems:
+    RTO: 24 hours
+    RPO: 24 hours
+    Systems: [Documentation, Archives]
+
+Recovery_Priority:
+  1: Database restoration
+  2: Authentication service
+  3: API endpoints
+  4: Frontend application
+  5: Email service
+  6: Monitoring systems
+</code></pre>
+<hr>
+<h2>10. SCALABILITY ARCHITECTURE</h2>
+<h3>10.1 Scaling Strategy</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Strategy</th>
+<th>Trigger</th>
+<th>Limit</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>API Functions</strong></td>
+<td>Auto-scale</td>
+<td>CPU &gt; 70%</td>
+<td>1000 concurrent</td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>Vertical</td>
+<td>Storage &gt; 80%</td>
+<td>256GB RAM</td>
+</tr>
+<tr>
+<td><strong>CDN</strong></td>
+<td>Geographic</td>
+<td>Latency &gt; 100ms</td>
+<td>Global PoPs</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td>Elastic</td>
+<td>Usage based</td>
+<td>Unlimited</td>
+</tr>
+<tr>
+<td><strong>Email Queue</strong></td>
+<td>Horizontal</td>
+<td>Queue &gt; 1000</td>
+<td>10000/hour</td>
+</tr>
+</tbody></table>
+<h3>10.2 Performance Optimization</h3>
+<pre><code class="language-javascript">// Caching Strategy
+const cacheConfig = {
+    levels: {
+        L1: &quot;Memory cache (in-process)&quot;,      // 1ms access
+        L2: &quot;Redis cache (distributed)&quot;,      // 10ms access
+        L3: &quot;Database cache (persistent)&quot;,    // 100ms access
+        L4: &quot;CDN cache (edge)&quot;,              // 50ms access
+    },
+    ttl: {
+        staticAssets: &quot;1 year&quot;,
+        apiResponses: &quot;5 minutes&quot;,
+        userSessions: &quot;24 hours&quot;,
+        trainingContent: &quot;1 hour&quot;,
+        certificates: &quot;permanent&quot;
+    },
+    invalidation: {
+        strategy: &quot;event-driven&quot;,
+        triggers: [&quot;update&quot;, &quot;delete&quot;, &quot;expire&quot;]
+    }
+};
+</code></pre>
+<hr>
+<h2>11. COMPLIANCE TECHNICAL CONTROLS</h2>
+<h3>11.1 GDPR Technical Implementation</h3>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Implementation</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Data Portability</strong></td>
+<td>Export API</td>
+<td><code>/api/privacy/export</code></td>
+</tr>
+<tr>
+<td><strong>Right to Erasure</strong></td>
+<td>Deletion service</td>
+<td><code>/api/privacy/delete</code></td>
+</tr>
+<tr>
+<td><strong>Consent Management</strong></td>
+<td>Consent tracker</td>
+<td>Database table</td>
+</tr>
+<tr>
+<td><strong>Data Minimization</strong></td>
+<td>Field validation</td>
+<td>Input middleware</td>
+</tr>
+<tr>
+<td><strong>Privacy by Design</strong></td>
+<td>Default encryption</td>
+<td>All layers</td>
+</tr>
+<tr>
+<td><strong>Breach Notification</strong></td>
+<td>Automated alerts</td>
+<td>Security service</td>
+</tr>
+</tbody></table>
+<h3>11.2 Audit Trail Implementation</h3>
+<pre><code class="language-sql">-- Comprehensive Audit Table
+CREATE TABLE audit_logs (
+    id BIGSERIAL PRIMARY KEY,
+    event_type VARCHAR(100) NOT NULL,
+    user_id BIGINT,
+    entity_type VARCHAR(100),
+    entity_id BIGINT,
+    action VARCHAR(50),
+    old_values JSONB,
+    new_values JSONB,
+    ip_address INET,
+    user_agent TEXT,
+    session_id VARCHAR(255),
+    request_id VARCHAR(255),
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    
+    -- Indexes for performance
+    INDEX idx_audit_user (user_id),
+    INDEX idx_audit_entity (entity_type, entity_id),
+    INDEX idx_audit_created (created_at),
+    INDEX idx_audit_event (event_type)
+);
+
+-- Audit trigger function
+CREATE OR REPLACE FUNCTION audit_trigger()
+RETURNS TRIGGER AS $$
+BEGIN
+    INSERT INTO audit_logs (
+        event_type,
+        user_id,
+        entity_type,
+        entity_id,
+        action,
+        old_values,
+        new_values
+    ) VALUES (
+        TG_TABLE_NAME || &#39;_&#39; || TG_OP,
+        current_setting(&#39;app.user_id&#39;)::BIGINT,
+        TG_TABLE_NAME,
+        COALESCE(NEW.id, OLD.id),
+        TG_OP,
+        to_jsonb(OLD),
+        to_jsonb(NEW)
+    );
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+</code></pre>
+<hr>
+<h2>12. DEVELOPMENT GUIDELINES</h2>
+<h3>12.1 Code Standards</h3>
+<pre><code class="language-javascript">// Coding Standards Example
+/**
+ * Authenticate user with enhanced security
+ * @param {Object} credentials - User credentials
+ * @param {string} credentials.email - User email
+ * @param {string} credentials.password - User password
+ * @param {string} [credentials.mfaToken] - Optional MFA token
+ * @returns {Promise&lt;{success: boolean, data?: Object, error?: string}&gt;}
+ */
+async function authenticateUser(credentials) {
+    // Input validation
+    const validated = await validateInput(credentials);
+    
+    // Security checks
+    await checkRateLimit(validated.email);
+    await checkAccountLockout(validated.email);
+    
+    try {
+        // Authentication logic
+        const user = await verifyCredentials(validated);
+        
+        // MFA verification if required
+        if (user.mfaRequired &amp;&amp; !validated.mfaToken) {
+            return { success: false, error: &#39;MFA_REQUIRED&#39; };
+        }
+        
+        // Generate session
+        const token = await generateSecureToken(user);
+        
+        // Audit logging
+        await logSecurityEvent(&#39;AUTH_SUCCESS&#39;, user);
+        
+        return { success: true, data: { token, user } };
+        
+    } catch (error) {
+        // Error handling
+        await logSecurityEvent(&#39;AUTH_FAILURE&#39;, { email: validated.email });
+        throw new AuthenticationError(error.message);
+    }
+}
+</code></pre>
+<h3>12.2 Security Checklist</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Input validation on all endpoints</li>
+<li><input disabled="" type="checkbox"> Output encoding for XSS prevention</li>
+<li><input disabled="" type="checkbox"> SQL parameterization for injection prevention</li>
+<li><input disabled="" type="checkbox"> Authentication required for protected routes</li>
+<li><input disabled="" type="checkbox"> Authorization checks for data access</li>
+<li><input disabled="" type="checkbox"> Rate limiting implemented</li>
+<li><input disabled="" type="checkbox"> Sensitive data encrypted</li>
+<li><input disabled="" type="checkbox"> Errors handled gracefully</li>
+<li><input disabled="" type="checkbox"> Security headers configured</li>
+<li><input disabled="" type="checkbox"> Audit logging in place</li>
+<li><input disabled="" type="checkbox"> Dependencies up to date</li>
+<li><input disabled="" type="checkbox"> Security scanning passed</li>
+</ul>
+<hr>
+<h2>APPENDIX: QUICK REFERENCE</h2>
+<h3>API Endpoints Quick Reference</h3>
+<pre><code class="language-bash"># Authentication
+POST   /api/auth/login
+POST   /api/auth/logout
+GET    /api/auth/verify
+
+# Admin Operations
+GET    /api/admin/stats
+GET    /api/admin/audit-log
+PUT    /api/admin/settings
+
+# Crew Operations
+GET    /api/crew/profile
+GET    /api/crew/training
+POST   /api/crew/quiz/submit
+</code></pre>
+<h3>Environment Variables</h3>
+<pre><code class="language-bash"># Required
+DATABASE_URL=postgresql://...
+JWT_SECRET=...
+MAILERSEND_API_KEY=...
+
+# Optional
+MFA_ENABLED=true
+RATE_LIMIT_REQUESTS=100
+SESSION_DURATION=86400
+</code></pre>
+<h3>Common Commands</h3>
+<pre><code class="language-bash"># Development
+npm run dev           # Start development server
+npm run build        # Build for production
+npm test            # Run tests
+
+# Database
+npm run db:migrate   # Run migrations
+npm run db:seed     # Seed database
+npm run db:backup   # Create backup
+
+# Deployment
+vercel --prod       # Deploy to production
+vercel --preview    # Deploy to preview
+</code></pre>
+<hr>
+<p><em>This Technical Architecture Document is maintained by the Engineering Team and reflects the current system design. Last update: January 2025</em></p>
+
+    </div>
+    
+    <div class="document-footer">
+        <p><strong>Maritime Onboarding System - Compliance Documentation</strong></p>
+        <p>Generated on 9/17/2025 | Confidential - For authorized personnel only</p>
+        <p>Document Path: appendices/APPENDIX_C_TECHNICAL_ARCHITECTURE.md</p>
+    </div>
+</body>
+</html>

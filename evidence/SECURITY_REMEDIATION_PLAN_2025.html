@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Remediation Plan 2025 - Maritime Onboarding System Compliance</title>
+    <meta name="description" content="Maritime Onboarding System compliance documentation">
+    <meta name="keywords" content="maritime, compliance, NIS2, security, onboarding">
+    <meta name="author" content="Maritime Compliance Agent">
+    <meta name="created" content="2025-09-17">
+    <style>
+        /* Maritime Onboarding System - Compliance Documentation CSS */
+/* Professional styling for compliance reports and documentation */
+
+:root {
+    --primary-color: #1e3a8a;
+    --secondary-color: #1e40af;
+    --success-color: #059669;
+    --warning-color: #d97706;
+    --danger-color: #dc2626;
+    --text-color: #1f2937;
+    --bg-color: #ffffff;
+    --border-color: #e5e7eb;
+    --table-header-bg: #f8fafc;
+}
+
+/* Document Layout */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 20mm;
+    background: var(--bg-color);
+    font-size: 11pt;
+}
+
+/* Headings */
+h1 {
+    color: var(--primary-color);
+    font-size: 24pt;
+    font-weight: 700;
+    margin-bottom: 10mm;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 5mm;
+    page-break-after: avoid;
+}
+
+h2 {
+    color: var(--secondary-color);
+    font-size: 18pt;
+    font-weight: 600;
+    margin-top: 15mm;
+    margin-bottom: 5mm;
+    page-break-after: avoid;
+}
+
+h3 {
+    color: var(--text-color);
+    font-size: 14pt;
+    font-weight: 600;
+    margin-top: 8mm;
+    margin-bottom: 3mm;
+    page-break-after: avoid;
+}
+
+h4 {
+    color: var(--text-color);
+    font-size: 12pt;
+    font-weight: 600;
+    margin-top: 5mm;
+    margin-bottom: 2mm;
+}
+
+/* Paragraphs and Text */
+p {
+    margin-bottom: 3mm;
+    text-align: justify;
+    orphans: 2;
+    widows: 2;
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 5mm;
+    padding-left: 8mm;
+}
+
+li {
+    margin-bottom: 1mm;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 5mm 0;
+    page-break-inside: avoid;
+    font-size: 10pt;
+}
+
+th {
+    background-color: var(--table-header-bg);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 3mm;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+td {
+    padding: 2mm 3mm;
+    border: 1px solid var(--border-color);
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+/* Status Indicators */
+.status-compliant,
+.compliant {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.status-partial,
+.partial {
+    color: var(--warning-color);
+    font-weight: 600;
+}
+
+.status-non-compliant,
+.non-compliant {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+/* Badges and Icons */
+.badge {
+    display: inline-block;
+    padding: 1mm 2mm;
+    border-radius: 2mm;
+    font-size: 9pt;
+    font-weight: 600;
+    color: white;
+}
+
+.badge-success {
+    background-color: var(--success-color);
+}
+
+.badge-warning {
+    background-color: var(--warning-color);
+}
+
+.badge-danger {
+    background-color: var(--danger-color);
+}
+
+/* Code and Technical Content */
+code {
+    background-color: #f1f5f9;
+    padding: 1mm 2mm;
+    border-radius: 1mm;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+}
+
+pre {
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 2mm;
+    padding: 5mm;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+    line-height: 1.4;
+    page-break-inside: avoid;
+}
+
+/* Blockquotes and Callouts */
+blockquote {
+    border-left: 4px solid var(--primary-color);
+    margin: 5mm 0;
+    padding: 3mm 5mm;
+    background-color: #f8fafc;
+    font-style: italic;
+}
+
+/* Executive Summary Box */
+.executive-summary {
+    background-color: #f0f9ff;
+    border: 2px solid var(--primary-color);
+    border-radius: 3mm;
+    padding: 5mm;
+    margin: 5mm 0;
+    page-break-inside: avoid;
+}
+
+/* Compliance Score Box */
+.compliance-score {
+    background-color: #f0fdf4;
+    border: 2px solid var(--success-color);
+    border-radius: 3mm;
+    padding: 5mm;
+    margin: 5mm 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14pt;
+}
+
+/* Document Header */
+.document-header {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5mm;
+    margin-bottom: 10mm;
+}
+
+.document-title {
+    font-size: 20pt;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 2mm;
+}
+
+.document-subtitle {
+    font-size: 14pt;
+    color: var(--secondary-color);
+    margin-bottom: 2mm;
+}
+
+.document-meta {
+    font-size: 10pt;
+    color: #6b7280;
+    margin-bottom: 0;
+}
+
+/* Document Footer */
+.document-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 5mm;
+    margin-top: 10mm;
+    font-size: 9pt;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* Risk Assessment Colors */
+.risk-critical {
+    background-color: #fef2f2;
+    border-left: 4px solid var(--danger-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-high {
+    background-color: #fffbeb;
+    border-left: 4px solid var(--warning-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-medium {
+    background-color: #fefce8;
+    border-left: 4px solid #eab308;
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-low {
+    background-color: #f0fdf4;
+    border-left: 4px solid var(--success-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+/* Print Specific Styles */
+@media print {
+    body {
+        margin: 0;
+        padding: 15mm;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+    
+    table, figure, .compliance-score, .executive-summary {
+        page-break-inside: avoid;
+    }
+    
+    .page-break {
+        page-break-before: always;
+    }
+    
+    .no-print {
+        display: none;
+    }
+}
+
+/* NIS2 Specific Styling */
+.nis2-article {
+    border: 1px solid var(--border-color);
+    border-radius: 2mm;
+    margin: 3mm 0;
+    padding: 3mm;
+}
+
+.nis2-score {
+    display: inline-block;
+    padding: 1mm 3mm;
+    border-radius: 2mm;
+    font-weight: 600;
+    color: white;
+    min-width: 15mm;
+    text-align: center;
+}
+
+.score-excellent {
+    background-color: var(--success-color);
+}
+
+.score-good {
+    background-color: #16a34a;
+}
+
+.score-fair {
+    background-color: var(--warning-color);
+}
+
+.score-poor {
+    background-color: var(--danger-color);
+}
+
+/* Compliance Matrix Styling */
+.compliance-matrix {
+    font-size: 9pt;
+}
+
+.compliance-matrix th {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+
+.compliance-matrix .score-cell {
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Document Classification Banner */
+.classification-banner {
+    background-color: var(--danger-color);
+    color: white;
+    text-align: center;
+    padding: 2mm;
+    font-weight: 700;
+    font-size: 12pt;
+    margin: -20mm -20mm 10mm -20mm;
+}
+
+.classification-confidential {
+    background-color: #dc2626;
+}
+
+.classification-restricted {
+    background-color: #7c2d12;
+}
+
+/* Signature Boxes */
+.signature-box {
+    border: 1px solid var(--border-color);
+    padding: 5mm;
+    margin: 5mm 0;
+    min-height: 15mm;
+}
+
+.signature-line {
+    border-bottom: 1px solid var(--text-color);
+    margin-top: 10mm;
+    text-align: center;
+    padding-top: 2mm;
+}
+
+/* Responsive Design for Digital Viewing */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10mm;
+        max-width: 100%;
+    }
+    
+    table {
+        font-size: 9pt;
+    }
+    
+    .compliance-matrix {
+        font-size: 8pt;
+    }
+}
+        
+        /* Navigation Menu Styles */
+        .navigation-menu {
+            background-color: var(--primary-color);
+            padding: 10px 20px;
+            margin: -20mm -20mm 10mm -20mm;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navigation-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            margin: 0 5px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        .navigation-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Dropdown Menu */
+        .nav-dropdown {
+            display: inline-block;
+            position: relative;
+        }
+        .dropdown-trigger {
+            color: white;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            min-width: 160px;
+            z-index: 1000;
+            top: 100%;
+            right: 0;
+        }
+        .dropdown-content a {
+            color: var(--primary-color) !important;
+            display: block;
+            padding: 10px 15px;
+            margin: 0;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: var(--table-header-bg);
+        }
+        .nav-dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: var(--table-header-bg);
+            padding: 8px 15px;
+            margin: -10mm -20mm 10mm -20mm;
+            font-size: 10pt;
+            color: #6b7280;
+        }
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        @media print {
+            .navigation-menu, .breadcrumb {
+                display: none;
+            }
+        }
+        
+        /* Style for auto-linked document references */
+        .document-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-color);
+            transition: all 0.3s;
+        }
+        .document-content a:hover {
+            color: var(--secondary-color);
+            border-bottom: 1px solid var(--secondary-color);
+            background-color: rgba(30, 58, 138, 0.05);
+        }
+        .document-content a code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        /* Make table links more prominent */
+        td a {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navigation-menu">
+        <a href="../index.html">🏠 Home</a> |
+        <a href="../assessments/COMPLIANCE_VERIFICATION_REPORT.html">📊 Assessment</a> |
+        <a href="../nis2/NIS2_COMPLIANCE_REPORT_2025.html">📋 NIS2</a> |
+        <a href="../evidence/INTERNAL_PENETRATION_TEST_REPORT_2025.html">🔒 Security</a> |
+        <a href="../policies/BUSINESS_CONTINUITY_PLAN.html">📜 Policies</a> |
+        <div class="nav-dropdown">
+            <span class="dropdown-trigger">📁 Categories ▼</span>
+            <div class="dropdown-content">
+                <a href="../assessments/CLIENT_READY_ASSESSMENT_REPORT.html">Assessments</a>
+                <a href="../evidence/INTERNAL_PENETRATION_TEST_REPORT_2025.html">Evidence</a>
+                <a href="../nis2/NIS2_COMPLIANCE_MATRIX_2025.html">NIS2</a>
+                <a href="../policies/COMPLIANCE_RESPONSIBILITY_MATRIX.html">Policies</a>
+                <a href="../reports/SECURITY_VERIFICATION_COMPLIANCE_UPDATE_2025-09.html">Reports</a>
+                <a href="../appendices/APPENDIX_A_SECURITY_CONTROL_MATRIX.html">Appendices</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="breadcrumb">
+        <a href="../index.html">Home</a> ›
+        <span>Evidence</span> ›
+        <span>Security Remediation Plan 2025</span>
+    </div>
+    
+    
+    <div class="document-header">
+        <div class="document-title">Security Remediation Plan 2025</div>
+        <div class="document-subtitle">Maritime Onboarding System 2025</div>
+        <div class="document-meta">
+            Generated: 2025-09-17 | 
+            Source: evidence/SECURITY_REMEDIATION_PLAN_2025.md | 
+            Version: 1.0
+        </div>
+    </div>
+    
+    <div class="document-content">
+        <h1>Security Remediation Plan 2025</h1>
+<h2>Maritime Onboarding System - Post Penetration Test</h2>
+<p><strong>Date</strong>: September 17, 2025<br><strong>System</strong>: Maritime Onboarding System v2.0.1<br><strong>Based on</strong>: Internal Penetration Test Report 2025<br><strong>Prepared by</strong>: Security Assessment Team<br><strong>Approval Required</strong>: Security Officer + CTO  </p>
+<hr>
+<h2>Executive Summary</h2>
+<p>This remediation plan addresses the findings from the internal penetration test conducted on September 17, 2025. While the overall security posture is <strong>strong (<span class="compliance-score-inline">8.5/10</span>)</strong>, several items require immediate attention to achieve full compliance and maintain security excellence.</p>
+<p><strong>Overall Risk Level</strong>: 🟡 <strong>LOW-MEDIUM</strong><br><strong>Critical Issues</strong>: 0<br><strong>High Priority Issues</strong>: 2<br><strong>Medium Priority Issues</strong>: 0<br><strong>Low Priority Issues</strong>: 1  </p>
+<hr>
+<h2>1. IMMEDIATE ACTIONS (24 Hours)</h2>
+<h3>1.1 Fix axios Dependency Vulnerability</h3>
+<p><strong>Priority</strong>: 🔴 <strong>CRITICAL</strong><br><strong>CVSS</strong>: 7.5 (High)<br><strong>Timeline</strong>: 24 hours<br><strong>Assignee</strong>: Development Team  </p>
+<p><strong>Issue</strong>: axios library vulnerable to DoS attack through lack of data size check</p>
+<p><strong>Current State</strong>:</p>
+<pre><code class="language-bash">axios@1.11.0 - Vulnerable
+Required: axios@1.12.0+
+</code></pre>
+<p><strong>Action Plan</strong>:</p>
+<pre><code class="language-bash"># Step 1: Update axios
+npm install axios@latest
+
+# Step 2: Verify update
+npm audit
+
+# Step 3: Test application functionality
+npm test
+
+# Step 4: Deploy to staging for verification
+vercel --env preview
+
+# Step 5: Deploy to production
+vercel --prod
+</code></pre>
+<p><strong>Verification Criteria</strong>:</p>
+<ul>
+<li><input disabled="" type="checkbox"> axios updated to version 1.12.0+</li>
+<li><input disabled="" type="checkbox"> npm audit shows 0 high severity vulnerabilities</li>
+<li><input disabled="" type="checkbox"> All tests pass</li>
+<li><input disabled="" type="checkbox"> Application functionality verified in staging</li>
+<li><input disabled="" type="checkbox"> Production deployment successful</li>
+</ul>
+<p><strong>Risk if not fixed</strong>: Potential denial of service attacks through oversized HTTP responses</p>
+<hr>
+<h2>2. SHORT-TERM ACTIONS (72 Hours)</h2>
+<h3>2.1 Resolve Node.js Version Mismatch</h3>
+<p><strong>Priority</strong>: 🟠 <strong>HIGH</strong><br><strong>CVSS</strong>: 6.5 (Medium-High)<br><strong>Timeline</strong>: 72 hours<br><strong>Assignee</strong>: DevOps Team  </p>
+<p><strong>Issue</strong>: Package.json requires Node 22.x but system runs Node 20.19.4</p>
+<p><strong>Current State</strong>:</p>
+<pre><code>Required: Node 22.x
+Current: Node 20.19.4
+</code></pre>
+<p><strong>Action Plan - Option A (Recommended): Update Node.js</strong>:</p>
+<pre><code class="language-bash"># Step 1: Install Node 22.x
+nvm install 22
+nvm use 22
+
+# Step 2: Verify installation
+node --version
+
+# Step 3: Update package-lock.json
+rm package-lock.json
+npm install
+
+# Step 4: Run comprehensive tests
+npm test
+npm run test:integration
+
+# Step 5: Update deployment environments
+# Update Vercel/production environment to Node 22.x
+</code></pre>
+<p><strong>Action Plan - Option B (Alternative): Update package.json</strong>:</p>
+<pre><code class="language-bash"># If Node 22.x causes compatibility issues
+# Update package.json to allow Node 20.x
+&quot;engines&quot;: {
+  &quot;node&quot;: &quot;&gt;=20.0.0&quot;
+}
+</code></pre>
+<p><strong>Verification Criteria</strong>:</p>
+<ul>
+<li><input disabled="" type="checkbox"> Node version matches package.json requirements</li>
+<li><input disabled="" type="checkbox"> No engine compatibility warnings</li>
+<li><input disabled="" type="checkbox"> All dependencies install successfully</li>
+<li><input disabled="" type="checkbox"> Test suite passes completely</li>
+<li><input disabled="" type="checkbox"> Production environment updated</li>
+</ul>
+<p><strong>Risk if not fixed</strong>: Potential compatibility issues, security gaps, unpredictable behavior</p>
+<hr>
+<h2>3. MEDIUM-TERM ACTIONS (2 Weeks)</h2>
+<h3>3.1 Enhance Error Message Security</h3>
+<p><strong>Priority</strong>: 🟡 <strong>MEDIUM</strong><br><strong>CVSS</strong>: 3.1 (Low)<br><strong>Timeline</strong>: 2 weeks<br><strong>Assignee</strong>: Development Team  </p>
+<p><strong>Issue</strong>: Some error messages could reveal internal system information</p>
+<p><strong>Action Plan</strong>:</p>
+<pre><code class="language-javascript">// Step 1: Implement generic error responses for production
+// lib/errorHandler.js
+const getGenericErrorMessage = (error, environment) =&gt; {
+  if (environment === &#39;production&#39;) {
+    return &#39;An error occurred. Please try again later.&#39;;
+  }
+  return error.message; // Keep detailed messages for development
+};
+
+// Step 2: Update API error responses
+// Replace specific error messages with generic ones in production
+
+// Step 3: Implement error code system
+// Return error codes instead of detailed messages
+</code></pre>
+<p><strong>Verification Criteria</strong>:</p>
+<ul>
+<li><input disabled="" type="checkbox"> Production error messages are generic</li>
+<li><input disabled="" type="checkbox"> Development error messages remain detailed</li>
+<li><input disabled="" type="checkbox"> Error code system implemented</li>
+<li><input disabled="" type="checkbox"> Security scan confirms no information leakage</li>
+</ul>
+<hr>
+<h2>4. CONTINUOUS IMPROVEMENT ACTIONS (Ongoing)</h2>
+<h3>4.1 Automated Vulnerability Monitoring</h3>
+<p><strong>Priority</strong>: 🔵 <strong>ENHANCEMENT</strong><br><strong>Timeline</strong>: Ongoing<br><strong>Assignee</strong>: DevOps Team  </p>
+<p><strong>Implementation</strong>:</p>
+<pre><code class="language-yaml"># .github/workflows/security-scan.yml
+name: Security Scan
+on:
+  schedule:
+    - cron: &#39;0 2 * * *&#39;  # Daily at 2 AM
+  push:
+    branches: [main]
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run npm audit
+        run: npm audit
+      - name: Security scan
+        run: npm run security:scan
+</code></pre>
+<h3>4.2 Dependency Update Automation</h3>
+<p><strong>Priority</strong>: 🔵 <strong>ENHANCEMENT</strong><br><strong>Timeline</strong>: Ongoing  </p>
+<p><strong>Implementation</strong>:</p>
+<pre><code class="language-yaml"># .github/dependabot.yml
+version: 2
+updates:
+  - package-ecosystem: &quot;npm&quot;
+    directory: &quot;/&quot;
+    schedule:
+      interval: &quot;weekly&quot;
+    open-pull-requests-limit: 5
+</code></pre>
+<hr>
+<h2>5. COMPLIANCE IMPROVEMENTS</h2>
+<h3>5.1 External Penetration Test Planning</h3>
+<p><strong>Priority</strong>: 🟠 <strong>HIGH</strong><br><strong>Timeline</strong>: Q4 2025<br><strong>Assignee</strong>: Security Officer  </p>
+<p><strong>Action Plan</strong>:</p>
+<ol>
+<li><p><strong>Vendor Selection</strong> (October 2025)</p>
+<ul>
+<li>Research certified penetration testing companies</li>
+<li>Request proposals from 3-5 vendors</li>
+<li>Evaluate certifications (OSCP, CEH, CISSP)</li>
+<li>Check maritime industry experience</li>
+</ul>
+</li>
+<li><p><strong>Test Scheduling</strong> (November 2025)</p>
+<ul>
+<li>Schedule 5-day comprehensive test</li>
+<li>Coordinate with development team</li>
+<li>Prepare test environment</li>
+<li>Define scope and objectives</li>
+</ul>
+</li>
+<li><p><strong>Test Execution</strong> (December 2025)</p>
+<ul>
+<li>Monitor test progress</li>
+<li>Provide necessary access</li>
+<li>Document findings</li>
+<li>Validate remediation</li>
+</ul>
+</li>
+</ol>
+<p><strong>Budget</strong>: €10,000-15,000<br><strong>Expected Outcome</strong>: Third-party validation of security posture</p>
+<h3>5.2 ISO 27001 Certification Initiative</h3>
+<p><strong>Priority</strong>: 🔴 <strong>CRITICAL</strong><br><strong>Timeline</strong>: 6-12 months<br><strong>Assignee</strong>: Compliance Team  </p>
+<p><strong>Phases</strong>:</p>
+<ol>
+<li><strong>Gap Analysis</strong> (Month 1)</li>
+<li><strong>ISMS Implementation</strong> (Months 2-6)</li>
+<li><strong>Internal Audit</strong> (Month 7)</li>
+<li><strong>External Certification Audit</strong> (Months 8-9)</li>
+<li><strong>Certification Achievement</strong> (Month 10)</li>
+</ol>
+<p><strong>Budget</strong>: €20,000-30,000<br><strong>Expected Outcome</strong>: ISO 27001 certification</p>
+<hr>
+<h2>6. TESTING &amp; VALIDATION</h2>
+<h3>6.1 Post-Remediation Testing</h3>
+<p><strong>Timeline</strong>: After each fix  </p>
+<p><strong>Test Categories</strong>:</p>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>Functional Testing</strong>: Verify application works correctly</li>
+<li><input disabled="" type="checkbox"> <strong>Security Testing</strong>: Confirm vulnerabilities are fixed</li>
+<li><input disabled="" type="checkbox"> <strong>Performance Testing</strong>: Ensure no performance degradation</li>
+<li><input disabled="" type="checkbox"> <strong>Integration Testing</strong>: Verify all components work together</li>
+<li><input disabled="" type="checkbox"> <strong>User Acceptance Testing</strong>: Confirm user experience maintained</li>
+</ul>
+<h3>6.2 Continuous Monitoring</h3>
+<p><strong>Tools</strong>:</p>
+<ul>
+<li>npm audit (daily)</li>
+<li>OWASP ZAP scans (weekly)</li>
+<li>Custom security checks (continuous)</li>
+<li>Third-party monitoring services</li>
+</ul>
+<hr>
+<h2>7. COMMUNICATION PLAN</h2>
+<h3>7.1 Stakeholder Updates</h3>
+<p><strong>Frequency</strong>: Weekly during remediation</p>
+<p><strong>Stakeholders</strong>:</p>
+<ul>
+<li>Security Officer</li>
+<li>CTO</li>
+<li>Development Team</li>
+<li>DevOps Team</li>
+<li>Compliance Manager</li>
+</ul>
+<h3>7.2 Progress Reporting</h3>
+<p><strong>Format</strong>: </p>
+<pre><code>Weekly Status Report:
+- Items completed
+- Items in progress  
+- Blockers/issues
+- Next week priorities
+- Risk assessment updates
+</code></pre>
+<hr>
+<h2>8. SUCCESS METRICS</h2>
+<h3>8.1 Security Metrics</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 0 critical vulnerabilities</li>
+<li><input disabled="" type="checkbox"> 0 high severity vulnerabilities</li>
+<li><input disabled="" type="checkbox"> npm audit clean report</li>
+<li><input disabled="" type="checkbox"> Security score improved to 9.0+</li>
+<li><input disabled="" type="checkbox"> OWASP compliance improved to 9.0+</li>
+</ul>
+<h3>8.2 Compliance Metrics</h3>
+<ul>
+<li><input disabled="" type="checkbox"> NIS2 compliance maintained</li>
+<li><input disabled="" type="checkbox"> External penetration test scheduled</li>
+<li><input disabled="" type="checkbox"> ISO 27001 gap analysis completed</li>
+<li><input disabled="" type="checkbox"> Continuous monitoring implemented</li>
+</ul>
+<h3>8.3 Operational Metrics</h3>
+<ul>
+<li><input disabled="" type="checkbox"> No service disruptions during remediation</li>
+<li><input disabled="" type="checkbox"> Application performance maintained</li>
+<li><input disabled="" type="checkbox"> User experience not impacted</li>
+<li><input disabled="" type="checkbox"> Development velocity maintained</li>
+</ul>
+<hr>
+<h2>9. RISK MANAGEMENT</h2>
+<h3>9.1 Residual Risks</h3>
+<p>After completion of this remediation plan, the following residual risks remain:</p>
+<ol>
+<li><p><strong>Third-party Dependencies</strong>: Ongoing risk of new vulnerabilities</p>
+<ul>
+<li><strong>Mitigation</strong>: Automated monitoring and updates</li>
+</ul>
+</li>
+<li><p><strong>Zero-day Vulnerabilities</strong>: Unknown security issues</p>
+<ul>
+<li><strong>Mitigation</strong>: Security monitoring and incident response</li>
+</ul>
+</li>
+<li><p><strong>Human Error</strong>: Configuration mistakes or social engineering</p>
+<ul>
+<li><strong>Mitigation</strong>: Security training and access controls</li>
+</ul>
+</li>
+</ol>
+<h3>9.2 Risk Monitoring</h3>
+<ul>
+<li>Daily vulnerability scans</li>
+<li>Weekly security assessments</li>
+<li>Monthly risk reviews</li>
+<li>Quarterly external assessments</li>
+</ul>
+<hr>
+<h2>10. BUDGET AND RESOURCES</h2>
+<h3>10.1 Internal Resources</h3>
+<ul>
+<li>Development Team: 40 hours</li>
+<li>DevOps Team: 24 hours</li>
+<li>Security Officer: 16 hours</li>
+<li>Testing Team: 32 hours</li>
+</ul>
+<p><strong>Total Internal Cost</strong>: €8,000-12,000</p>
+<h3>10.2 External Costs</h3>
+<ul>
+<li>External Penetration Test: €10,000-15,000</li>
+<li>ISO 27001 Certification: €20,000-30,000</li>
+<li>Security Tools/Services: €5,000-8,000</li>
+</ul>
+<p><strong>Total External Cost</strong>: €35,000-53,000
+<strong>Total Project Cost</strong>: €43,000-65,000</p>
+<hr>
+<h2>11. TIMELINE SUMMARY</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Duration</th>
+<th>Key Activities</th>
+<th>Completion Criteria</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Immediate</strong></td>
+<td>24 hours</td>
+<td>Fix axios vulnerability</td>
+<td>npm audit clean</td>
+</tr>
+<tr>
+<td><strong>Short-term</strong></td>
+<td>72 hours</td>
+<td>Node.js version fix</td>
+<td>No engine warnings</td>
+</tr>
+<tr>
+<td><strong>Medium-term</strong></td>
+<td>2 weeks</td>
+<td>Error message security</td>
+<td>Generic error responses</td>
+</tr>
+<tr>
+<td><strong>Ongoing</strong></td>
+<td>Continuous</td>
+<td>Monitoring &amp; automation</td>
+<td>Automated scans active</td>
+</tr>
+<tr>
+<td><strong>Q4 2025</strong></td>
+<td>3 months</td>
+<td>External pen test</td>
+<td>Third-party validation</td>
+</tr>
+<tr>
+<td><strong>2026</strong></td>
+<td>6-12 months</td>
+<td>ISO 27001 certification</td>
+<td>Certificate achieved</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>12. APPROVAL AND SIGN-OFF</h2>
+<h3>Required Approvals</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Security Officer</li>
+<li><input disabled="" type="checkbox"> CTO  </li>
+<li><input disabled="" type="checkbox"> Compliance Manager</li>
+<li><input disabled="" type="checkbox"> Project Manager</li>
+</ul>
+<h3>Implementation Authorization</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Budget approved</li>
+<li><input disabled="" type="checkbox"> Resources allocated</li>
+<li><input disabled="" type="checkbox"> Timeline confirmed</li>
+<li><input disabled="" type="checkbox"> Communication plan activated</li>
+</ul>
+<hr>
+<p><strong>Document Status</strong>: Draft<br><strong>Next Review</strong>: September 24, 2025<br><strong>Owner</strong>: Security Officer<br><strong>Distribution</strong>: Security Team, Management, Development Team</p>
+<hr>
+<p><em>This remediation plan ensures the Maritime Onboarding System maintains its strong security posture while addressing identified vulnerabilities and improving overall compliance.</em></p>
+
+    </div>
+    
+    <div class="document-footer">
+        <p><strong>Maritime Onboarding System - Compliance Documentation</strong></p>
+        <p>Generated on 9/17/2025 | Confidential - For authorized personnel only</p>
+        <p>Document Path: evidence/SECURITY_REMEDIATION_PLAN_2025.md</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPENDIX D: DATA PROCESSING AGREEMENT (DPA) - Maritime Onboarding System Compliance</title>
+    <meta name="description" content="Maritime Onboarding System compliance documentation">
+    <meta name="keywords" content="maritime, compliance, NIS2, security, onboarding">
+    <meta name="author" content="Maritime Compliance Agent">
+    <meta name="created" content="2025-09-17">
+    <style>
+        /* Maritime Onboarding System - Compliance Documentation CSS */
+/* Professional styling for compliance reports and documentation */
+
+:root {
+    --primary-color: #1e3a8a;
+    --secondary-color: #1e40af;
+    --success-color: #059669;
+    --warning-color: #d97706;
+    --danger-color: #dc2626;
+    --text-color: #1f2937;
+    --bg-color: #ffffff;
+    --border-color: #e5e7eb;
+    --table-header-bg: #f8fafc;
+}
+
+/* Document Layout */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 20mm;
+    background: var(--bg-color);
+    font-size: 11pt;
+}
+
+/* Headings */
+h1 {
+    color: var(--primary-color);
+    font-size: 24pt;
+    font-weight: 700;
+    margin-bottom: 10mm;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 5mm;
+    page-break-after: avoid;
+}
+
+h2 {
+    color: var(--secondary-color);
+    font-size: 18pt;
+    font-weight: 600;
+    margin-top: 15mm;
+    margin-bottom: 5mm;
+    page-break-after: avoid;
+}
+
+h3 {
+    color: var(--text-color);
+    font-size: 14pt;
+    font-weight: 600;
+    margin-top: 8mm;
+    margin-bottom: 3mm;
+    page-break-after: avoid;
+}
+
+h4 {
+    color: var(--text-color);
+    font-size: 12pt;
+    font-weight: 600;
+    margin-top: 5mm;
+    margin-bottom: 2mm;
+}
+
+/* Paragraphs and Text */
+p {
+    margin-bottom: 3mm;
+    text-align: justify;
+    orphans: 2;
+    widows: 2;
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 5mm;
+    padding-left: 8mm;
+}
+
+li {
+    margin-bottom: 1mm;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 5mm 0;
+    page-break-inside: avoid;
+    font-size: 10pt;
+}
+
+th {
+    background-color: var(--table-header-bg);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 3mm;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+td {
+    padding: 2mm 3mm;
+    border: 1px solid var(--border-color);
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+/* Status Indicators */
+.status-compliant,
+.compliant {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.status-partial,
+.partial {
+    color: var(--warning-color);
+    font-weight: 600;
+}
+
+.status-non-compliant,
+.non-compliant {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+/* Badges and Icons */
+.badge {
+    display: inline-block;
+    padding: 1mm 2mm;
+    border-radius: 2mm;
+    font-size: 9pt;
+    font-weight: 600;
+    color: white;
+}
+
+.badge-success {
+    background-color: var(--success-color);
+}
+
+.badge-warning {
+    background-color: var(--warning-color);
+}
+
+.badge-danger {
+    background-color: var(--danger-color);
+}
+
+/* Code and Technical Content */
+code {
+    background-color: #f1f5f9;
+    padding: 1mm 2mm;
+    border-radius: 1mm;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+}
+
+pre {
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 2mm;
+    padding: 5mm;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+    line-height: 1.4;
+    page-break-inside: avoid;
+}
+
+/* Blockquotes and Callouts */
+blockquote {
+    border-left: 4px solid var(--primary-color);
+    margin: 5mm 0;
+    padding: 3mm 5mm;
+    background-color: #f8fafc;
+    font-style: italic;
+}
+
+/* Executive Summary Box */
+.executive-summary {
+    background-color: #f0f9ff;
+    border: 2px solid var(--primary-color);
+    border-radius: 3mm;
+    padding: 5mm;
+    margin: 5mm 0;
+    page-break-inside: avoid;
+}
+
+/* Compliance Score Box */
+.compliance-score {
+    background-color: #f0fdf4;
+    border: 2px solid var(--success-color);
+    border-radius: 3mm;
+    padding: 5mm;
+    margin: 5mm 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14pt;
+}
+
+/* Document Header */
+.document-header {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5mm;
+    margin-bottom: 10mm;
+}
+
+.document-title {
+    font-size: 20pt;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 2mm;
+}
+
+.document-subtitle {
+    font-size: 14pt;
+    color: var(--secondary-color);
+    margin-bottom: 2mm;
+}
+
+.document-meta {
+    font-size: 10pt;
+    color: #6b7280;
+    margin-bottom: 0;
+}
+
+/* Document Footer */
+.document-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 5mm;
+    margin-top: 10mm;
+    font-size: 9pt;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* Risk Assessment Colors */
+.risk-critical {
+    background-color: #fef2f2;
+    border-left: 4px solid var(--danger-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-high {
+    background-color: #fffbeb;
+    border-left: 4px solid var(--warning-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-medium {
+    background-color: #fefce8;
+    border-left: 4px solid #eab308;
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-low {
+    background-color: #f0fdf4;
+    border-left: 4px solid var(--success-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+/* Print Specific Styles */
+@media print {
+    body {
+        margin: 0;
+        padding: 15mm;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+    
+    table, figure, .compliance-score, .executive-summary {
+        page-break-inside: avoid;
+    }
+    
+    .page-break {
+        page-break-before: always;
+    }
+    
+    .no-print {
+        display: none;
+    }
+}
+
+/* NIS2 Specific Styling */
+.nis2-article {
+    border: 1px solid var(--border-color);
+    border-radius: 2mm;
+    margin: 3mm 0;
+    padding: 3mm;
+}
+
+.nis2-score {
+    display: inline-block;
+    padding: 1mm 3mm;
+    border-radius: 2mm;
+    font-weight: 600;
+    color: white;
+    min-width: 15mm;
+    text-align: center;
+}
+
+.score-excellent {
+    background-color: var(--success-color);
+}
+
+.score-good {
+    background-color: #16a34a;
+}
+
+.score-fair {
+    background-color: var(--warning-color);
+}
+
+.score-poor {
+    background-color: var(--danger-color);
+}
+
+/* Compliance Matrix Styling */
+.compliance-matrix {
+    font-size: 9pt;
+}
+
+.compliance-matrix th {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+
+.compliance-matrix .score-cell {
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Document Classification Banner */
+.classification-banner {
+    background-color: var(--danger-color);
+    color: white;
+    text-align: center;
+    padding: 2mm;
+    font-weight: 700;
+    font-size: 12pt;
+    margin: -20mm -20mm 10mm -20mm;
+}
+
+.classification-confidential {
+    background-color: #dc2626;
+}
+
+.classification-restricted {
+    background-color: #7c2d12;
+}
+
+/* Signature Boxes */
+.signature-box {
+    border: 1px solid var(--border-color);
+    padding: 5mm;
+    margin: 5mm 0;
+    min-height: 15mm;
+}
+
+.signature-line {
+    border-bottom: 1px solid var(--text-color);
+    margin-top: 10mm;
+    text-align: center;
+    padding-top: 2mm;
+}
+
+/* Responsive Design for Digital Viewing */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10mm;
+        max-width: 100%;
+    }
+    
+    table {
+        font-size: 9pt;
+    }
+    
+    .compliance-matrix {
+        font-size: 8pt;
+    }
+}
+        
+        /* Navigation Menu Styles */
+        .navigation-menu {
+            background-color: var(--primary-color);
+            padding: 10px 20px;
+            margin: -20mm -20mm 10mm -20mm;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navigation-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            margin: 0 5px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        .navigation-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Dropdown Menu */
+        .nav-dropdown {
+            display: inline-block;
+            position: relative;
+        }
+        .dropdown-trigger {
+            color: white;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            min-width: 160px;
+            z-index: 1000;
+            top: 100%;
+            right: 0;
+        }
+        .dropdown-content a {
+            color: var(--primary-color) !important;
+            display: block;
+            padding: 10px 15px;
+            margin: 0;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: var(--table-header-bg);
+        }
+        .nav-dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: var(--table-header-bg);
+            padding: 8px 15px;
+            margin: -10mm -20mm 10mm -20mm;
+            font-size: 10pt;
+            color: #6b7280;
+        }
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        @media print {
+            .navigation-menu, .breadcrumb {
+                display: none;
+            }
+        }
+        
+        /* Style for auto-linked document references */
+        .document-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-color);
+            transition: all 0.3s;
+        }
+        .document-content a:hover {
+            color: var(--secondary-color);
+            border-bottom: 1px solid var(--secondary-color);
+            background-color: rgba(30, 58, 138, 0.05);
+        }
+        .document-content a code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        /* Make table links more prominent */
+        td a {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navigation-menu">
+        <a href="../index.html">🏠 Home</a> |
+        <a href="../assessments/COMPLIANCE_VERIFICATION_REPORT.html">📊 Assessment</a> |
+        <a href="../nis2/NIS2_COMPLIANCE_REPORT_2025.html">📋 NIS2</a> |
+        <a href="../evidence/INTERNAL_PENETRATION_TEST_REPORT_2025.html">🔒 Security</a> |
+        <a href="../policies/BUSINESS_CONTINUITY_PLAN.html">📜 Policies</a> |
+        <div class="nav-dropdown">
+            <span class="dropdown-trigger">📁 Categories ▼</span>
+            <div class="dropdown-content">
+                <a href="../assessments/CLIENT_READY_ASSESSMENT_REPORT.html">Assessments</a>
+                <a href="../evidence/INTERNAL_PENETRATION_TEST_REPORT_2025.html">Evidence</a>
+                <a href="../nis2/NIS2_COMPLIANCE_MATRIX_2025.html">NIS2</a>
+                <a href="../policies/COMPLIANCE_RESPONSIBILITY_MATRIX.html">Policies</a>
+                <a href="../reports/SECURITY_VERIFICATION_COMPLIANCE_UPDATE_2025-09.html">Reports</a>
+                <a href="../appendices/APPENDIX_A_SECURITY_CONTROL_MATRIX.html">Appendices</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="breadcrumb">
+        <a href="../index.html">Home</a> ›
+        <span>Appendices</span> ›
+        <span>APPENDIX D: DATA PROCESSING AGREEMENT (DPA)</span>
+    </div>
+    <div class="classification-banner classification-confidential">CONFIDENTIAL</div>
+    
+    <div class="document-header">
+        <div class="document-title">APPENDIX D: DATA PROCESSING AGREEMENT (DPA)</div>
+        <div class="document-subtitle">Maritime Onboarding System 2025</div>
+        <div class="document-meta">
+            Generated: 2025-09-17 | 
+            Source: appendices/APPENDIX_D_DATA_PROCESSING_AGREEMENT.md | 
+            Version: 1.0
+        </div>
+    </div>
+    
+    <div class="document-content">
+        <h1>APPENDIX D: DATA PROCESSING AGREEMENT (DPA)</h1>
+<h2>Inland Shipping Onboarding System 2025</h2>
+<h3>Standard Template for Burando Atlantic Group</h3>
+<hr>
+<h2>DATA PROCESSING AGREEMENT</h2>
+<p>This Data Processing Agreement (&quot;<strong>DPA</strong>&quot;) forms part of the Service Agreement (&quot;<strong>Principal Agreement</strong>&quot;) between:</p>
+<p><strong>Data Controller:</strong><br>Burando Atlantic Group<br>[Address]<br>[Registration Number]<br>(&quot;<strong>Controller</strong>&quot; or &quot;<strong>Customer</strong>&quot;)</p>
+<p><strong>Data Processor:</strong><br>Inland Shipping Onboarding System Provider<br>[Address]<br>[Registration Number]<br>(&quot;<strong>Processor</strong>&quot; or &quot;<strong>Service Provider</strong>&quot;)</p>
+<p>Each a &quot;<strong>Party</strong>&quot; and collectively the &quot;<strong>Parties</strong>&quot;</p>
+<p><strong>Effective Date:</strong> [Date]</p>
+<hr>
+<h2>RECITALS</h2>
+<p>WHEREAS:</p>
+<p>A. The Controller has engaged the Processor to provide the Inland Shipping Onboarding System (&quot;<strong>Services</strong>&quot;) as described in the Principal Agreement for the Dutch inland shipping (binnenvaart) sector;</p>
+<p>B. The provision of Services involves the Processing of Personal Data on behalf of the Controller;</p>
+<p>C. The Parties wish to ensure that such Processing complies with Regulation (EU) 2016/679 (General Data Protection Regulation, &quot;<strong>GDPR</strong>&quot;), the Dutch Implementation Act (Uitvoeringswet AVG, &quot;<strong>UAVG</strong>&quot;), and other applicable data protection laws;</p>
+<p>D. This DPA sets out the terms governing the Processing of Personal Data by the Processor on behalf of the Controller.</p>
+<p>NOW THEREFORE, the Parties agree as follows:</p>
+<hr>
+<h2>1. DEFINITIONS</h2>
+<p>In this DPA, the following terms shall have the meanings set out below:</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>&quot;Applicable Laws&quot;</strong></td>
+<td>All laws and regulations applicable to the Processing of Personal Data under this DPA, including GDPR and UAVG</td>
+</tr>
+<tr>
+<td><strong>&quot;Data Subject&quot;</strong></td>
+<td>An identified or identifiable natural person whose Personal Data is Processed</td>
+</tr>
+<tr>
+<td><strong>&quot;Personal Data&quot;</strong></td>
+<td>Any information relating to a Data Subject that is Processed by the Processor on behalf of the Controller</td>
+</tr>
+<tr>
+<td><strong>&quot;Personal Data Breach&quot;</strong></td>
+<td>A breach of security leading to accidental or unlawful destruction, loss, alteration, unauthorized disclosure of, or access to Personal Data</td>
+</tr>
+<tr>
+<td><strong>&quot;Processing&quot;</strong></td>
+<td>Any operation performed on Personal Data, including collection, storage, use, disclosure, and deletion</td>
+</tr>
+<tr>
+<td><strong>&quot;Sub-processor&quot;</strong></td>
+<td>Any third party engaged by the Processor to Process Personal Data on behalf of the Controller</td>
+</tr>
+<tr>
+<td><strong>&quot;Supervisory Authority&quot;</strong></td>
+<td>The Dutch Data Protection Authority (Autoriteit Persoonsgegevens) or other competent authority</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>2. PROCESSING OF PERSONAL DATA</h2>
+<h3>2.1 Processor&#39;s Obligations</h3>
+<p>The Processor shall:</p>
+<p>a) Process Personal Data only on documented instructions from the Controller, as set out in <strong>Schedule 1</strong>;</p>
+<p>b) Ensure that persons authorized to Process Personal Data have committed themselves to confidentiality or are under an appropriate statutory obligation of confidentiality;</p>
+<p>c) Implement appropriate technical and organizational measures to ensure a level of security appropriate to the risk, as described in <strong>Schedule 2</strong>;</p>
+<p>d) Not engage another processor without prior specific or general written authorization from the Controller;</p>
+<p>e) Assist the Controller in ensuring compliance with obligations pursuant to Articles 32-36 GDPR;</p>
+<p>f) At the Controller&#39;s choice, delete or return all Personal Data after the end of the provision of Services;</p>
+<p>g) Make available to the Controller all information necessary to demonstrate compliance with this DPA;</p>
+<p>h) Allow for and contribute to audits conducted by the Controller or an auditor mandated by the Controller.</p>
+<h3>2.2 Controller&#39;s Obligations</h3>
+<p>The Controller shall:</p>
+<p>a) Ensure that it has all necessary lawful bases for the Processing of Personal Data;</p>
+<p>b) Provide clear and lawful Processing instructions to the Processor;</p>
+<p>c) Ensure the accuracy of Personal Data provided to the Processor;</p>
+<p>d) Comply with all Applicable Laws relating to its Processing of Personal Data;</p>
+<p>e) Respond promptly to any Processor requests for clarification regarding Processing instructions.</p>
+<hr>
+<h2>3. DETAILS OF PROCESSING</h2>
+<h3>3.1 Subject Matter and Duration</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Subject Matter</strong></td>
+<td>Provision of inland shipping crew onboarding and training management system</td>
+</tr>
+<tr>
+<td><strong>Duration</strong></td>
+<td>For the term of the Principal Agreement plus any retention period</td>
+</tr>
+<tr>
+<td><strong>Nature of Processing</strong></td>
+<td>Collection, storage, organization, structuring, adaptation, retrieval, consultation, use, disclosure, restriction, erasure</td>
+</tr>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Inland shipping crew training, dienstboekje management, compliance tracking, certification management</td>
+</tr>
+</tbody></table>
+<h3>3.2 Categories of Data Subjects</h3>
+<ul>
+<li>Crew members (binnenvaart)</li>
+<li>Vessel operators</li>
+<li>Company administrators</li>
+<li>Training supervisors</li>
+<li>Other inland shipping personnel</li>
+</ul>
+<h3>3.3 Categories of Personal Data</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Data Types</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Identity Data</strong></td>
+<td>Name, date of birth, nationality, passport/ID number</td>
+</tr>
+<tr>
+<td><strong>Contact Data</strong></td>
+<td>Email address, telephone number, address</td>
+</tr>
+<tr>
+<td><strong>Professional Data</strong></td>
+<td>Job title, employment history, qualifications, dienstboekje records, certificates</td>
+</tr>
+<tr>
+<td><strong>Training Data</strong></td>
+<td>Course progress, quiz results, completion dates</td>
+</tr>
+<tr>
+<td><strong>Technical Data</strong></td>
+<td>IP address, login data, browser type, access logs</td>
+</tr>
+<tr>
+<td><strong>Compliance Data</strong></td>
+<td>Medical certificates, Rijnvaartverklaring, vaarbewijs</td>
+</tr>
+</tbody></table>
+<h3>3.4 Special Categories of Personal Data</h3>
+<p>☐ The Processing does <strong>not</strong> include special categories of Personal Data<br>☑ The Processing <strong>may</strong> include the following special categories:</p>
+<ul>
+<li>Health data (medical fitness certificates)</li>
+<li>Biometric data (for identity verification, if applicable)</li>
+</ul>
+<hr>
+<h2>4. SUB-PROCESSORS</h2>
+<h3>4.1 Authorized Sub-processors</h3>
+<p>The Controller hereby provides general authorization for the engagement of the following Sub-processors:</p>
+<table>
+<thead>
+<tr>
+<th>Sub-processor</th>
+<th>Location</th>
+<th>Processing Activities</th>
+<th>Safeguards</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Vercel Inc.</strong></td>
+<td>Frankfurt, EU</td>
+<td>Application hosting</td>
+<td>EU data residency, DPA in place</td>
+</tr>
+<tr>
+<td><strong>Supabase Inc.</strong></td>
+<td>Frankfurt, EU</td>
+<td>Database hosting</td>
+<td>EU data residency, DPA in place</td>
+</tr>
+<tr>
+<td><strong>MailerSend</strong></td>
+<td>EU</td>
+<td>Email services</td>
+<td>GDPR compliant, DPA in place</td>
+</tr>
+<tr>
+<td><strong>Amazon Web Services</strong></td>
+<td>Frankfurt, EU</td>
+<td>Backup storage</td>
+<td>EU data residency, DPA in place</td>
+</tr>
+</tbody></table>
+<h3>4.2 New Sub-processors</h3>
+<p>The Processor shall:</p>
+<p>a) Inform the Controller of any intended changes concerning the addition or replacement of Sub-processors;</p>
+<p>b) Provide the Controller with at least <strong>30 days</strong> prior notice before engaging new Sub-processors;</p>
+<p>c) Ensure each Sub-processor is bound by data protection obligations no less protective than those in this DPA;</p>
+<p>d) Remain fully liable for any Sub-processor&#39;s performance.</p>
+<h3>4.3 Objection Rights</h3>
+<p>The Controller may object to the engagement of a new Sub-processor within <strong>14 days</strong> of notification. If the Parties cannot resolve the objection, the Controller may terminate the affected Services.</p>
+<hr>
+<h2>5. DATA SUBJECT RIGHTS</h2>
+<h3>5.1 Assistance with Requests</h3>
+<p>The Processor shall:</p>
+<p>a) Promptly notify the Controller of any request received directly from a Data Subject;</p>
+<p>b) Not respond to such request except on documented instructions from the Controller;</p>
+<p>c) Assist the Controller in responding to Data Subject requests within the following timeframes:</p>
+<table>
+<thead>
+<tr>
+<th>Request Type</th>
+<th>Processor Response Time</th>
+<th>Method of Assistance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Access</td>
+<td>Within 5 business days</td>
+<td>Provide data export</td>
+</tr>
+<tr>
+<td>Rectification</td>
+<td>Within 3 business days</td>
+<td>Update systems</td>
+</tr>
+<tr>
+<td>Erasure</td>
+<td>Within 5 business days</td>
+<td>Delete/anonymize data</td>
+</tr>
+<tr>
+<td>Restriction</td>
+<td>Within 2 business days</td>
+<td>Restrict processing</td>
+</tr>
+<tr>
+<td>Portability</td>
+<td>Within 5 business days</td>
+<td>Export in standard format</td>
+</tr>
+<tr>
+<td>Objection</td>
+<td>Within 2 business days</td>
+<td>Cease processing</td>
+</tr>
+</tbody></table>
+<h3>5.2 Technical Capabilities</h3>
+<p>The Processor maintains the following technical capabilities to support Data Subject rights:</p>
+<ul>
+<li>Automated data export functionality (JSON/CSV formats)</li>
+<li>Granular deletion capabilities</li>
+<li>Data correction interfaces</li>
+<li>Processing restriction flags</li>
+<li>Consent management system</li>
+<li>Audit trail of all data operations</li>
+</ul>
+<hr>
+<h2>6. PERSONAL DATA BREACH</h2>
+<h3>6.1 Breach Notification</h3>
+<p>The Processor shall:</p>
+<p>a) Notify the Controller without undue delay and in any event within <strong>24 hours</strong> after becoming aware of a Personal Data Breach;</p>
+<p>b) Provide the following information:</p>
+<ul>
+<li>Nature of the breach</li>
+<li>Categories and approximate number of Data Subjects affected</li>
+<li>Categories and approximate number of Personal Data records affected</li>
+<li>Likely consequences of the breach</li>
+<li>Measures taken or proposed to address the breach</li>
+<li>Contact details for more information</li>
+</ul>
+<h3>6.2 Breach Response</h3>
+<p>The Processor shall:</p>
+<p>a) Immediately take steps to contain and remediate the breach;</p>
+<p>b) Cooperate fully with the Controller&#39;s investigation;</p>
+<p>c) Not publicly disclose the breach without the Controller&#39;s prior written consent;</p>
+<p>d) Document all breaches, regardless of notification requirements;</p>
+<p>e) Conduct a post-incident review and implement lessons learned.</p>
+<hr>
+<h2>7. SECURITY MEASURES</h2>
+<h3>7.1 Technical Measures</h3>
+<p>The Processor implements the following technical security measures:</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Encryption</strong></td>
+<td>AES-256-GCM at rest, TLS 1.3 in transit</td>
+</tr>
+<tr>
+<td><strong>Access Control</strong></td>
+<td>Role-based access control (RBAC)</td>
+</tr>
+<tr>
+<td><strong>Authentication</strong></td>
+<td>Multi-factor authentication (MFA)</td>
+</tr>
+<tr>
+<td><strong>Network Security</strong></td>
+<td>Firewalls, DDoS protection, VPN</td>
+</tr>
+<tr>
+<td><strong>Monitoring</strong></td>
+<td>24/7 security monitoring, intrusion detection</td>
+</tr>
+<tr>
+<td><strong>Backup</strong></td>
+<td>Daily automated backups, geo-redundant storage</td>
+</tr>
+<tr>
+<td><strong>Patch Management</strong></td>
+<td>Regular security updates, vulnerability scanning</td>
+</tr>
+</tbody></table>
+<h3>7.2 Organizational Measures</h3>
+<p>The Processor implements the following organizational measures:</p>
+<ul>
+<li>Information security policies and procedures</li>
+<li>Regular security awareness training</li>
+<li>Confidentiality agreements with all personnel</li>
+<li>Background checks for personnel with data access</li>
+<li>Incident response procedures</li>
+<li>Business continuity and disaster recovery plans</li>
+<li>Regular security assessments and audits</li>
+</ul>
+<hr>
+<h2>8. INTERNATIONAL TRANSFERS</h2>
+<h3>8.1 Data Localization</h3>
+<p>All Personal Data shall be stored and Processed exclusively within the European Economic Area (EEA), specifically:</p>
+<ul>
+<li>Primary data center: Frankfurt, Germany</li>
+<li>Backup location: Frankfurt, Germany</li>
+<li>No transfers outside the EEA without explicit Controller approval</li>
+</ul>
+<h3>8.2 Transfer Mechanisms</h3>
+<p>If international transfers become necessary:</p>
+<p>a) The Processor shall notify the Controller in advance;</p>
+<p>b) Appropriate safeguards shall be implemented:</p>
+<ul>
+<li>EU Standard Contractual Clauses</li>
+<li>Adequacy decisions</li>
+<li>Binding Corporate Rules</li>
+<li>Other approved mechanisms under Chapter V GDPR</li>
+</ul>
+<hr>
+<h2>9. AUDIT AND COMPLIANCE</h2>
+<h3>9.1 Audit Rights</h3>
+<p>The Controller may:</p>
+<p>a) Conduct audits up to <strong>once per year</strong> with 30 days&#39; notice;</p>
+<p>b) Request additional audits following a Personal Data Breach;</p>
+<p>c) Appoint an independent third-party auditor (subject to confidentiality);</p>
+<p>d) Review the Processor&#39;s security certifications and audit reports.</p>
+<h3>9.2 Processor Obligations</h3>
+<p>The Processor shall:</p>
+<p>a) Cooperate fully with audits;</p>
+<p>b) Provide access to relevant facilities, systems, and documentation;</p>
+<p>c) Bear its own costs for standard annual audits;</p>
+<p>d) Remedy any identified non-compliance at its own expense.</p>
+<h3>9.3 Certifications</h3>
+<p>The Processor implements:</p>
+<ul>
+<li>ISO 27001 controls (operational implementation)</li>
+<li>Regular security assessments</li>
+<li>GDPR compliance reviews</li>
+<li>Security monitoring and incident response</li>
+</ul>
+<hr>
+<h2>10. DATA RETENTION AND DELETION</h2>
+<h3>10.1 Retention Periods</h3>
+<table>
+<thead>
+<tr>
+<th>Data Category</th>
+<th>Retention Period</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Dienstboekje Records</td>
+<td>Duration of employment + 2 years</td>
+<td>AVG/GDPR - Personnel Records</td>
+</tr>
+<tr>
+<td>Training Certificates</td>
+<td>5 years after expiry</td>
+<td>Industry Practice</td>
+</tr>
+<tr>
+<td>Payroll/Tax Records</td>
+<td>7 years</td>
+<td>Dutch Tax Law</td>
+</tr>
+<tr>
+<td>Audit Logs</td>
+<td>1 year</td>
+<td>Security</td>
+</tr>
+<tr>
+<td>Session Data</td>
+<td>30 days</td>
+<td>Operational</td>
+</tr>
+</tbody></table>
+<h3>10.2 Data Deletion</h3>
+<p>Upon termination of the Principal Agreement:</p>
+<p>a) The Controller may export all Personal Data within <strong>60 days</strong>;</p>
+<p>b) The Processor shall delete all Personal Data within <strong>30 days</strong> after the export period;</p>
+<p>c) The Processor shall provide written certification of deletion;</p>
+<p>d) Retention for legal compliance shall be permitted with Controller consent.</p>
+<hr>
+<h2>11. LIABILITY AND INDEMNIFICATION</h2>
+<h3>11.1 Liability</h3>
+<p>Each Party&#39;s liability shall be as set forth in the Principal Agreement, subject to:</p>
+<p>a) The Processor&#39;s liability for data protection violations shall not be limited for:</p>
+<ul>
+<li>Intentional breaches</li>
+<li>Gross negligence</li>
+<li>Regulatory fines attributable to Processor&#39;s actions</li>
+</ul>
+<p>b) The liability cap shall be <strong>€5,000,000</strong> per incident or series of related incidents.</p>
+<h3>11.2 Indemnification</h3>
+<p>The Processor shall indemnify the Controller against:</p>
+<p>a) Regulatory fines resulting from the Processor&#39;s breach of this DPA;</p>
+<p>b) Third-party claims arising from the Processor&#39;s unlawful Processing;</p>
+<p>c) Costs incurred due to the Processor&#39;s failure to comply with Controller instructions.</p>
+<hr>
+<h2>12. TERM AND TERMINATION</h2>
+<h3>12.1 Duration</h3>
+<p>This DPA shall:</p>
+<p>a) Come into effect on the Effective Date;</p>
+<p>b) Continue for the duration of the Principal Agreement;</p>
+<p>c) Survive termination to the extent necessary for data deletion and legal obligations.</p>
+<h3>12.2 Termination Rights</h3>
+<p>Either Party may terminate this DPA:</p>
+<p>a) Upon material breach with <strong>30 days</strong> written notice to cure;</p>
+<p>b) Immediately upon insolvency or cessation of business;</p>
+<p>c) If required by a Supervisory Authority or court order.</p>
+<hr>
+<h2>13. MISCELLANEOUS</h2>
+<h3>13.1 Governing Law</h3>
+<p>This DPA shall be governed by the laws of the Netherlands, without regard to conflict of law principles.</p>
+<h3>13.2 Dispute Resolution</h3>
+<p>Disputes shall be resolved through:</p>
+<p>a) Good faith negotiations (30 days);</p>
+<p>b) Mediation under Netherlands Mediation Institute rules;</p>
+<p>c) Arbitration under Netherlands Arbitration Institute rules;</p>
+<p>d) Competent courts of Amsterdam as last resort.</p>
+<h3>13.3 Amendments</h3>
+<p>This DPA may only be amended in writing, signed by authorized representatives of both Parties.</p>
+<h3>13.4 Severability</h3>
+<p>If any provision is held invalid, the remaining provisions shall continue in full force.</p>
+<h3>13.5 Entire Agreement</h3>
+<p>This DPA, together with the Principal Agreement and Schedules, constitutes the entire agreement regarding data processing.</p>
+<hr>
+<h2>SCHEDULE 1: PROCESSING INSTRUCTIONS</h2>
+<h3>Authorized Processing Operations</h3>
+<p>The Processor is authorized to Process Personal Data for the following purposes:</p>
+<ol>
+<li><p><strong>User Management</strong></p>
+<ul>
+<li>Create, update, and delete user accounts</li>
+<li>Manage authentication and authorization</li>
+<li>Maintain user profiles and preferences</li>
+</ul>
+</li>
+<li><p><strong>Training Delivery</strong></p>
+<ul>
+<li>Provide access to training materials</li>
+<li>Track progress and completion</li>
+<li>Administer quizzes and assessments</li>
+</ul>
+</li>
+<li><p><strong>Certification</strong></p>
+<ul>
+<li>Generate training certificates</li>
+<li>Verify certificate authenticity</li>
+<li>Maintain certificate records</li>
+</ul>
+</li>
+<li><p><strong>Communication</strong></p>
+<ul>
+<li>Send system notifications</li>
+<li>Deliver training reminders</li>
+<li>Process support requests</li>
+</ul>
+</li>
+<li><p><strong>Compliance</strong></p>
+<ul>
+<li>Generate compliance reports</li>
+<li>Maintain audit logs</li>
+<li>Support regulatory inspections</li>
+</ul>
+</li>
+<li><p><strong>Technical Operations</strong></p>
+<ul>
+<li>System maintenance and updates</li>
+<li>Performance optimization</li>
+<li>Security monitoring</li>
+<li>Backup and recovery</li>
+</ul>
+</li>
+</ol>
+<h3>Prohibited Processing</h3>
+<p>The Processor shall NOT:</p>
+<ul>
+<li>Process Personal Data for its own commercial purposes</li>
+<li>Sell or rent Personal Data to third parties</li>
+<li>Use Personal Data for profiling beyond training purposes</li>
+<li>Transfer Personal Data outside agreed parameters</li>
+<li>Combine Controller&#39;s data with other customers&#39; data</li>
+</ul>
+<hr>
+<h2>SCHEDULE 2: TECHNICAL AND ORGANIZATIONAL MEASURES</h2>
+<h3>Technical Security Measures</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Measures</th>
+<th>Standards</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Access Control</strong></td>
+<td>- Unique user IDs<br>- Strong password policies<br>- Multi-factor authentication<br>- Role-based permissions<br>- Session management</td>
+<td>ISO 27001 A.9</td>
+</tr>
+<tr>
+<td><strong>Data Encryption</strong></td>
+<td>- AES-256-GCM at rest<br>- TLS 1.3 in transit<br>- Encrypted backups<br>- Key management system</td>
+<td>FIPS 140-2</td>
+</tr>
+<tr>
+<td><strong>Network Security</strong></td>
+<td>- Firewalls<br>- Intrusion detection/prevention<br>- Network segmentation<br>- DDoS protection</td>
+<td>ISO 27001 A.13</td>
+</tr>
+<tr>
+<td><strong>Application Security</strong></td>
+<td>- Secure coding practices<br>- Input validation<br>- Output encoding<br>- Security testing</td>
+<td>OWASP Top 10</td>
+</tr>
+<tr>
+<td><strong>Monitoring</strong></td>
+<td>- Security event logging<br>- Real-time alerting<br>- Anomaly detection<br>- Incident response</td>
+<td>ISO 27001 A.12</td>
+</tr>
+</tbody></table>
+<h3>Organizational Security Measures</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Measures</th>
+<th>Frequency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Personnel Security</strong></td>
+<td>- Background checks<br>- Confidentiality agreements<br>- Security training<br>- Access reviews</td>
+<td>Onboarding / Annual</td>
+</tr>
+<tr>
+<td><strong>Physical Security</strong></td>
+<td>- Data center controls<br>- Environmental monitoring<br>- Secure disposal<br>- Asset management</td>
+<td>Continuous</td>
+</tr>
+<tr>
+<td><strong>Operational Security</strong></td>
+<td>- Change management<br>- Vulnerability management<br>- Patch management<br>- Capacity planning</td>
+<td>Ongoing</td>
+</tr>
+<tr>
+<td><strong>Incident Management</strong></td>
+<td>- Response procedures<br>- Escalation matrix<br>- Communication plans<br>- Post-incident review</td>
+<td>As needed</td>
+</tr>
+<tr>
+<td><strong>Business Continuity</strong></td>
+<td>- Disaster recovery plan<br>- Regular backups<br>- Recovery testing<br>- Redundancy</td>
+<td>Quarterly testing</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>SCHEDULE 3: SUB-PROCESSOR LIST</h2>
+<h3>Current Sub-processors</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Location</th>
+<th>Services</th>
+<th>Data Processed</th>
+<th>Safeguards</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Vercel Inc.</strong><br>340 S Lemon Ave<br>Walnut, CA 91789<br>USA</td>
+<td>Frankfurt, Germany<br>(Data Center)</td>
+<td>- Application hosting<br>- CDN services<br>- Edge functions</td>
+<td>- Application data<br>- User sessions<br>- Access logs</td>
+<td>- EU data residency<br>- DPA in place<br>- Enterprise security</td>
+</tr>
+<tr>
+<td><strong>Supabase Inc.</strong><br>970 Toa Payoh North<br>Singapore</td>
+<td>Frankfurt, Germany<br>(Data Center)</td>
+<td>- Database hosting<br>- File storage<br>- Authentication</td>
+<td>- All user data<br>- Training records<br>- Certificates</td>
+<td>- EU data residency<br>- Encryption at rest<br>- DPA in place<br>- GDPR compliant</td>
+</tr>
+<tr>
+<td><strong>MailerSend</strong><br>UAB Mailersend<br>J. Basanavičiaus g.<br>Vilnius, Lithuania</td>
+<td>EU</td>
+<td>- Email delivery<br>- Template management<br>- Delivery tracking</td>
+<td>- Email addresses<br>- Names<br>- Email content</td>
+<td>- EU based<br>- GDPR compliant<br>- DPA in place<br>- ISO 27001</td>
+</tr>
+</tbody></table>
+<h3>Sub-processor Requirements</h3>
+<p>All Sub-processors must:</p>
+<ol>
+<li>Sign a DPA with equivalent protections</li>
+<li>Maintain EU data residency</li>
+<li>Implement appropriate security measures</li>
+<li>Allow pass-through audit rights</li>
+<li>Notify of any sub-sub-processors</li>
+<li>Delete data upon termination</li>
+</ol>
+<hr>
+<h2>EXECUTION</h2>
+<p>IN WITNESS WHEREOF, the Parties have executed this Data Processing Agreement as of the date last written below.</p>
+<p><strong>DATA CONTROLLER:</strong><br><strong>Burando Atlantic Group</strong></p>
+<p>Signature: _______________________</p>
+<p>Name: _______________________</p>
+<p>Title: _______________________</p>
+<p>Date: _______________________</p>
+<p><strong>DATA PROCESSOR:</strong><br><strong>Inland Shipping Onboarding System Provider</strong></p>
+<p>Signature: _______________________</p>
+<p>Name: _______________________</p>
+<p>Title: _______________________</p>
+<p>Date: _______________________</p>
+<hr>
+<h2>ANNEX: CONTACT INFORMATION</h2>
+<h3>Data Protection Contacts</h3>
+<p><strong>Controller&#39;s DPO:</strong></p>
+<ul>
+<li>Name: [To be provided]</li>
+<li>Email: [To be provided]</li>
+<li>Phone: [To be provided]</li>
+</ul>
+<p><strong>Processor&#39;s DPO:</strong></p>
+<ul>
+<li>Name: M. Splinter</li>
+<li>Email: <a href="mailto:info@shipdocs.app">info@shipdocs.app</a></li>
+<li>Phone: [Available upon contract]</li>
+</ul>
+<h3>Operational Contacts</h3>
+<p><strong>Controller:</strong></p>
+<ul>
+<li>Technical: [To be provided]</li>
+<li>Security: [To be provided]</li>
+<li>Legal: [To be provided]</li>
+</ul>
+<p><strong>Processor:</strong></p>
+<ul>
+<li>Technical: <a href="mailto:support@maritime-onboarding.eu">support@maritime-onboarding.eu</a></li>
+<li>Security: <a href="mailto:security@maritime-onboarding.eu">security@maritime-onboarding.eu</a></li>
+<li>Legal: <a href="mailto:legal@maritime-onboarding.eu">legal@maritime-onboarding.eu</a></li>
+</ul>
+<h3>Emergency Contacts</h3>
+<p><strong>24/7 Security Hotline:</strong> [Available upon contract]</p>
+<p><strong>Incident Response Team:</strong> <a href="mailto:incident@maritime-onboarding.eu">incident@maritime-onboarding.eu</a></p>
+<hr>
+<p><em>This Data Processing Agreement template is compliant with GDPR requirements and Dutch data protection law. It should be reviewed by legal counsel before execution.</em></p>
+<p><em>Template Version: 1.0 - January 2025</em></p>
+
+    </div>
+    
+    <div class="document-footer">
+        <p><strong>Maritime Onboarding System - Compliance Documentation</strong></p>
+        <p>Generated on 9/17/2025 | Confidential - For authorized personnel only</p>
+        <p>Document Path: appendices/APPENDIX_D_DATA_PROCESSING_AGREEMENT.md</p>
+    </div>
+</body>
+</html>

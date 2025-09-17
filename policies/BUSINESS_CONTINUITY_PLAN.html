@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Continuity Plan (BCP) - Maritime Onboarding System Compliance</title>
+    <meta name="description" content="Maritime Onboarding System compliance documentation">
+    <meta name="keywords" content="maritime, compliance, NIS2, security, onboarding">
+    <meta name="author" content="Maritime Compliance Agent">
+    <meta name="created" content="2025-09-17">
+    <style>
+        /* Maritime Onboarding System - Compliance Documentation CSS */
+/* Professional styling for compliance reports and documentation */
+
+:root {
+    --primary-color: #1e3a8a;
+    --secondary-color: #1e40af;
+    --success-color: #059669;
+    --warning-color: #d97706;
+    --danger-color: #dc2626;
+    --text-color: #1f2937;
+    --bg-color: #ffffff;
+    --border-color: #e5e7eb;
+    --table-header-bg: #f8fafc;
+}
+
+/* Document Layout */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 20mm;
+    background: var(--bg-color);
+    font-size: 11pt;
+}
+
+/* Headings */
+h1 {
+    color: var(--primary-color);
+    font-size: 24pt;
+    font-weight: 700;
+    margin-bottom: 10mm;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 5mm;
+    page-break-after: avoid;
+}
+
+h2 {
+    color: var(--secondary-color);
+    font-size: 18pt;
+    font-weight: 600;
+    margin-top: 15mm;
+    margin-bottom: 5mm;
+    page-break-after: avoid;
+}
+
+h3 {
+    color: var(--text-color);
+    font-size: 14pt;
+    font-weight: 600;
+    margin-top: 8mm;
+    margin-bottom: 3mm;
+    page-break-after: avoid;
+}
+
+h4 {
+    color: var(--text-color);
+    font-size: 12pt;
+    font-weight: 600;
+    margin-top: 5mm;
+    margin-bottom: 2mm;
+}
+
+/* Paragraphs and Text */
+p {
+    margin-bottom: 3mm;
+    text-align: justify;
+    orphans: 2;
+    widows: 2;
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 5mm;
+    padding-left: 8mm;
+}
+
+li {
+    margin-bottom: 1mm;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 5mm 0;
+    page-break-inside: avoid;
+    font-size: 10pt;
+}
+
+th {
+    background-color: var(--table-header-bg);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 3mm;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+td {
+    padding: 2mm 3mm;
+    border: 1px solid var(--border-color);
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+/* Status Indicators */
+.status-compliant,
+.compliant {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.status-partial,
+.partial {
+    color: var(--warning-color);
+    font-weight: 600;
+}
+
+.status-non-compliant,
+.non-compliant {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+/* Badges and Icons */
+.badge {
+    display: inline-block;
+    padding: 1mm 2mm;
+    border-radius: 2mm;
+    font-size: 9pt;
+    font-weight: 600;
+    color: white;
+}
+
+.badge-success {
+    background-color: var(--success-color);
+}
+
+.badge-warning {
+    background-color: var(--warning-color);
+}
+
+.badge-danger {
+    background-color: var(--danger-color);
+}
+
+/* Code and Technical Content */
+code {
+    background-color: #f1f5f9;
+    padding: 1mm 2mm;
+    border-radius: 1mm;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+}
+
+pre {
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 2mm;
+    padding: 5mm;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+    line-height: 1.4;
+    page-break-inside: avoid;
+}
+
+/* Blockquotes and Callouts */
+blockquote {
+    border-left: 4px solid var(--primary-color);
+    margin: 5mm 0;
+    padding: 3mm 5mm;
+    background-color: #f8fafc;
+    font-style: italic;
+}
+
+/* Executive Summary Box */
+.executive-summary {
+    background-color: #f0f9ff;
+    border: 2px solid var(--primary-color);
+    border-radius: 3mm;
+    padding: 5mm;
+    margin: 5mm 0;
+    page-break-inside: avoid;
+}
+
+/* Compliance Score Box */
+.compliance-score {
+    background-color: #f0fdf4;
+    border: 2px solid var(--success-color);
+    border-radius: 3mm;
+    padding: 5mm;
+    margin: 5mm 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14pt;
+}
+
+/* Document Header */
+.document-header {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5mm;
+    margin-bottom: 10mm;
+}
+
+.document-title {
+    font-size: 20pt;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 2mm;
+}
+
+.document-subtitle {
+    font-size: 14pt;
+    color: var(--secondary-color);
+    margin-bottom: 2mm;
+}
+
+.document-meta {
+    font-size: 10pt;
+    color: #6b7280;
+    margin-bottom: 0;
+}
+
+/* Document Footer */
+.document-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 5mm;
+    margin-top: 10mm;
+    font-size: 9pt;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* Risk Assessment Colors */
+.risk-critical {
+    background-color: #fef2f2;
+    border-left: 4px solid var(--danger-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-high {
+    background-color: #fffbeb;
+    border-left: 4px solid var(--warning-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-medium {
+    background-color: #fefce8;
+    border-left: 4px solid #eab308;
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-low {
+    background-color: #f0fdf4;
+    border-left: 4px solid var(--success-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+/* Print Specific Styles */
+@media print {
+    body {
+        margin: 0;
+        padding: 15mm;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+    
+    table, figure, .compliance-score, .executive-summary {
+        page-break-inside: avoid;
+    }
+    
+    .page-break {
+        page-break-before: always;
+    }
+    
+    .no-print {
+        display: none;
+    }
+}
+
+/* NIS2 Specific Styling */
+.nis2-article {
+    border: 1px solid var(--border-color);
+    border-radius: 2mm;
+    margin: 3mm 0;
+    padding: 3mm;
+}
+
+.nis2-score {
+    display: inline-block;
+    padding: 1mm 3mm;
+    border-radius: 2mm;
+    font-weight: 600;
+    color: white;
+    min-width: 15mm;
+    text-align: center;
+}
+
+.score-excellent {
+    background-color: var(--success-color);
+}
+
+.score-good {
+    background-color: #16a34a;
+}
+
+.score-fair {
+    background-color: var(--warning-color);
+}
+
+.score-poor {
+    background-color: var(--danger-color);
+}
+
+/* Compliance Matrix Styling */
+.compliance-matrix {
+    font-size: 9pt;
+}
+
+.compliance-matrix th {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+
+.compliance-matrix .score-cell {
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Document Classification Banner */
+.classification-banner {
+    background-color: var(--danger-color);
+    color: white;
+    text-align: center;
+    padding: 2mm;
+    font-weight: 700;
+    font-size: 12pt;
+    margin: -20mm -20mm 10mm -20mm;
+}
+
+.classification-confidential {
+    background-color: #dc2626;
+}
+
+.classification-restricted {
+    background-color: #7c2d12;
+}
+
+/* Signature Boxes */
+.signature-box {
+    border: 1px solid var(--border-color);
+    padding: 5mm;
+    margin: 5mm 0;
+    min-height: 15mm;
+}
+
+.signature-line {
+    border-bottom: 1px solid var(--text-color);
+    margin-top: 10mm;
+    text-align: center;
+    padding-top: 2mm;
+}
+
+/* Responsive Design for Digital Viewing */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10mm;
+        max-width: 100%;
+    }
+    
+    table {
+        font-size: 9pt;
+    }
+    
+    .compliance-matrix {
+        font-size: 8pt;
+    }
+}
+        
+        /* Navigation Menu Styles */
+        .navigation-menu {
+            background-color: var(--primary-color);
+            padding: 10px 20px;
+            margin: -20mm -20mm 10mm -20mm;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navigation-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            margin: 0 5px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        .navigation-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Dropdown Menu */
+        .nav-dropdown {
+            display: inline-block;
+            position: relative;
+        }
+        .dropdown-trigger {
+            color: white;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            min-width: 160px;
+            z-index: 1000;
+            top: 100%;
+            right: 0;
+        }
+        .dropdown-content a {
+            color: var(--primary-color) !important;
+            display: block;
+            padding: 10px 15px;
+            margin: 0;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: var(--table-header-bg);
+        }
+        .nav-dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: var(--table-header-bg);
+            padding: 8px 15px;
+            margin: -10mm -20mm 10mm -20mm;
+            font-size: 10pt;
+            color: #6b7280;
+        }
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        @media print {
+            .navigation-menu, .breadcrumb {
+                display: none;
+            }
+        }
+        
+        /* Style for auto-linked document references */
+        .document-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-color);
+            transition: all 0.3s;
+        }
+        .document-content a:hover {
+            color: var(--secondary-color);
+            border-bottom: 1px solid var(--secondary-color);
+            background-color: rgba(30, 58, 138, 0.05);
+        }
+        .document-content a code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        /* Make table links more prominent */
+        td a {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navigation-menu">
+        <a href="../index.html">🏠 Home</a> |
+        <a href="../assessments/COMPLIANCE_VERIFICATION_REPORT.html">📊 Assessment</a> |
+        <a href="../nis2/NIS2_COMPLIANCE_REPORT_2025.html">📋 NIS2</a> |
+        <a href="../evidence/INTERNAL_PENETRATION_TEST_REPORT_2025.html">🔒 Security</a> |
+        <a href="../policies/BUSINESS_CONTINUITY_PLAN.html">📜 Policies</a> |
+        <div class="nav-dropdown">
+            <span class="dropdown-trigger">📁 Categories ▼</span>
+            <div class="dropdown-content">
+                <a href="../assessments/CLIENT_READY_ASSESSMENT_REPORT.html">Assessments</a>
+                <a href="../evidence/INTERNAL_PENETRATION_TEST_REPORT_2025.html">Evidence</a>
+                <a href="../nis2/NIS2_COMPLIANCE_MATRIX_2025.html">NIS2</a>
+                <a href="../policies/COMPLIANCE_RESPONSIBILITY_MATRIX.html">Policies</a>
+                <a href="../reports/SECURITY_VERIFICATION_COMPLIANCE_UPDATE_2025-09.html">Reports</a>
+                <a href="../appendices/APPENDIX_A_SECURITY_CONTROL_MATRIX.html">Appendices</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="breadcrumb">
+        <a href="../index.html">Home</a> ›
+        <span>Policies</span> ›
+        <span>Business Continuity Plan (BCP)</span>
+    </div>
+    <div class="classification-banner classification-confidential">CONFIDENTIAL</div>
+    
+    <div class="document-header">
+        <div class="document-title">Business Continuity Plan (BCP)</div>
+        <div class="document-subtitle">Maritime Onboarding System 2025</div>
+        <div class="document-meta">
+            Generated: 2025-09-17 | 
+            Source: policies/BUSINESS_CONTINUITY_PLAN.md | 
+            Version: 1.0
+        </div>
+    </div>
+    
+    <div class="document-content">
+        <h1>Business Continuity Plan (BCP)</h1>
+<h2>Maritime Onboarding System - NIS2 <span class="nis2-article-ref">Article 16</span> Compliance</h2>
+<p><strong>Document Version:</strong> 1.1 (Updated)<br><strong>Effective Date:</strong> September 17, 2025<br><strong>Previous Version:</strong> January 2025<br><strong>Classification:</strong> Confidential<br><strong>Owner:</strong> Security Officer<br><strong>Approval:</strong> Management Board<br><strong>Security Status:</strong> ✅ <strong>PENETRATION TEST VERIFIED</strong></p>
+<hr>
+<h2>1. EXECUTIVE SUMMARY</h2>
+<p>This Business Continuity Plan ensures the Maritime Onboarding System maintains critical operations during disruptions, meeting NIS2 <span class="nis2-article-ref">Article 16</span> requirements for essential service continuity.</p>
+<p><strong>🔒 SECURITY UPDATE - September 2025</strong>: This BCP has been validated through comprehensive penetration testing, confirming robust security controls and incident response capabilities (Security Score: <span class="compliance-score-inline">8.5/10</span>).</p>
+<p><strong>Critical Services:</strong></p>
+<ul>
+<li>User authentication and access</li>
+<li>Training content delivery</li>
+<li>Certificate generation</li>
+<li>Audit logging and compliance</li>
+<li>Incident response capabilities</li>
+</ul>
+<p><strong>Recovery Objectives:</strong></p>
+<ul>
+<li><strong>RPO (Recovery Point Objective):</strong> 1 hour</li>
+<li><strong>RTO (Recovery Time Objective):</strong> 4 hours</li>
+<li><strong>Maximum Tolerable Downtime:</strong> 8 hours</li>
+<li><strong>Service Level Target:</strong> 99.9% uptime</li>
+</ul>
+<hr>
+<h2>2. RISK ASSESSMENT</h2>
+<h3>2.1 Critical Threats</h3>
+<table>
+<thead>
+<tr>
+<th>Threat</th>
+<th>Probability</th>
+<th>Impact</th>
+<th>Risk Level</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Cloud Provider Outage</strong></td>
+<td>Medium</td>
+<td>High</td>
+<td>HIGH</td>
+<td>Multi-region deployment</td>
+</tr>
+<tr>
+<td><strong>Database Corruption</strong></td>
+<td>Low</td>
+<td>Critical</td>
+<td>HIGH</td>
+<td>Automated backups + replication</td>
+</tr>
+<tr>
+<td><strong>Cyber Attack</strong></td>
+<td>Medium</td>
+<td>High</td>
+<td>HIGH</td>
+<td>Security monitoring + incident response</td>
+</tr>
+<tr>
+<td><strong>Key Personnel Loss</strong></td>
+<td>Medium</td>
+<td>Medium</td>
+<td>MEDIUM</td>
+<td>Documentation + cross-training</td>
+</tr>
+<tr>
+<td><strong>Network Connectivity</strong></td>
+<td>Low</td>
+<td>Medium</td>
+<td>LOW</td>
+<td>Multiple ISPs + CDN</td>
+</tr>
+<tr>
+<td><strong>Regulatory Changes</strong></td>
+<td>High</td>
+<td>Medium</td>
+<td>MEDIUM</td>
+<td>Compliance monitoring</td>
+</tr>
+</tbody></table>
+<h3>2.2 Business Impact Analysis</h3>
+<pre><code>Service Criticality Assessment:
+├── CRITICAL (0-4 hours max downtime)
+│   ├── User Authentication
+│   ├── Emergency Training Access
+│   └── Incident Response System
+├── HIGH (4-8 hours max downtime)
+│   ├── Certificate Generation
+│   ├── Training Content Delivery
+│   └── Manager Dashboard
+└── MEDIUM (8-24 hours max downtime)
+    ├── Reporting Functions
+    ├── Analytics Dashboard
+    └── Non-critical Admin Functions
+</code></pre>
+<hr>
+<h2>3. CONTINUITY STRATEGIES</h2>
+<h3>3.1 Infrastructure Resilience</h3>
+<p><strong>Primary Strategy: Cloud-Native Redundancy</strong></p>
+<ul>
+<li><strong>Application Layer:</strong> Vercel automatic scaling and failover</li>
+<li><strong>Database Layer:</strong> Supabase high availability with read replicas</li>
+<li><strong>CDN Layer:</strong> Cloudflare global distribution</li>
+<li><strong>Monitoring:</strong> 24/7 automated health checks</li>
+</ul>
+<p><strong>Backup Strategy: Multi-Region Architecture</strong></p>
+<pre><code>Primary Region: eu-central-1 (Frankfurt)
+├── Application: Vercel Edge Network
+├── Database: Supabase Primary
+├── Storage: Supabase Storage
+└── Monitoring: Real-time health checks
+
+Backup Region: eu-west-1 (Ireland)
+├── Database: Read replica + backup storage
+├── Application: Vercel automatic failover
+├── Storage: Cross-region replication
+└── Monitoring: Secondary monitoring stack
+</code></pre>
+<h3>3.2 Data Protection Strategy</h3>
+<p><strong>Backup Schedule:</strong></p>
+<ul>
+<li><strong>Real-time:</strong> Database replication to backup region</li>
+<li><strong>Hourly:</strong> Transaction log backups</li>
+<li><strong>Daily:</strong> Full database backup</li>
+<li><strong>Weekly:</strong> Complete system backup including configurations</li>
+<li><strong>Monthly:</strong> Backup verification and restore testing</li>
+</ul>
+<p><strong>Backup Retention:</strong></p>
+<ul>
+<li><strong>Daily backups:</strong> 30 days</li>
+<li><strong>Weekly backups:</strong> 12 weeks</li>
+<li><strong>Monthly backups:</strong> 12 months</li>
+<li><strong>Annual backups:</strong> 7 years (compliance requirement)</li>
+</ul>
+<hr>
+<h2>4. INCIDENT RESPONSE PROCEDURES</h2>
+<h3>4.1 Incident Classification</h3>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Definition</th>
+<th>Response Time</th>
+<th>Escalation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>P1 - Critical</strong></td>
+<td>Complete service outage</td>
+<td>15 minutes</td>
+<td>Immediate</td>
+</tr>
+<tr>
+<td><strong>P2 - High</strong></td>
+<td>Partial service degradation</td>
+<td>1 hour</td>
+<td>Within 30 min</td>
+</tr>
+<tr>
+<td><strong>P3 - Medium</strong></td>
+<td>Minor service issues</td>
+<td>4 hours</td>
+<td>Within 2 hours</td>
+</tr>
+<tr>
+<td><strong>P4 - Low</strong></td>
+<td>Cosmetic or documentation</td>
+<td>24 hours</td>
+<td>Next business day</td>
+</tr>
+</tbody></table>
+<h3>4.2 Response Team Structure</h3>
+<pre><code>Incident Commander (IC)
+├── Technical Lead
+├── Security Officer
+├── Communications Lead
+└── Business Stakeholder
+
+On-Call Rotation:
+├── Primary: Technical Lead
+├── Secondary: DevOps Engineer
+├── Escalation: Security Officer
+└── Executive: CTO
+</code></pre>
+<h3>4.3 Communication Plan</h3>
+<p><strong>Internal Communications:</strong></p>
+<ul>
+<li><strong>Incident Team:</strong> Slack #incident-response</li>
+<li><strong>Management:</strong> Email + SMS alerts</li>
+<li><strong>All Staff:</strong> Company-wide announcement</li>
+<li><strong>Updates:</strong> Every 30 minutes during P1/P2 incidents</li>
+</ul>
+<p><strong>External Communications:</strong></p>
+<ul>
+<li><strong>Customers:</strong> Status page + email notifications</li>
+<li><strong>Regulators:</strong> Within 24 hours for security incidents</li>
+<li><strong>Vendors:</strong> Direct contact for infrastructure issues</li>
+<li><strong>Media:</strong> Prepared statements (if required)</li>
+</ul>
+<hr>
+<h2>5. RECOVERY PROCEDURES</h2>
+<h3>5.1 Database Recovery</h3>
+<p><strong>Scenario: Database Corruption/Loss</strong></p>
+<pre><code class="language-bash"># 1. Assess damage and stop writes
+kubectl scale deployment api --replicas=0
+
+# 2. Identify latest clean backup
+supabase db backup list --project-ref=ocqnnyxnqaedarcohywe
+
+# 3. Restore from backup
+supabase db backup restore &lt;backup-id&gt; --project-ref=ocqnnyxnqaedarcohywe
+
+# 4. Verify data integrity
+npm run db:verify-integrity
+
+# 5. Resume operations
+kubectl scale deployment api --replicas=3
+</code></pre>
+<p><strong>Recovery Time:</strong> 2-4 hours<br><strong>Data Loss:</strong> Maximum 1 hour (RPO)</p>
+<h3>5.2 Application Recovery</h3>
+<p><strong>Scenario: Application Deployment Failure</strong></p>
+<pre><code class="language-bash"># 1. Rollback to previous version
+vercel rollback --token=$VERCEL_TOKEN
+
+# 2. Verify rollback success
+curl -f https://onboarding.burando.online/api/health
+
+# 3. If rollback fails, deploy from backup
+git checkout &lt;last-known-good-commit&gt;
+vercel deploy --prod
+
+# 4. Update DNS if needed
+cloudflare dns update
+</code></pre>
+<p><strong>Recovery Time:</strong> 30 minutes - 2 hours<br><strong>Data Loss:</strong> None (stateless application)</p>
+<h3>5.3 Complete Disaster Recovery</h3>
+<p><strong>Scenario: Total Infrastructure Loss</strong></p>
+<pre><code>Phase 1: Emergency Response (0-1 hour)
+├── Activate incident response team
+├── Assess scope of damage
+├── Communicate with stakeholders
+└── Implement emergency workarounds
+
+Phase 2: Infrastructure Recovery (1-4 hours)
+├── Provision new infrastructure
+├── Restore database from backup
+├── Deploy application to new environment
+└── Update DNS and routing
+
+Phase 3: Service Restoration (4-8 hours)
+├── Verify all services operational
+├── Restore user access
+├── Resume normal operations
+└── Conduct post-incident review
+</code></pre>
+<hr>
+<h2>6. TESTING &amp; VALIDATION</h2>
+<h3>6.1 Testing Schedule</h3>
+<table>
+<thead>
+<tr>
+<th>Test Type</th>
+<th>Frequency</th>
+<th>Scope</th>
+<th>Success Criteria</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Backup Verification</strong></td>
+<td>Weekly</td>
+<td>Data integrity</td>
+<td>100% restore success</td>
+</tr>
+<tr>
+<td><strong>Failover Testing</strong></td>
+<td>Monthly</td>
+<td>Database failover</td>
+<td>RTO &lt; 4 hours</td>
+</tr>
+<tr>
+<td><strong>DR Simulation</strong></td>
+<td>Quarterly</td>
+<td>Full disaster scenario</td>
+<td>Complete recovery</td>
+</tr>
+<tr>
+<td><strong>Tabletop Exercise</strong></td>
+<td>Semi-annual</td>
+<td>Team response</td>
+<td>Process validation</td>
+</tr>
+</tbody></table>
+<h3>6.2 Test Procedures</h3>
+<p><strong>Monthly Failover Test:</strong></p>
+<pre><code class="language-bash"># 1. Schedule maintenance window
+# 2. Simulate primary database failure
+# 3. Verify automatic failover to backup region
+# 4. Test application functionality
+# 5. Measure recovery time
+# 6. Document results and improvements
+</code></pre>
+<p><strong>Quarterly DR Test:</strong></p>
+<pre><code class="language-bash"># 1. Complete infrastructure simulation
+# 2. Full backup restore procedure
+# 3. Application redeployment
+# 4. End-to-end functionality testing
+# 5. Performance validation
+# 6. Stakeholder communication test
+</code></pre>
+<hr>
+<h2>7. VENDOR DEPENDENCIES</h2>
+<h3>7.1 Critical Vendor SLAs</h3>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Service</th>
+<th>SLA</th>
+<th>Backup Plan</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Vercel</strong></td>
+<td>Application hosting</td>
+<td>99.99%</td>
+<td>Manual deployment to backup</td>
+</tr>
+<tr>
+<td><strong>Supabase</strong></td>
+<td>Database</td>
+<td>99.9%</td>
+<td>Restore to new instance</td>
+</tr>
+<tr>
+<td><strong>Cloudflare</strong></td>
+<td>CDN/DNS</td>
+<td>100%</td>
+<td>Direct DNS management</td>
+</tr>
+<tr>
+<td><strong>MailerSend</strong></td>
+<td>Email delivery</td>
+<td>99.9%</td>
+<td>Backup SMTP provider</td>
+</tr>
+</tbody></table>
+<h3>7.2 Vendor Escalation</h3>
+<p><strong>Vercel Support:</strong></p>
+<ul>
+<li><strong>Standard:</strong> <a href="mailto:support@vercel.com">support@vercel.com</a></li>
+<li><strong>Emergency:</strong> Enterprise support hotline</li>
+<li><strong>SLA:</strong> 1 hour response for P1 issues</li>
+</ul>
+<p><strong>Supabase Support:</strong></p>
+<ul>
+<li><strong>Standard:</strong> <a href="mailto:support@supabase.com">support@supabase.com</a>  </li>
+<li><strong>Emergency:</strong> Enterprise support portal</li>
+<li><strong>SLA:</strong> 2 hour response for P1 issues</li>
+</ul>
+<hr>
+<h2>8. COMPLIANCE REQUIREMENTS</h2>
+<h3>8.1 NIS2 <span class="nis2-article-ref">Article 16</span> Requirements</h3>
+<ul>
+<li>✅ <strong>Risk Assessment:</strong> Comprehensive threat analysis</li>
+<li>✅ <strong>Business Impact Analysis:</strong> Service criticality mapping</li>
+<li>✅ <strong>Recovery Procedures:</strong> Documented and tested</li>
+<li>✅ <strong>Communication Plans:</strong> Internal and external</li>
+<li>✅ <strong>Testing Program:</strong> Regular validation exercises</li>
+<li>✅ <strong>Vendor Management:</strong> SLA monitoring and backup plans</li>
+</ul>
+<h3>8.2 Regulatory Reporting</h3>
+<p><strong>Incident Reporting Timeline:</strong></p>
+<ul>
+<li><strong>Internal notification:</strong> Immediate (&lt; 15 minutes)</li>
+<li><strong>Management notification:</strong> Within 1 hour</li>
+<li><strong>Regulatory notification:</strong> Within 24 hours (if required)</li>
+<li><strong>Customer notification:</strong> Within 4 hours</li>
+<li><strong>Post-incident report:</strong> Within 72 hours</li>
+</ul>
+<hr>
+<h2>9. PLAN MAINTENANCE</h2>
+<h3>9.1 Review Schedule</h3>
+<ul>
+<li><strong>Monthly:</strong> Incident response procedures</li>
+<li><strong>Quarterly:</strong> Full BCP review and testing</li>
+<li><strong>Semi-annually:</strong> Risk assessment update</li>
+<li><strong>Annually:</strong> Complete plan revision</li>
+</ul>
+<h3>9.2 Update Triggers</h3>
+<ul>
+<li>Infrastructure changes</li>
+<li>New regulatory requirements</li>
+<li>Significant security incidents</li>
+<li>Vendor changes or SLA updates</li>
+<li>Organizational changes</li>
+</ul>
+<hr>
+<p><strong>Document Control:</strong></p>
+<ul>
+<li><strong>Next Review:</strong> April 2025</li>
+<li><strong>Review Frequency:</strong> Quarterly</li>
+<li><strong>Approval Required:</strong> Security Officer + Management</li>
+<li><strong>Distribution:</strong> Incident Response Team, Management, Compliance</li>
+</ul>
+
+    </div>
+    
+    <div class="document-footer">
+        <p><strong>Maritime Onboarding System - Compliance Documentation</strong></p>
+        <p>Generated on 9/17/2025 | Confidential - For authorized personnel only</p>
+        <p>Document Path: policies/BUSINESS_CONTINUITY_PLAN.md</p>
+    </div>
+</body>
+</html>

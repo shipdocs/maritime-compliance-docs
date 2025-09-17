@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPENDIX A: SECURITY CONTROL MATRIX - Maritime Onboarding System Compliance</title>
+    <meta name="description" content="Maritime Onboarding System compliance documentation">
+    <meta name="keywords" content="maritime, compliance, NIS2, security, onboarding">
+    <meta name="author" content="Maritime Compliance Agent">
+    <meta name="created" content="2025-09-17">
+    <style>
+        /* Maritime Onboarding System - Compliance Documentation CSS */
+/* Professional styling for compliance reports and documentation */
+
+:root {
+    --primary-color: #1e3a8a;
+    --secondary-color: #1e40af;
+    --success-color: #059669;
+    --warning-color: #d97706;
+    --danger-color: #dc2626;
+    --text-color: #1f2937;
+    --bg-color: #ffffff;
+    --border-color: #e5e7eb;
+    --table-header-bg: #f8fafc;
+}
+
+/* Document Layout */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 20mm;
+    background: var(--bg-color);
+    font-size: 11pt;
+}
+
+/* Headings */
+h1 {
+    color: var(--primary-color);
+    font-size: 24pt;
+    font-weight: 700;
+    margin-bottom: 10mm;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 5mm;
+    page-break-after: avoid;
+}
+
+h2 {
+    color: var(--secondary-color);
+    font-size: 18pt;
+    font-weight: 600;
+    margin-top: 15mm;
+    margin-bottom: 5mm;
+    page-break-after: avoid;
+}
+
+h3 {
+    color: var(--text-color);
+    font-size: 14pt;
+    font-weight: 600;
+    margin-top: 8mm;
+    margin-bottom: 3mm;
+    page-break-after: avoid;
+}
+
+h4 {
+    color: var(--text-color);
+    font-size: 12pt;
+    font-weight: 600;
+    margin-top: 5mm;
+    margin-bottom: 2mm;
+}
+
+/* Paragraphs and Text */
+p {
+    margin-bottom: 3mm;
+    text-align: justify;
+    orphans: 2;
+    widows: 2;
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 5mm;
+    padding-left: 8mm;
+}
+
+li {
+    margin-bottom: 1mm;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 5mm 0;
+    page-break-inside: avoid;
+    font-size: 10pt;
+}
+
+th {
+    background-color: var(--table-header-bg);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 3mm;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+td {
+    padding: 2mm 3mm;
+    border: 1px solid var(--border-color);
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+/* Status Indicators */
+.status-compliant,
+.compliant {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.status-partial,
+.partial {
+    color: var(--warning-color);
+    font-weight: 600;
+}
+
+.status-non-compliant,
+.non-compliant {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+/* Badges and Icons */
+.badge {
+    display: inline-block;
+    padding: 1mm 2mm;
+    border-radius: 2mm;
+    font-size: 9pt;
+    font-weight: 600;
+    color: white;
+}
+
+.badge-success {
+    background-color: var(--success-color);
+}
+
+.badge-warning {
+    background-color: var(--warning-color);
+}
+
+.badge-danger {
+    background-color: var(--danger-color);
+}
+
+/* Code and Technical Content */
+code {
+    background-color: #f1f5f9;
+    padding: 1mm 2mm;
+    border-radius: 1mm;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+}
+
+pre {
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 2mm;
+    padding: 5mm;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 9pt;
+    line-height: 1.4;
+    page-break-inside: avoid;
+}
+
+/* Blockquotes and Callouts */
+blockquote {
+    border-left: 4px solid var(--primary-color);
+    margin: 5mm 0;
+    padding: 3mm 5mm;
+    background-color: #f8fafc;
+    font-style: italic;
+}
+
+/* Executive Summary Box */
+.executive-summary {
+    background-color: #f0f9ff;
+    border: 2px solid var(--primary-color);
+    border-radius: 3mm;
+    padding: 5mm;
+    margin: 5mm 0;
+    page-break-inside: avoid;
+}
+
+/* Compliance Score Box */
+.compliance-score {
+    background-color: #f0fdf4;
+    border: 2px solid var(--success-color);
+    border-radius: 3mm;
+    padding: 5mm;
+    margin: 5mm 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14pt;
+}
+
+/* Document Header */
+.document-header {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5mm;
+    margin-bottom: 10mm;
+}
+
+.document-title {
+    font-size: 20pt;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 2mm;
+}
+
+.document-subtitle {
+    font-size: 14pt;
+    color: var(--secondary-color);
+    margin-bottom: 2mm;
+}
+
+.document-meta {
+    font-size: 10pt;
+    color: #6b7280;
+    margin-bottom: 0;
+}
+
+/* Document Footer */
+.document-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 5mm;
+    margin-top: 10mm;
+    font-size: 9pt;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* Risk Assessment Colors */
+.risk-critical {
+    background-color: #fef2f2;
+    border-left: 4px solid var(--danger-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-high {
+    background-color: #fffbeb;
+    border-left: 4px solid var(--warning-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-medium {
+    background-color: #fefce8;
+    border-left: 4px solid #eab308;
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+.risk-low {
+    background-color: #f0fdf4;
+    border-left: 4px solid var(--success-color);
+    padding: 3mm;
+    margin: 2mm 0;
+}
+
+/* Print Specific Styles */
+@media print {
+    body {
+        margin: 0;
+        padding: 15mm;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+    
+    table, figure, .compliance-score, .executive-summary {
+        page-break-inside: avoid;
+    }
+    
+    .page-break {
+        page-break-before: always;
+    }
+    
+    .no-print {
+        display: none;
+    }
+}
+
+/* NIS2 Specific Styling */
+.nis2-article {
+    border: 1px solid var(--border-color);
+    border-radius: 2mm;
+    margin: 3mm 0;
+    padding: 3mm;
+}
+
+.nis2-score {
+    display: inline-block;
+    padding: 1mm 3mm;
+    border-radius: 2mm;
+    font-weight: 600;
+    color: white;
+    min-width: 15mm;
+    text-align: center;
+}
+
+.score-excellent {
+    background-color: var(--success-color);
+}
+
+.score-good {
+    background-color: #16a34a;
+}
+
+.score-fair {
+    background-color: var(--warning-color);
+}
+
+.score-poor {
+    background-color: var(--danger-color);
+}
+
+/* Compliance Matrix Styling */
+.compliance-matrix {
+    font-size: 9pt;
+}
+
+.compliance-matrix th {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+
+.compliance-matrix .score-cell {
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Document Classification Banner */
+.classification-banner {
+    background-color: var(--danger-color);
+    color: white;
+    text-align: center;
+    padding: 2mm;
+    font-weight: 700;
+    font-size: 12pt;
+    margin: -20mm -20mm 10mm -20mm;
+}
+
+.classification-confidential {
+    background-color: #dc2626;
+}
+
+.classification-restricted {
+    background-color: #7c2d12;
+}
+
+/* Signature Boxes */
+.signature-box {
+    border: 1px solid var(--border-color);
+    padding: 5mm;
+    margin: 5mm 0;
+    min-height: 15mm;
+}
+
+.signature-line {
+    border-bottom: 1px solid var(--text-color);
+    margin-top: 10mm;
+    text-align: center;
+    padding-top: 2mm;
+}
+
+/* Responsive Design for Digital Viewing */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10mm;
+        max-width: 100%;
+    }
+    
+    table {
+        font-size: 9pt;
+    }
+    
+    .compliance-matrix {
+        font-size: 8pt;
+    }
+}
+        
+        /* Navigation Menu Styles */
+        .navigation-menu {
+            background-color: var(--primary-color);
+            padding: 10px 20px;
+            margin: -20mm -20mm 10mm -20mm;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navigation-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            margin: 0 5px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        .navigation-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Dropdown Menu */
+        .nav-dropdown {
+            display: inline-block;
+            position: relative;
+        }
+        .dropdown-trigger {
+            color: white;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            min-width: 160px;
+            z-index: 1000;
+            top: 100%;
+            right: 0;
+        }
+        .dropdown-content a {
+            color: var(--primary-color) !important;
+            display: block;
+            padding: 10px 15px;
+            margin: 0;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: var(--table-header-bg);
+        }
+        .nav-dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: var(--table-header-bg);
+            padding: 8px 15px;
+            margin: -10mm -20mm 10mm -20mm;
+            font-size: 10pt;
+            color: #6b7280;
+        }
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        @media print {
+            .navigation-menu, .breadcrumb {
+                display: none;
+            }
+        }
+        
+        /* Style for auto-linked document references */
+        .document-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-color);
+            transition: all 0.3s;
+        }
+        .document-content a:hover {
+            color: var(--secondary-color);
+            border-bottom: 1px solid var(--secondary-color);
+            background-color: rgba(30, 58, 138, 0.05);
+        }
+        .document-content a code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        /* Make table links more prominent */
+        td a {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navigation-menu">
+        <a href="../index.html">🏠 Home</a> |
+        <a href="../assessments/COMPLIANCE_VERIFICATION_REPORT.html">📊 Assessment</a> |
+        <a href="../nis2/NIS2_COMPLIANCE_REPORT_2025.html">📋 NIS2</a> |
+        <a href="../evidence/INTERNAL_PENETRATION_TEST_REPORT_2025.html">🔒 Security</a> |
+        <a href="../policies/BUSINESS_CONTINUITY_PLAN.html">📜 Policies</a> |
+        <div class="nav-dropdown">
+            <span class="dropdown-trigger">📁 Categories ▼</span>
+            <div class="dropdown-content">
+                <a href="../assessments/CLIENT_READY_ASSESSMENT_REPORT.html">Assessments</a>
+                <a href="../evidence/INTERNAL_PENETRATION_TEST_REPORT_2025.html">Evidence</a>
+                <a href="../nis2/NIS2_COMPLIANCE_MATRIX_2025.html">NIS2</a>
+                <a href="../policies/COMPLIANCE_RESPONSIBILITY_MATRIX.html">Policies</a>
+                <a href="../reports/SECURITY_VERIFICATION_COMPLIANCE_UPDATE_2025-09.html">Reports</a>
+                <a href="../appendices/APPENDIX_A_SECURITY_CONTROL_MATRIX.html">Appendices</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="breadcrumb">
+        <a href="../index.html">Home</a> ›
+        <span>Appendices</span> ›
+        <span>APPENDIX A: SECURITY CONTROL MATRIX</span>
+    </div>
+    <div class="classification-banner classification-confidential">CONFIDENTIAL</div>
+    
+    <div class="document-header">
+        <div class="document-title">APPENDIX A: SECURITY CONTROL MATRIX</div>
+        <div class="document-subtitle">Maritime Onboarding System 2025</div>
+        <div class="document-meta">
+            Generated: 2025-09-17 | 
+            Source: appendices/APPENDIX_A_SECURITY_CONTROL_MATRIX.md | 
+            Version: 1.0
+        </div>
+    </div>
+    
+    <div class="document-content">
+        <h1>APPENDIX A: SECURITY CONTROL MATRIX</h1>
+<h2>Maritime Onboarding System 2025</h2>
+<h3>ISO 27001:2022 &amp; Burando Requirements Mapping</h3>
+<hr>
+<h2>EXECUTIVE SUMMARY</h2>
+<p>This Security Control Matrix provides a comprehensive mapping of implemented security controls against ISO 27001:2022 requirements and Burando Atlantic Group&#39;s specific requirements. Each control is assessed for implementation status, effectiveness, and compliance level.</p>
+<p><strong>Overall Control Implementation: 90%</strong></p>
+<hr>
+<h2>CONTROL CATEGORIES</h2>
+<h3>A.5 - ORGANIZATIONAL CONTROLS</h3>
+<table>
+<thead>
+<tr>
+<th>Control ID</th>
+<th>Control Description</th>
+<th>Burando Requirement</th>
+<th>Implementation Status</th>
+<th>Evidence</th>
+<th>Compliance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A.5.1</td>
+<td>Information Security Policies</td>
+<td>Security governance</td>
+<td>✅ Implemented</td>
+<td><code>/docs/security/*.md</code></td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.5.2</td>
+<td>Information Security Roles</td>
+<td>Security contact point</td>
+<td>✅ Implemented</td>
+<td>DPO: M. Splinter</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.5.3</td>
+<td>Segregation of Duties</td>
+<td>Access management</td>
+<td>✅ Implemented</td>
+<td>RBAC system</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.5.4</td>
+<td>Management Responsibilities</td>
+<td>Audit rights</td>
+<td>✅ Implemented</td>
+<td>Audit procedures</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.5.5</td>
+<td>Contact with Authorities</td>
+<td>Incident notification</td>
+<td>✅ Implemented</td>
+<td>48-hour SLA</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.5.6</td>
+<td>Contact with Special Interest Groups</td>
+<td>Industry compliance</td>
+<td>✅ Implemented</td>
+<td>Maritime standards</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>A.5.7</td>
+<td>Threat Intelligence</td>
+<td>Security monitoring</td>
+<td>✅ Implemented</td>
+<td>Real-time monitoring</td>
+<td>90%</td>
+</tr>
+<tr>
+<td>A.5.8</td>
+<td>Information Security in Project Management</td>
+<td>Secure development</td>
+<td>✅ Implemented</td>
+<td>SDLC procedures</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>A.5.9</td>
+<td>Inventory of Information</td>
+<td>Data classification</td>
+<td>✅ Implemented</td>
+<td>Data inventory</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.5.10</td>
+<td>Acceptable Use of Information</td>
+<td>Data handling</td>
+<td>✅ Implemented</td>
+<td>Usage policies</td>
+<td>100%</td>
+</tr>
+</tbody></table>
+<h3>A.6 - PEOPLE CONTROLS</h3>
+<table>
+<thead>
+<tr>
+<th>Control ID</th>
+<th>Control Description</th>
+<th>Burando Requirement</th>
+<th>Implementation Status</th>
+<th>Evidence</th>
+<th>Compliance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A.6.1</td>
+<td>Screening</td>
+<td>Authorized personnel</td>
+<td>✅ Implemented</td>
+<td>Background checks</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.6.2</td>
+<td>Terms and Conditions of Employment</td>
+<td>Confidentiality</td>
+<td>✅ Implemented</td>
+<td>Employment contracts</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.6.3</td>
+<td>Information Security Awareness</td>
+<td>Security training</td>
+<td>✅ Implemented</td>
+<td>Training program</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>A.6.4</td>
+<td>Disciplinary Process</td>
+<td>Policy enforcement</td>
+<td>✅ Implemented</td>
+<td>HR procedures</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.6.5</td>
+<td>Responsibilities After Termination</td>
+<td>Access revocation</td>
+<td>✅ Implemented</td>
+<td>Offboarding process</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.6.6</td>
+<td>Confidentiality Agreements</td>
+<td>Data protection</td>
+<td>✅ Implemented</td>
+<td>NDAs</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.6.7</td>
+<td>Remote Working</td>
+<td>Secure access</td>
+<td>✅ Implemented</td>
+<td>VPN/MFA</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.6.8</td>
+<td>Information Security Event Reporting</td>
+<td>Incident reporting</td>
+<td>✅ Implemented</td>
+<td>Incident procedures</td>
+<td>100%</td>
+</tr>
+</tbody></table>
+<h3>A.7 - PHYSICAL CONTROLS</h3>
+<table>
+<thead>
+<tr>
+<th>Control ID</th>
+<th>Control Description</th>
+<th>Burando Requirement</th>
+<th>Implementation Status</th>
+<th>Evidence</th>
+<th>Compliance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A.7.1</td>
+<td>Physical Security Perimeter</td>
+<td>Data center security</td>
+<td>✅ Provider Managed</td>
+<td>Vercel/Supabase</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.7.2</td>
+<td>Physical Entry Controls</td>
+<td>Access control</td>
+<td>✅ Provider Managed</td>
+<td>Cloud provider</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.7.3</td>
+<td>Securing Offices</td>
+<td>N/A - Cloud</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>A.7.4</td>
+<td>Physical Security Monitoring</td>
+<td>Data center monitoring</td>
+<td>✅ Provider Managed</td>
+<td>SOC reports</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.7.5</td>
+<td>Protection Against Threats</td>
+<td>Environmental controls</td>
+<td>✅ Provider Managed</td>
+<td>Data center specs</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.7.6</td>
+<td>Working in Secure Areas</td>
+<td>N/A - Cloud</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody></table>
+<h3>A.8 - TECHNOLOGICAL CONTROLS</h3>
+<table>
+<thead>
+<tr>
+<th>Control ID</th>
+<th>Control Description</th>
+<th>Burando Requirement</th>
+<th>Implementation Status</th>
+<th>Evidence</th>
+<th>Compliance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A.8.1</td>
+<td>User Endpoint Devices</td>
+<td>Client security</td>
+<td>⚠️ Partial</td>
+<td>Guidelines only</td>
+<td>70%</td>
+</tr>
+<tr>
+<td>A.8.2</td>
+<td>Privileged Access Rights</td>
+<td>Admin access control</td>
+<td>✅ Implemented</td>
+<td>MFA required</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.8.3</td>
+<td>Information Access Restriction</td>
+<td>RBAC</td>
+<td>✅ Implemented</td>
+<td>Role system</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.8.4</td>
+<td>Access to Source Code</td>
+<td>Code security</td>
+<td>✅ Implemented</td>
+<td>Git access control</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>A.8.5</td>
+<td>Secure Authentication</td>
+<td>MFA requirement</td>
+<td>✅ Implemented</td>
+<td>TOTP/Backup codes</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.8.6</td>
+<td>Capacity Management</td>
+<td>Performance SLA</td>
+<td>✅ Implemented</td>
+<td>Auto-scaling</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>A.8.7</td>
+<td>Protection Against Malware</td>
+<td>Security scanning</td>
+<td>✅ Implemented</td>
+<td>Dependency scanning</td>
+<td>90%</td>
+</tr>
+<tr>
+<td>A.8.8</td>
+<td>Management of Technical Vulnerabilities</td>
+<td>Patch management</td>
+<td>✅ Implemented</td>
+<td>Regular updates</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>A.8.9</td>
+<td>Configuration Management</td>
+<td>Infrastructure as Code</td>
+<td>✅ Implemented</td>
+<td>Git-controlled</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.8.10</td>
+<td>Information Deletion</td>
+<td>Secure deletion</td>
+<td>✅ Implemented</td>
+<td>NIST 800-88</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.8.11</td>
+<td>Data Masking</td>
+<td>PII protection</td>
+<td>✅ Implemented</td>
+<td>Anonymization</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>A.8.12</td>
+<td>Data Leakage Prevention</td>
+<td>DLP controls</td>
+<td>⚠️ Partial</td>
+<td>Basic controls</td>
+<td>75%</td>
+</tr>
+<tr>
+<td>A.8.13</td>
+<td>Information Backup</td>
+<td>Backup requirement</td>
+<td>✅ Implemented</td>
+<td>Daily backups</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.8.14</td>
+<td>Redundancy</td>
+<td>High availability</td>
+<td>✅ Implemented</td>
+<td>Multi-region</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.8.15</td>
+<td>Logging</td>
+<td>Audit logging</td>
+<td>✅ Implemented</td>
+<td>Comprehensive logs</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.8.16</td>
+<td>Monitoring Activities</td>
+<td>Security monitoring</td>
+<td>✅ Implemented</td>
+<td>Real-time alerts</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>A.8.17</td>
+<td>Clock Synchronization</td>
+<td>Time sync</td>
+<td>✅ Implemented</td>
+<td>NTP</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.8.18</td>
+<td>Use of Privileged Programs</td>
+<td>Admin tools</td>
+<td>✅ Implemented</td>
+<td>Controlled access</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.8.19</td>
+<td>Installation of Software</td>
+<td>Change control</td>
+<td>✅ Implemented</td>
+<td>CI/CD pipeline</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>A.8.20</td>
+<td>Networks Security</td>
+<td>Network protection</td>
+<td>✅ Implemented</td>
+<td>Firewall/TLS</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.8.21</td>
+<td>Security of Network Services</td>
+<td>Service security</td>
+<td>✅ Implemented</td>
+<td>API security</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.8.22</td>
+<td>Segregation of Networks</td>
+<td>Network isolation</td>
+<td>✅ Implemented</td>
+<td>VPC/Subnets</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>A.8.23</td>
+<td>Web Filtering</td>
+<td>Content filtering</td>
+<td>⚠️ Partial</td>
+<td>CSP headers</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>A.8.24</td>
+<td>Use of Cryptography</td>
+<td>Encryption requirement</td>
+<td>✅ Implemented</td>
+<td>AES-256-GCM</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.8.25</td>
+<td>Secure Development Life Cycle</td>
+<td>SDLC</td>
+<td>✅ Implemented</td>
+<td>DevSecOps</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>A.8.26</td>
+<td>Application Security Requirements</td>
+<td>App security</td>
+<td>✅ Implemented</td>
+<td>Security testing</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>A.8.27</td>
+<td>Secure System Architecture</td>
+<td>Architecture security</td>
+<td>✅ Implemented</td>
+<td>Security by design</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>A.8.28</td>
+<td>Secure Coding</td>
+<td>Code standards</td>
+<td>✅ Implemented</td>
+<td>Code reviews</td>
+<td>90%</td>
+</tr>
+<tr>
+<td>A.8.29</td>
+<td>Security Testing in Development</td>
+<td>Testing requirement</td>
+<td>✅ Implemented</td>
+<td>SAST/DAST</td>
+<td>90%</td>
+</tr>
+<tr>
+<td>A.8.30</td>
+<td>Outsourced Development</td>
+<td>Vendor security</td>
+<td>✅ Implemented</td>
+<td>Vendor assessment</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>A.8.31</td>
+<td>Separation of Environments</td>
+<td>Environment isolation</td>
+<td>✅ Implemented</td>
+<td>Dev/Test/Prod</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.8.32</td>
+<td>Change Management</td>
+<td>Change control</td>
+<td>✅ Implemented</td>
+<td>Git workflow</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>A.8.33</td>
+<td>Test Information</td>
+<td>Test data protection</td>
+<td>✅ Implemented</td>
+<td>Anonymized data</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>A.8.34</td>
+<td>Protection of Information Systems During Audit</td>
+<td>Audit protection</td>
+<td>✅ Implemented</td>
+<td>Read-only access</td>
+<td>100%</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>BURANDO-SPECIFIC REQUIREMENTS MATRIX</h2>
+<h3>General Security Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Control Implementation</th>
+<th>Status</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>EU Data Hosting</td>
+<td>Geographic restrictions</td>
+<td>✅ Complete</td>
+<td>Frankfurt region</td>
+</tr>
+<tr>
+<td>Access Transparency</td>
+<td>Audit logging system</td>
+<td>✅ Complete</td>
+<td><code>/api/admin/audit-log</code></td>
+</tr>
+<tr>
+<td>Data Retention Compliance</td>
+<td>Automated retention policies</td>
+<td>✅ Complete</td>
+<td>Retention schedules</td>
+</tr>
+<tr>
+<td>Security Contact Point</td>
+<td>DPO designation</td>
+<td>✅ Complete</td>
+<td>M. Splinter</td>
+</tr>
+<tr>
+<td>Data Encryption</td>
+<td>AES-256-GCM</td>
+<td>✅ Complete</td>
+<td>Encryption at all layers</td>
+</tr>
+<tr>
+<td>Incident Notification (48h)</td>
+<td>Incident response procedures</td>
+<td>✅ Complete</td>
+<td>SLA documented</td>
+</tr>
+<tr>
+<td>Audit Rights</td>
+<td>Full audit access</td>
+<td>✅ Complete</td>
+<td>Audit procedures</td>
+</tr>
+</tbody></table>
+<h3>Cloud/SaaS Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Control Implementation</th>
+<th>Status</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ISO 27001 Compliance</td>
+<td>90% controls implemented</td>
+<td>⚠️ Technical</td>
+<td>Control matrix</td>
+</tr>
+<tr>
+<td>SLA (&gt;99% uptime)</td>
+<td>99.9% SLA</td>
+<td>✅ Complete</td>
+<td>SLA document</td>
+</tr>
+<tr>
+<td>MFA Support</td>
+<td>TOTP implementation</td>
+<td>✅ Complete</td>
+<td><code>/lib/mfaService.js</code></td>
+</tr>
+<tr>
+<td>Logging &amp; Auditing</td>
+<td>Comprehensive logging</td>
+<td>✅ Complete</td>
+<td>Security logger</td>
+</tr>
+</tbody></table>
+<h3>Exit Strategy Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Control Implementation</th>
+<th>Status</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Data Export</td>
+<td>Multi-format export</td>
+<td>✅ Complete</td>
+<td>Export service</td>
+</tr>
+<tr>
+<td>Documentation Transfer</td>
+<td>Complete documentation</td>
+<td>✅ Complete</td>
+<td><code>/docs/*</code></td>
+</tr>
+<tr>
+<td>Exit Terms</td>
+<td>Defined in contract</td>
+<td>✅ Complete</td>
+<td>Contract template</td>
+</tr>
+<tr>
+<td>Secure Deletion</td>
+<td>NIST 800-88 compliant</td>
+<td>✅ Complete</td>
+<td>Deletion procedures</td>
+</tr>
+<tr>
+<td>Interoperability</td>
+<td>Open standards</td>
+<td>✅ Complete</td>
+<td>REST/JSON APIs</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>CONTROL EFFECTIVENESS ASSESSMENT</h2>
+<h3>Critical Controls Performance</h3>
+<table>
+<thead>
+<tr>
+<th>Control Area</th>
+<th>Target</th>
+<th>Current</th>
+<th>Trend</th>
+<th>Risk Level</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Access Control</td>
+<td>100%</td>
+<td>98%</td>
+<td>↑</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Encryption</td>
+<td>100%</td>
+<td>100%</td>
+<td>→</td>
+<td>Very Low</td>
+</tr>
+<tr>
+<td>Incident Response</td>
+<td>95%</td>
+<td>95%</td>
+<td>→</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Audit Logging</td>
+<td>100%</td>
+<td>100%</td>
+<td>→</td>
+<td>Very Low</td>
+</tr>
+<tr>
+<td>Data Protection</td>
+<td>95%</td>
+<td>95%</td>
+<td>↑</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Network Security</td>
+<td>95%</td>
+<td>97%</td>
+<td>↑</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Application Security</td>
+<td>90%</td>
+<td>92%</td>
+<td>↑</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Physical Security</td>
+<td>N/A</td>
+<td>100%</td>
+<td>→</td>
+<td>Very Low</td>
+</tr>
+</tbody></table>
+<h3>Maturity Model Assessment</h3>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Description</th>
+<th>Current State</th>
+<th>Target State</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1 - Initial</td>
+<td>Ad hoc processes</td>
+<td>✅ Exceeded</td>
+<td>-</td>
+</tr>
+<tr>
+<td>2 - Managed</td>
+<td>Defined processes</td>
+<td>✅ Exceeded</td>
+<td>-</td>
+</tr>
+<tr>
+<td>3 - Defined</td>
+<td>Standardized processes</td>
+<td>✅ Exceeded</td>
+<td>-</td>
+</tr>
+<tr>
+<td>4 - Quantitatively Managed</td>
+<td>Measured and controlled</td>
+<td>✅ <strong>Current</strong></td>
+<td>Maintain</td>
+</tr>
+<tr>
+<td>5 - Optimizing</td>
+<td>Continuous improvement</td>
+<td>⏳ In Progress</td>
+<td>2025 Q3</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>RISK ASSESSMENT</h2>
+<h3>Identified Risks and Mitigations</h3>
+<table>
+<thead>
+<tr>
+<th>Risk ID</th>
+<th>Risk Description</th>
+<th>Impact</th>
+<th>Likelihood</th>
+<th>Risk Level</th>
+<th>Mitigation</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>R-001</td>
+<td>Lack of formal ISO certification</td>
+<td>Medium</td>
+<td>High</td>
+<td>Medium</td>
+<td>Obtain certification</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>R-002</td>
+<td>DLP controls partial</td>
+<td>Low</td>
+<td>Medium</td>
+<td>Low</td>
+<td>Enhance DLP</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>R-003</td>
+<td>Endpoint security gaps</td>
+<td>Medium</td>
+<td>Low</td>
+<td>Low</td>
+<td>MDM solution</td>
+<td>Evaluating</td>
+</tr>
+<tr>
+<td>R-004</td>
+<td>Web filtering limited</td>
+<td>Low</td>
+<td>Low</td>
+<td>Very Low</td>
+<td>CSP enhancement</td>
+<td>Planned</td>
+</tr>
+<tr>
+<td>R-005</td>
+<td>Manual compliance tracking</td>
+<td>Low</td>
+<td>Medium</td>
+<td>Low</td>
+<td>Automation</td>
+<td>In Progress</td>
+</tr>
+</tbody></table>
+<h3>Risk Treatment Plan</h3>
+<ol>
+<li><strong>Accept:</strong> R-003, R-004 (Low risk, monitoring continued)</li>
+<li><strong>Mitigate:</strong> R-001, R-002, R-005 (Active treatment plans)</li>
+<li><strong>Transfer:</strong> None currently</li>
+<li><strong>Avoid:</strong> None required</li>
+</ol>
+<hr>
+<h2>CONTINUOUS IMPROVEMENT PLAN</h2>
+<h3>Q1 2025 Priorities</h3>
+<ol>
+<li>✅ Complete security control assessment</li>
+<li>⏳ Implement automated compliance monitoring</li>
+<li>⏳ Enhance DLP controls</li>
+<li>⏳ Prepare for ISO 27001 audit</li>
+</ol>
+<h3>Q2 2025 Priorities</h3>
+<ol>
+<li>📋 Continue operational security improvements</li>
+<li>📋 Enhanced monitoring capabilities</li>
+<li>📋 Regular security assessments</li>
+<li>📋 Deploy endpoint security solution</li>
+</ol>
+<h3>Q3 2025 Priorities</h3>
+<ol>
+<li>📋 Achieve maturity level 5</li>
+<li>📋 Implement AI-based threat detection</li>
+<li>📋 Complete penetration testing</li>
+<li>📋 Enhance automation</li>
+</ol>
+<hr>
+<h2>COMPLIANCE METRICS</h2>
+<h3>Key Performance Indicators (KPIs)</h3>
+<table>
+<thead>
+<tr>
+<th>KPI</th>
+<th>Target</th>
+<th>Current</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Control Implementation</td>
+<td>95%</td>
+<td>90%</td>
+<td>⚠️ Close</td>
+</tr>
+<tr>
+<td>Audit Findings Closure</td>
+<td>&lt; 30 days</td>
+<td>21 days</td>
+<td>✅ Met</td>
+</tr>
+<tr>
+<td>Security Incidents</td>
+<td>&lt; 5/month</td>
+<td>2/month</td>
+<td>✅ Met</td>
+</tr>
+<tr>
+<td>Patch Compliance</td>
+<td>100%</td>
+<td>98%</td>
+<td>✅ Met</td>
+</tr>
+<tr>
+<td>Training Completion</td>
+<td>100%</td>
+<td>95%</td>
+<td>⚠️ Close</td>
+</tr>
+<tr>
+<td>Backup Success Rate</td>
+<td>99.9%</td>
+<td>99.95%</td>
+<td>✅ Met</td>
+</tr>
+<tr>
+<td>MFA Adoption</td>
+<td>100%</td>
+<td>100%</td>
+<td>✅ Met</td>
+</tr>
+<tr>
+<td>Vulnerability Remediation</td>
+<td>&lt; 7 days</td>
+<td>5 days</td>
+<td>✅ Met</td>
+</tr>
+</tbody></table>
+<h3>Compliance Trends</h3>
+<pre><code>Control Implementation Trend (2024-2025):
+Q1 2024: 70% ████████████████
+Q2 2024: 75% █████████████████
+Q3 2024: 82% ███████████████████
+Q4 2024: 88% ████████████████████
+Q1 2025: 90% █████████████████████ (Current)
+Q2 2025: 95% ███████████████████████ (Projected)
+</code></pre>
+<hr>
+<h2>AUDIT READINESS CHECKLIST</h2>
+<h3>Documentation ✅</h3>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Security policies documented</li>
+<li><input checked="" disabled="" type="checkbox"> Procedures documented</li>
+<li><input checked="" disabled="" type="checkbox"> Risk assessments complete</li>
+<li><input checked="" disabled="" type="checkbox"> Control evidence collected</li>
+<li><input checked="" disabled="" type="checkbox"> Incident records maintained</li>
+<li><input checked="" disabled="" type="checkbox"> Training records available</li>
+<li><input checked="" disabled="" type="checkbox"> Audit logs preserved</li>
+<li><input checked="" disabled="" type="checkbox"> Compliance reports current</li>
+</ul>
+<h3>Technical Controls ✅</h3>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Access controls configured</li>
+<li><input checked="" disabled="" type="checkbox"> Encryption implemented</li>
+<li><input checked="" disabled="" type="checkbox"> Logging enabled</li>
+<li><input checked="" disabled="" type="checkbox"> Monitoring active</li>
+<li><input checked="" disabled="" type="checkbox"> Backups verified</li>
+<li><input checked="" disabled="" type="checkbox"> MFA enforced</li>
+<li><input checked="" disabled="" type="checkbox"> Patches current</li>
+<li><input checked="" disabled="" type="checkbox"> Vulnerabilities addressed</li>
+</ul>
+<h3>Organizational Controls ⚠️</h3>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Roles defined</li>
+<li><input checked="" disabled="" type="checkbox"> Responsibilities assigned</li>
+<li><input checked="" disabled="" type="checkbox"> Training completed</li>
+<li><input disabled="" type="checkbox"> ISO certification obtained</li>
+<li><input checked="" disabled="" type="checkbox"> Incident process tested</li>
+<li><input checked="" disabled="" type="checkbox"> BCP/DR documented</li>
+<li><input checked="" disabled="" type="checkbox"> Vendor assessments done</li>
+<li><input checked="" disabled="" type="checkbox"> Audit schedule defined</li>
+</ul>
+<hr>
+<h2>CONTROL TESTING RESULTS</h2>
+<h3>Recent Test Results (January 2025)</h3>
+<table>
+<thead>
+<tr>
+<th>Test ID</th>
+<th>Control Tested</th>
+<th>Test Method</th>
+<th>Result</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T-001</td>
+<td>Access Control</td>
+<td>Penetration test</td>
+<td>✅ Pass</td>
+<td>No unauthorized access</td>
+</tr>
+<tr>
+<td>T-002</td>
+<td>Encryption</td>
+<td>Configuration review</td>
+<td>✅ Pass</td>
+<td>AES-256 confirmed</td>
+</tr>
+<tr>
+<td>T-003</td>
+<td>Backup Recovery</td>
+<td>Recovery drill</td>
+<td>✅ Pass</td>
+<td>RTO met (3.5 hours)</td>
+</tr>
+<tr>
+<td>T-004</td>
+<td>Incident Response</td>
+<td>Tabletop exercise</td>
+<td>✅ Pass</td>
+<td>45-minute response</td>
+</tr>
+<tr>
+<td>T-005</td>
+<td>MFA Enforcement</td>
+<td>Access audit</td>
+<td>✅ Pass</td>
+<td>100% coverage</td>
+</tr>
+<tr>
+<td>T-006</td>
+<td>Logging Integrity</td>
+<td>Log analysis</td>
+<td>✅ Pass</td>
+<td>No gaps found</td>
+</tr>
+<tr>
+<td>T-007</td>
+<td>Data Retention</td>
+<td>Automated test</td>
+<td>✅ Pass</td>
+<td>Policies enforced</td>
+</tr>
+<tr>
+<td>T-008</td>
+<td>Vulnerability Mgmt</td>
+<td>Scan analysis</td>
+<td>⚠️ Minor</td>
+<td>2 low-risk items</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>RECOMMENDATIONS</h2>
+<h3>Immediate Actions</h3>
+<ol>
+<li><strong>Address minor vulnerabilities</strong> identified in T-008</li>
+<li><strong>Complete organizational control gaps</strong> for ISO readiness</li>
+<li><strong>Enhance DLP controls</strong> to reach 100% implementation</li>
+<li><strong>Automate compliance monitoring</strong> for real-time visibility</li>
+</ol>
+<h3>Strategic Initiatives</h3>
+<ol>
+<li><strong>Continuous Security Improvement</strong> - Ongoing</li>
+<li><strong>Regular Security Assessments</strong> - Quarterly</li>
+<li><strong>Enhanced Monitoring</strong> - As needed</li>
+<li><strong>Optional Certifications</strong> - As required by clients</li>
+</ol>
+<hr>
+<h2>APPENDIX: CONTROL MAPPING LEGEND</h2>
+<h3>Implementation Status</h3>
+<ul>
+<li>✅ <strong>Implemented:</strong> Control fully operational</li>
+<li>⚠️ <strong>Partial:</strong> Control partially implemented</li>
+<li>❌ <strong>Not Implemented:</strong> Control not in place</li>
+<li>📋 <strong>Planned:</strong> Implementation scheduled</li>
+<li>N/A <strong>Not Applicable:</strong> Control not relevant</li>
+</ul>
+<h3>Compliance Levels</h3>
+<ul>
+<li><strong>100%:</strong> Full compliance achieved</li>
+<li><strong>90-99%:</strong> Substantial compliance</li>
+<li><strong>70-89%:</strong> Partial compliance</li>
+<li><strong>50-69%:</strong> Limited compliance</li>
+<li><strong>&lt;50%:</strong> Non-compliant</li>
+</ul>
+<h3>Risk Levels</h3>
+<ul>
+<li><strong>Very Low:</strong> Minimal impact/likelihood</li>
+<li><strong>Low:</strong> Minor impact/likelihood</li>
+<li><strong>Medium:</strong> Moderate impact/likelihood</li>
+<li><strong>High:</strong> Significant impact/likelihood</li>
+<li><strong>Critical:</strong> Severe impact/likelihood</li>
+</ul>
+<hr>
+<p><em>This Security Control Matrix is maintained by the Security Team and updated quarterly. Last update: January 2025</em></p>
+
+    </div>
+    
+    <div class="document-footer">
+        <p><strong>Maritime Onboarding System - Compliance Documentation</strong></p>
+        <p>Generated on 9/17/2025 | Confidential - For authorized personnel only</p>
+        <p>Document Path: appendices/APPENDIX_A_SECURITY_CONTROL_MATRIX.md</p>
+    </div>
+</body>
+</html>
